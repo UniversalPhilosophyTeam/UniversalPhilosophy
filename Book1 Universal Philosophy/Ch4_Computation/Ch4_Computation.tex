@@ -1,0 +1,181 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                
+\geometry{letterpaper}                 
+\usepackage[parfill]{parskip}        
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amssymb}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{grffile}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{gensymb}
+\usepackage[T1]{fontenc}
+\usepackage[hang,small]{caption}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\graphicspath{ {C:/Users/Nate/Documents/School/EECS351/Nates Discussion Material/Discussion 4} }
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{1,1,1}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+	basicstyle= \scriptsize,
+	upquote=true,
+	aboveskip={1.5\baselineskip},
+	columns=fixed,
+        	showstringspaces=false,
+        	extendedchars=true,
+        	breaklines=true,
+        	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        	frame=single,
+        	showtabs=false,
+        	showspaces=false,
+        	showstringspaces=false,
+        	identifierstyle=\ttfamily,
+        	keywordstyle=\color[rgb]{0,0,1},
+        	commentstyle=\color[rgb]{0.133,0.545,0.133},
+        	stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+
+
+\begin{document}
+
+
+
+\section*{Ch. 4 Computation}
+
+\section{Definition of a Program}
+Program $P$ is defined as an ordered set of logical operations $s_i$
+\begin{center}
+$
+P \equiv \{ s_1,s_2,...,s_N \} \hspace{5mm} (Definition 3)
+$
+\end{center}
+
+\section{Definition of a Decision Problem}
+A decision problem is a program whos output is True/False
+\begin{center}
+$
+d_i \equiv \{s_1,s_2,..., return \hspace{3mm} 0/1,...,s_N-1,return \hspace{3mm} 0/1\} \hspace{5mm} (Definition 4)
+$
+\end{center}
+\subsection{Time Complexity of a Decision Problem}
+The Time Complexity $O_T [n]$ of Decision Problem $d$
+\begin{center}
+$
+O_T[n] <= n(d) (Theorem 1)
+$
+\end{center}
+\section{Definition Proper Decision Problem}
+\begin{center}
+$
+D \equiv \{s_1,s_2,,...,s_N-1,return \hspace{3mm} 0/1\}
+$
+\end{center}
+\subsection{Time Complexity of a Proper Decision Problem}
+The Time Complexity $O_T [n]$ of Proper Decision Problem $D$
+\begin{center}
+$
+O_T[n] = n(d) (Theorem 2)
+$
+\end{center}
+
+\section{Definition of Complexity}
+Define Complexity $O[n]$ as a Tensor of dimension N
+\begin{center}
+$
+\bold{O}[n] \equiv \hspace{3mm} < O_T [n], O_S [n],...,O_N[n]> \hspace{2mm} (Definition 1)
+$
+\end{center}
+
+\subsection{Time Complexity}
+Define Time Complexity $O_T$ as the maximum number of logical operations in a Program $P$
+\begin{center}
+$
+O_T[n] \equiv n(P) \hspace{5mm} (Definition 2)
+$
+\end{center}
+
+\subsection{Space Complexity}
+Define Time Complexity $O_T$ as the maximum number of bits required to complete Program $P$
+
+
+
+
+
+\section{Definition of Polynomial Time Complexity}
+A proper decision problem D with Time Complexity $O_T[n]$ can be solved with Polynomial Time Complexity if
+\begin{center}
+$
+\exists K,C \hspace{2mm} \ni \hspace{2mm} O_T[n] < n^K + C, \hspace{4mm} \forall n
+$
+\end{center}
+
+
+
+
+\subsection{Definition of Polynomial Problems}
+Define $P$, the set of Proper Decision Problems that can be solved with Polynomial Time Complexity
+\begin{center}
+$
+P \equiv \{ D_1,D_2,..,D_N \} 
+$\\
+$ 
+\exists K,C\hspace{2mm} \ni \hspace{2mm} O_T[n] < n^K + C, \hspace{3mm} \forall D_i \in P
+$
+\end{center}
+
+\subsection{Proof of the existence of $P$}
+Trivial
+
+\subsection{Definition of Non-Polynomial Problems}
+Define $\mathcal{N}$, the set of Proper Decision Problems that cannot be solved with Polynomial Time Complexity
+\begin{center}
+$
+\mathcal{N} \equiv \{ D_1,D_2,..,D_N \} 
+$\\
+$ 
+\not \exists K,C\hspace{2mm} \ni \hspace{2mm} O_T[n] < n^K + C, \hspace{3mm} \forall D_i \in P
+$
+\end{center}
+
+\subsection{Proof of the existence of $\mathcal{N}$}
+Non-trivial
+
+
+\subsection{Definition of Divergent Programs}
+A program is a function that solves
+
+
+
+
+
+\section{Fundamental Theorem of Computation - "Theorem of Divergent Programs"}
+\begin{center}
+$
+O_\perp [n] \equiv (O[n])^n
+$
+\end{center}
+
+
+
+
+
+
+\section{Proof of "P $\neq$ NP"}
+
+
+\end{document}
