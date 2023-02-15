@@ -72,11 +72,22 @@ $
 d_i \equiv \{s_1,s_2,..., return \hspace{3mm} 0/1,...,s_N-1,return \hspace{3mm} 0/1\} \hspace{5mm} (Definition 4)
 $
 \end{center}
+\subsection{Define $D$ the set of Decision Problems}
+Define $D$ as the set of all Decision Problems $d_i$
+\begin{center}
+$
+D \equiv \{d_1,d_2,...\}(Theorem 1)
+$
+\end{center}
+
+\subsection{Conjecture: $D$ is a finite, never decreasing Set (bounded by language)}
+
+
 \subsection{Time Complexity of a Decision Problem}
 The Time Complexity $O_T [n]$ of Decision Problem $d$
 \begin{center}
 $
-O_T[n] <= n(d) (Theorem 1)
+O_T[n] <= n(D) (Theorem 1)
 $
 \end{center}
 \section{Definition Proper Decision Problem}
@@ -93,13 +104,26 @@ O_T[n] = n(d) (Theorem 2)
 $
 \end{center}
 
+
+
+
+
 \section{Definition of Complexity}
 Define Complexity $O[n]$ as a Tensor of dimension N
 \begin{center}
 $
-\bold{O}[n] \equiv \hspace{3mm} < O_T [n], O_S [n],...,O_N[n]> \hspace{2mm} (Definition 1)
+\bold{O}[n] \equiv \hspace{3mm} < O_T [n], O_S [n],O_3[n],O_4,...,O_N[n]> \hspace{2mm} (Definition 1)
 $
 \end{center}
+
+\subsection{Total Complexity}
+The Total Complexity of a Decision problem d
+\begin{center}
+$
+O[n] \equiv O_T[n] + O_S[n] + \sum_{n=3}^N{O_i[n]} (Definition 2)
+$
+\end{center}
+
 
 \subsection{Time Complexity}
 Define Time Complexity $O_T$ as the maximum number of logical operations in a Program $P$
@@ -112,15 +136,20 @@ $
 \subsection{Space Complexity}
 Define Time Complexity $O_T$ as the maximum number of bits required to complete Program $P$
 
-
-
+\subsection{Conjecture: Complexity is a 2D Tensor in Space and Time}
+Conjecture
+\begin{center}
+$
+\bold{O}[n] \equiv <O_T[n],O_S[n]> \hspace{3mm} (Conjecture 1)
+$
+\end{center}
 
 
 \section{Definition of Polynomial Time Complexity}
 A proper decision problem D with Time Complexity $O_T[n]$ can be solved with Polynomial Time Complexity if
 \begin{center}
 $
-\exists K,C \hspace{2mm} \ni \hspace{2mm} O_T[n] < n^K + C, \hspace{4mm} \forall n
+\exists K,C \hspace{2mm} \ni \hspace{2mm} O[n] < n^K + C, \hspace{4mm} \forall n
 $
 \end{center}
 
@@ -131,10 +160,10 @@ $
 Define $P$, the set of Proper Decision Problems that can be solved with Polynomial Time Complexity
 \begin{center}
 $
-P \equiv \{ D_1,D_2,..,D_N \} 
+P \equiv \{ d_1,d_2,..,d_N \} \in D
 $\\
 $ 
-\exists K,C\hspace{2mm} \ni \hspace{2mm} O_T[n] < n^K + C, \hspace{3mm} \forall D_i \in P
+\exists K,C\hspace{2mm} \ni \hspace{2mm} O[n] < n^K + C, \hspace{3mm} \forall d_i \in P
 $
 \end{center}
 
@@ -145,28 +174,58 @@ Trivial
 Define $\mathcal{N}$, the set of Proper Decision Problems that cannot be solved with Polynomial Time Complexity
 \begin{center}
 $
-\mathcal{N} \equiv \{ D_1,D_2,..,D_N \} 
-$\\
+\mathcal{N} \equiv P\perp
+$\\ \vspace{2mm}
 $ 
-\not \exists K,C\hspace{2mm} \ni \hspace{2mm} O_T[n] < n^K + C, \hspace{3mm} \forall D_i \in P
+\implies \not \exists K,C\hspace{2mm} \ni \hspace{2mm} O[n] < n^K + C, \hspace{3mm} \forall d_i \in \mathcal{N}
 $
 \end{center}
 
 \subsection{Proof of the existence of $\mathcal{N}$}
-Non-trivial
+Non-trivial - equates to the proof of P $\neq$ NP
+
+\subsection{Union of Polynomial and Non-Polynomial Problems}
+Can be proven by the definition of $P,\mathcal{N},D$
+\begin{center}
+$
+\mathcal{N} \cup P = D
+$
+\end{center}
 
 
-\subsection{Definition of Divergent Programs}
-A program is a function that solves
+\subsection{Divergence of Polynomial and Non-Polynomial Decision Problems}
+Prove
+\begin{center}
+$
+limit _{n \to \infty} \frac{O_\mathcal{N}[n]}{O_P[n]} > 1
+$
+\end{center}
 
 
 
 
 
 \section{Fundamental Theorem of Computation - "Theorem of Divergent Programs"}
+
+\subsection{Define $O_\perp$}
+Define Set $O_\perp$ as the set of all programs $\overline p_i$ whose complexity can be expressed as $(O[n])^n$
 \begin{center}
+
+\vspace{2mm}
 $
-O_\perp [n] \equiv (O[n])^n
+\{\overline p_1,\overline p_2,..,\overline p_n\} \equiv O_\perp
+$
+\\ \vspace{2mm}
+$
+\forall \overline p_i \in O_\perp, O[n] = (O[n])^n
+$
+\end{center}
+
+\subsection{Fundamental Theorem of Computation - "Theorem of Divergent Programs"}
+\begin{center}
+\vspace{2mm}
+$
+O_\perp = \emptyset
 $
 \end{center}
 
@@ -175,7 +234,56 @@ $
 
 
 
+
+\subsection{Proof of Fundamental Theorem of Computation}
+Prove that $O_\perp = \emptyset$
+
+Assumptions:\\
+1. Let $D$ be the set of all decision problems $d_i$\\
+\begin{center}
+$
+D \equiv \{d_1,d_2,..\}
+$
+\end{center}
+\vspace{3mm}
+2. Let $P$ be the set of Polynomial Decision Problems\\
+\begin{center}
+$
+P \equiv \{ d_i,d_j,..,d_N \} \in D
+$\\
+$ 
+\exists K,C\hspace{2mm} \ni \hspace{2mm} O_T[n] < n^K + C, \hspace{3mm} \forall d_i \in P
+$
+\end{center}
+\vspace{3mm}
+3. Let $\mathcal{N}$ be the set of Non-Polynomial Problems\\
+\begin{center}
+$
+\mathcal{N} \equiv P\perp
+$
+\end{center}
+\vspace{10mm}
+Assertions\\
+4. $P$ and $O_\perp$ are disjoint
+\begin{center}
+$ 
+\exists K,C\hspace{2mm} \ni \hspace{2mm} O_T[n] < n^K + C, \hspace{3mm} \forall d_i \in P
+$
+\end{center}
+\vspace{3mm}
+5. $\mathcal{N}$ and $O_\perp$ are disjoint\\
+6. Statement 4. and Statement 5. $\implies$ $O_\perp$ = $\emptyset$
+
+
 \section{Proof of "P $\neq$ NP"}
+
+\section{Conjecture of Prime Numbers}
+Define $\Psi$[n]as the system that maps an index $n$ to the set of Prime Numbers $\mathcal{P}$
+\begin{center}
+$\Psi[n]$ is a divergent system
+\end{center}
+
+\section{"Universal Problem Solver"}
 
 
 \end{document}
