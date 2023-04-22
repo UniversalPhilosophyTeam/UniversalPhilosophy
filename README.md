@@ -8,6 +8,4 @@ Language
 Study of Divergent Programs/Biology  
 Geometry  
 Physics  
-Thermodynamics 
-Test 
-Test 2
+Thermodynamics  
