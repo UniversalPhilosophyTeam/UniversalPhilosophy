@@ -1,0 +1,564 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx,graphicx}
+
+
+\newcommand{\test}{\circlearrowright}
+\def \loop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}}
+\def \nestedloop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}^n}
+
+
+
+\begin{document}
+
+
+
+\section*{Ch. 5 Computation}
+
+
+\section{Definition of State}
+Something like operation $s_i$ | state "memory" $m_i$\\
+Operations previously defined\\
+$m_i$ is a single bit 0/1
+
+
+\section{Definition of a Decision Problem}
+A decision problem is a function whos output "answer" $a_o$ is True/False
+\\ $\forall$  inputs $x_i$, f$\lbrack$$\{x_i,...\}\rbrack$ -> True or False 
+\begin{center}
+$
+d \equiv f \lbrack \{x_i,...\} \rbrack \rightarrow a_{out} \in \{True, False\} \hspace{3mm} \forall x_i
+$
+\end{center}
+
+
+
+
+
+
+\section{Definition of Program}
+Program $p$ is defined as an ordered set of logical operations $s_i$
+\begin{center}
+$
+p \equiv \{ s_1,s_2,...,s_N \} \hspace{5mm} (Definition 3)
+$
+\end{center}
+
+
+\subsection{Function Notation}
+\begin{center}
+$
+p\lbrack x_{in}\rbrack = \{ s_1, s_2,...,s_{n-1}, y_o | m_1, m_2,...,m_L\}
+$
+\\
+$
+p\lbrack x_{in}\rbrack \rightarrow y_o, \hspace{3mm} \forall x_{in}
+$
+\\
+\vspace{2mm}
+Note: $m_i$ represents the memory required to complete program p
+\end{center}
+
+\subsection{System Notation}
+\begin{center}
+$
+p\lbrack \{X_{in}\} \rbrack  \rightarrow Y_{out} = p\lbrack \{ x_i, ...\}\rbrack  \rightarrow Y_{out} = \{ s_1, s_2,...,s_{n-1}, Y_{out}|m_1, m_2,...,m_L \}
+$
+\end{center}
+
+
+\section{Definition of No-op}
+Define ";" , the no-op (The C representation of a null statement or no-op)
+\subsection{Properties of No-op}
+1. Can be added to any solution $S_i$ and remain a solution for all i anywhere in the order for all j
+
+
+
+
+\section{Boolean Program}
+Define boolean program p, sometimes called a boolean function
+\begin{center}
+$
+p\lbrack \{X_{in}\}\rbrack = \{ s_1, s_2,...,s_{n-1}, y_o\} \rightarrow y_o \in \{ True, False \}, \hspace{3mm} \forall x_{in}
+$
+\end{center}
+
+
+
+
+
+
+
+\section{Definition of Solution}
+Define the solution $s^{+}$ to decision problem d\\
+Program p is said to be a solution $s^{+}$, if $s^{+}$ outputs the correct answer $a_o$ for all inputs $x_i$
+\begin{center}
+$
+d \equiv f \lbrack \{x_i,...\} \rbrack \rightarrow a_{out} \in \{True, False\} \hspace{3mm} \forall x_i
+$
+\\
+$
+s^+ \equiv p \lbrack \{x_i,...\} \rbrack \rightarrow y_{o} : y_o == a_{out} \hspace{3mm} \forall x_i
+$
+\end{center}
+
+\subsection{Define the set of all Solutions}
+
+\subsection{Definition of Solvable}
+
+\subsection{Definition of Valid Problem}
+By definnition decision problem has a true or false output for all inputs
+
+\section{Define the set of all Solvable Decision Problems}
+
+
+
+
+
+
+
+
+
+
+
+\section*{Complexity}
+\subsection{Time Complexity of a Decision Problem}
+The Time Complexity $O_T [n]$ of Decision Problem $d$
+\begin{center}
+$
+O_T[n] <= n(d) (Theorem 1)
+$
+\end{center}
+\subsection{Time Complexity of a Proper Decision Problem}
+The Time Complexity $O_T [n]$ of Proper Decision Problem $D$
+\begin{center}
+$
+O_T[n] = n(d) (Theorem 2)
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Definition of a Divergent Problem}
+An expressed problem that has no solution, does not exist in D
+
+
+
+
+
+
+
+
+
+\section{Definition of Complexity}
+Define Complexity $O[n]$ as a Tensor of dimension N
+\begin{center}
+$
+\bold{O}[n] \equiv \hspace{3mm} < O_T [n], O_S [n],O_3[n],O_4[n]...,O_N[n]> \hspace{2mm} (Definition 1)
+$
+\end{center}
+
+
+
+
+\subsection{Time Complexity}
+Define Time Complexity $O_T$ as the maximum number of logical operations in a Program $P$
+\begin{center}
+$
+O_T[n] \equiv |p\lbrack \{ X_{in} \} \rbrack| \hspace{5mm} (Definition 2)
+$
+\end{center}
+
+\subsection{Space Complexity}
+Define Time Complexity $O_T$ as the maximum number of bits required to complete Program $P$
+
+\subsection{Definition of Solution}
+
+
+
+
+
+
+\section{Total Complexity}
+Define O[n], the total complexity
+\subsection{Definition}
+O[n] = $\lambda_T$$O_T[n]$ + $\lambda_S$$O_S[n]$ + $\sum_{i=3}^{N}${$\lambda_i$$O_i[n]$}
+\subsection{Proof of Existence}
+
+
+
+
+
+
+
+
+\section{Theorem of Optimal Complexity}
+Proof the necessity of at least one $O_{min}[n]$
+
+
+
+
+
+
+
+
+\section{Definition of Polynomial Time Complexity}
+Decision problem d with Time Complexity $O_T[n]$ can be solved with Polynomial Time Complexity if
+\begin{center}
+$
+\exists K,C \hspace{2mm} : \hspace{2mm} O_T[n] < n^K + C, \hspace{4mm} \forall n
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+\subsection{Definition of Polynomial Problems}
+Define $P$, the set of Decision Problems that can be solved with Polynomial Time Complexity
+\begin{center}
+$
+P \equiv \{d_1,d_2,...\}
+$
+\\
+$
+\exists K,C,\lambda_1...\lambda_K : 
+$
+\\
+$
+\hspace{2mm} O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C, \hspace{3mm} \forall n, \hspace{1mm} \forall d_j \in P
+$
+\end{center}
+
+\subsection{Proof of the existence of $P$}
+Trivial
+
+\subsection{Definition of Non-Polynomial Problems}
+Define $\mathcal{N}$, the set of Decision Problems that cannot be solved with Polynomial Time Complexity
+\begin{center}
+$
+\mathcal{N} \equiv \{ d_1,d_2,.. \} 
+$
+\\
+$ 
+\not \exists K,C,\lambda_1...\lambda_K : \hspace{2mm}
+$
+\\
+$
+\hspace{2mm} O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C, \hspace{3mm} \forall n, \hspace{1mm} \forall d_i \in \mathcal{N}
+$
+\end{center}
+
+\subsection{Proof of the existence of $\mathcal{N}$}
+Non-trivial
+
+
+\subsection{Definition of Divergent Programs}
+A program is a function that solves
+
+\section{$O_\perp$ the "Null Set" or "Null Space" of $\mathcal{D}$}
+Contradictory or divergent?
+\begin{center}
+$O_\perp$ $\equiv$ $\bar{D} - \mathcal{D}$
+\end{center}
+
+
+
+\newpage
+
+
+\section{Fundamental Theorem of Computation}
+$n^n$ or $\lambda n^n + C$ the universal bound to solvable computational complexity\\
+$(\lambda n)^n$ + C ?\\
+
+
+
+
+
+
+\subsection{Time Complexity Argument}
+Suppose decision problem d with optimal time complexity $O_{T_{min}}\lbrack n \rbrack$ and solution $s^+$, an arbitrary decision problem in P with polynomial complexity\\
+Assumptions\\
+1. $d \in P$, $s^{+} \in S^{+}$\\
+Assertions\\
+2. $\exists K,C,\lambda_1...\lambda_K \hspace{2mm} : \hspace{2mm} O_{T_{min}}\lbrack n \rbrack < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C, \hspace{3mm} \forall n\hspace{1mm}$
+\\
+3. Define $ f\lbrack K,C, \lambda_1,...\lambda_K \rbrack \equiv (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C$\\
+4.  $\exists K,C,\lambda_1...\lambda_K : O_{T_{min}}\lbrack n \rbrack <   f\lbrack K,C, \lambda_1,...\lambda_K \rbrack \hspace{3mm} \forall n$\\
+5. Let $\hat{s}^{+} \equiv \nestedloop \lbrack s^{+} \rbrack$\\
+6. $O_T \lbrack n \rbrack <= \hat{O}_T \lbrack n\rbrack$ (by defition of nested loop)\\
+\\
+7.  $\hat{O}_{T_{min}}\lbrack n \rbrack < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C$\\
+8. $\hat{O}_{T_{min}} \lbrack n \rbrack < limit_{n \rightarrow \infty}  \nestedloop \lbrack s^{+} \rbrack$ (by definition of limit + definition of nested loop, expand to show full derivation, valid because this is a series, probably need to show limit applies)\\
+9. $\therefore  O_{T_{min}}\lbrack n \rbrack < \hat{O}_{T_{min}} \lbrack n \rbrack < n^n  =  limit_{n \rightarrow \infty} \nestedloop \lbrack s^{+} \rbrack$
+\\
+I want to say forall n but seems refutable for n= 1,2.. but as n approach infinity it's a contradiction to say a solvable problem in P $\hat{O}_{T_{min}} = n^n \hspace{3mm} \forall n$\\
+10. For "sufficiently large n"
+\begin{center}
+$
+\not \exists \hat{s}^{+} \in S^{+} : | \hat{s}^{+} | \equiv O_{T_{min}} \lbrack n \rbrack <  n^n, \hspace{3mm} \forall n
+$
+\\
+$
+\hat{O} \lbrack n \rbrack \equiv n^n
+$
+\end{center}
+
+\subsection{Space Argument}
+Similar but additional notation required?
+
+
+
+
+
+
+
+
+\newpage
+
+\section{Definition of Divergent Problems}
+Define $\hat{D}$ the set of decision problems with no finite solution\\
+Let 
+\begin{center}
+$
+\hat{D} \equiv \{\hat{d}_j,...\}
+$
+\\ \vspace{3mm}
+$
+\not \exists \hat{s}^{+} \in S^{+} : \hat{s}^{+}$ solves $\hat{d}_j, \hspace{3mm} \forall \hat{d}_j \in \hat{D}
+$
+\\
+$
+ \not \exists s^{+} \in S^{+} : O_j \lbrack n \rbrack < n^n or (\lambda n)^n \hspace{3mm} \forall n,j
+$
+\end{center}
+A program is a function that solves
+There exists no such solution such that O[n] < $n^n$, but there is a right and wrong answer\\
+Either here or in the next chapter we'll prove you can only solve to a certain degree\\
+ !!! There exists no such solution such that O[n] < $n^n$ \hspace{3mm} $\forall$ n
+
+\section{Properties of Solvable and Divergent problems}
+\subsection{Solvable and Divergent are disjoint (Theorem x)}
+\subsection{Solvable Union Divergent = all decision problems (Theorem y)}
+\subsection{What is the connection to verification in polynomial time}
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\section{"Theorem of Divergent Programs"}
+\subsection{Divergence Test}
+1. Let $d_j \in D$\\
+2. $d_j$ = ($d_j \in \hat{\mathcal{D}}$) $\cup$ ($d_j \in$ set of solvable problems) by disjoint condition of solvable and divergent\\
+3. Let $O_{opt}\lbrack n \rbrack$, the optimal complexity of $d_j$\\
+4. $\rightarrow s_i^{+}$ that solve $d_j$ have larger complexity $\forall i$\\
+5. 2 implies  $O_{opt}\lbrack n \rbrack$ is either bounded by $n^n$ or not\\
+6. $\hat{O} \lbrack n \rbrack \equiv n^n$\\
+7. Easy Suppose $d_j\in $solvable$ limit_{n \rightarrow \infty}\frac{O_{opt}\lbrack n \rbrack}{\hat{O}\lbrack n \rbrack} = 0 $\\
+8.Suppose $d_j\in \hat{\mathcal{D}} limit_{n \rightarrow \infty}\frac{O_{opt}\lbrack n \rbrack}{\hat{O}\lbrack n \rbrack} \neq 0 $ (by disjoint condition)\\
+\begin{center}
+$
+ limit_{n \rightarrow \infty}\frac{O_{opt}\lbrack n \rbrack}{\hat{O}\lbrack n \rbrack} = 1 
+$
+
+\end{center}
+
+
+
+
+
+
+
+
+\newpage
+\subsection{Notes}
+Necessary condition for divergent program, iff\\
+ or you can show there exists no lambda, C such that O $\lbrack n \rbrack$ is $n^n$ is bounded by $\lambda n^n + C$ for all n
+
+$limit_{n \rightarrow \infty}$ div / solvable > 1
+
+Assumptions\\
+1. Define the "Null Space of $\mathcal{D}$" or "Null Set" $O_\perp$
+\begin{center}
+$
+O_\perp = \{\hat{d_1},\hat{d_2},...,\hat{d_j}\}, \hspace{3mm} j > 0
+$
+\\
+$
+ \hat{O_j} [n] \equiv (O[n])^n, \forall j
+$
+\end{center}
+2. $O_P \cup O_\mathcal{N} =\mathcal{D} \hspace{3mm}$ (by definition)\\
+
+Assertions\\
+3. $O_P$ $\cap$ $O_\perp$ = $\emptyset$\\
+4. Let $O_\mathcal{N}$ $\cap$ $O_\perp$ = $\hat{O}$ = $\{\hat{O}_i,...\}$, $i > 0$\\
+5. Consider $D_j \in O_\mathcal{N}$\\
+6. $D_j$ has finite complexity by definition\\
+\begin{center}
+ $O_j[n] = C$
+\end{center}
+7. $D_j$ has at least one optimal solution by the necessity of optimal solution (theorem Z)
+\begin{center}
+ $O_j[n] = C$
+\end{center}
+%$ $O_\perp$ = $\emptyset$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\section{Proof of "P $\neq$ NP"}
+\subsection{Proof N implies D}
+Is trivial by implication of Theorem x and Theorem y
+\begin{center}
+$
+\mathcal{N} \equiv \{ d_j,.. \} \hspace{3mm} \forall j, \mathcal{N} \in D
+$
+\\
+$ 
+\not \exists K,C,\lambda_1...\lambda_K : \hspace{2mm}
+$
+\\
+$
+\hspace{2mm} O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C, \hspace{3mm} \forall n, \hspace{1mm} \forall d_j \in \mathcal{N}
+$
+\end{center}
+1. $\rightarrow \mathcal{P} \cap \mathcal{N} = \emptyset$ by definition of P,N\\
+2. $d_i \in \hat{D} \lor d_i \in $solvable\\
+3. 1 $\rightarrow d_i \not \in$ solvable\\
+4. $\therefore d_i \in \hat{D}\hspace{3mm} \forall i$ (theorem y)
+Show that Definition of Non-Polynomial Problems automatically implies Divergent\\
+1. We've proven Solvable Union are disjoint and complete set P
+2. N not in P by definition
+3. therefore N in divergence by set theory
+
+Currently we have only defined solvable problems and divergent problems\\
+Additionally polynomial problem which the existance of is trivial\\
+Plus we defined non-polynomial complexity\\
+Prove the existence of $\mathcal{N}$ the set of non polynomial problems\\
+\\
+
+\subsection{Proof that D implies N}
+\subsection{D iff N}
+
+Show  $O \lbrack n \rbrack$ in the $\emptyset$ the set of problems with    $n^n$ > $O \lbrack n \rbrack$ > $n^k + c$\\
+Proving there's Polynomial and Divergent, in the set of all decision problems\\
+
+
+A neat follow up, tie in the definition of $\mathcal{N}$ implies membership to divergent problems
+
+
+\newpage
+
+\section{Prove the existance of D = N,The Traveling Salesman Problem}
+Define the traveling salesman problem, prove it is divergent and has the same solution as current approaches\\
+Consider proving with both definition and necessary condition\\
+
+
+
+
+
+
+
+\newpage
+\section{Theorem of Prime Numbers "Riemann Hypothesis"}
+Riemann Zeta Function
+\begin{center}
+$
+\zeta (s) \equiv \sum_{n=1}^{\infty} \frac{1}{n^s} \hspace{3mm} \lbrack 2 \rbrack
+$
+\end{center}
+"The prime number theorem determines the average distribution of the primes. The Riemann hypothesis tells us about the deviation from the average. Formulated in Riemann's 1859 paper, it asserts that all the 'non-obvious' zeros of the zeta function are complex numbers with real part 1/2." \lbrack 2\rbrack\\
+\\
+Prove the problem is divergent\\
+There fore it can only be proven to a certain degree\\
+The limit as n approaches infinity implies a real part of one half\\
+Connection with the real and imaginary part of O $\lbrack n \rbrack$
+
+\subsection{Prove $O_{opt}$ is testing the primes less than square root of n by induction}
+1. Optimal solution for n=1,2,3, everything else is a recursive optimal proof by induction\\
+Time Complexity seems to be on the order of n log n... implies divergence or lack of bound? Add in the complexity of division.. probably approaches $n^n$
+
+\subsection{Show that $O_{opt}$ diverges with $n^n$, isn't bounded by $n^n$}
+Proves O is divergent
+
+\subsection{Since divergent, no $s^{+}$ exists.. only rules}
+Express as a limit
+
+\subsection{Show that the limit as n $\rightarrow \infty$ implies the real part is 1/2}
+1/2 ± 14.134725 i
+1/2 ± 21.022040 i
+1/2 ± 25.010858 i
+1/2 ± 30.424876 i
+1/2 ± 32.935062 i
+1/2 ± 37.586178 i
+
+Z = $\zeta(1/2 + it)$
+
+\subsection{Notation, real imaginary parts of the problem}
+Even numbers and numbers ending in 5 are automatically convergent\\
+Testing numbers ending in 1,3,7,9 results in divergent expression\\
+we can continue to add rules to a certain degree
+
+
+\newpage
+\section*{Citations}
+\lbrack 1\rbrack \hspace{1mm} $ https://www.claymath.org/millennium-problems$\\
+\lbrack 2\rbrack \hspace{1mm} $ https://www.claymath.org/sites/default/files/official\_problem\_description.pdf$
+\lbrack 3 \rbrack \hspace{1mm} $http://www.math.uchicago.edu/~may/VIGRE/VIGRE2011/REUPapers/Riffer-Reinert.pdf$
+
+
+\end{document}
