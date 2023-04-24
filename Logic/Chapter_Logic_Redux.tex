@@ -1,0 +1,213 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                
+\geometry{letterpaper}                 
+\usepackage[parfill]{parskip}        
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amssymb}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{grffile}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{gensymb}
+\usepackage[T1]{fontenc}
+\usepackage[hang,small]{caption}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\graphicspath{ {C:/Users/Nate/Documents/School/EECS351/Nates Discussion Material/Discussion 4} }
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{1,1,1}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+	basicstyle= \scriptsize,
+	upquote=true,
+	aboveskip={1.5\baselineskip},
+	columns=fixed,
+        	showstringspaces=false,
+        	extendedchars=true,
+        	breaklines=true,
+        	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        	frame=single,
+        	showtabs=false,
+        	showspaces=false,
+        	showstringspaces=false,
+        	identifierstyle=\ttfamily,
+        	keywordstyle=\color[rgb]{0,0,1},
+        	commentstyle=\color[rgb]{0.133,0.545,0.133},
+        	stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+
+
+\begin{document}
+
+
+\section*{Logic}
+
+
+
+
+
+\section{Not $\lnot$}
+\subsection{Definition}
+\begin{center}
+$\lnot a$ = $\lnot \lbrack a \rbrack$ :=\\
+\vspace{2mm}
+$\lnot \lbrack \mathbb{T} \rbrack \rightarrow \mathbb{F}$\\
+\vspace{2mm}
+$\lnot \lbrack \mathbb{F} \rbrack \rightarrow \mathbb{T}$
+\end{center}
+
+
+
+
+
+
+\section{Logical And $\land$}
+\subsection{Definition}
+\begin{center}
+$
+a \land b = \land \lbrack{a,b}\rbrack :=
+$
+\end{center}
+\begin{center}
+$\lnot (\hspace{1mm} \exists \hspace{1mm} \mathbb{F} \in \{a,b\}) =$
+
+$\vspace{1.5mm} \not \exists \hspace{1mm} \mathbb{F} \in \{a,b\}$
+\end{center}
+
+
+
+
+\subsection{Alternate Definition}
+\begin{center}
+$\land \lbrack\mathbb{F}, \mathbb{F}\rbrack = \mathbb{F}$ \\
+$\land \lbrack\mathbb{F}, \mathbb{T}\rbrack = \mathbb{F}$ \\
+$\land \lbrack\mathbb{T}, \mathbb{F}\rbrack = \mathbb{F}$ \\
+$\land \lbrack\mathbb{T}, \mathbb{T}\rbrack = \mathbb{T}$ \\
+\end{center}
+
+
+
+
+
+\section{Law of Non-Contradiction}
+\begin{center}
+Introduce the symbol for contradiction, proof by contradiction
+\end{center}
+
+
+
+
+\newpage
+\section{All Logical Functions Can Be Built from Not And}
+\subsection{Proof}
+
+
+
+
+
+
+\section{Criticism logical union, set union, logical and, set and}
+Verify on Wiki \\
+- logical or is a function logical and is a function\\
+- language muks up our understanding\\
+
+Logical or $\lor$ is different from $\cup$
+Logical and $\land$ is different from $\cap$
+
+Logical or, only one has to be true\\
+Logical and, both have to be true --> I'll take the intersection\\
+
+Set and, I'll take bag 1 and bag 2 i'll take both --> I'll take the union\\
+set or, I'll take bag 1 or bag 2 I'll take just one\\
+
+Do we ever confuse set union, set and with logical or, and?\\
+(Don't we describe set union $\cup$ as "or")
+
+
+
+
+\newpage
+\section*{Appendix}
+
+
+\section{Logical Or $\lor$}
+\subsection{Definition}
+\begin{center}
+$
+a \lor b = \lor \lbrack{a,b}\rbrack :=
+$
+\end{center}
+\begin{center}
+$
+\exists \hspace{1mm} \mathbb{T} \in \{a,b\}
+$
+\end{center}
+
+
+
+\subsection{Alternate Definition}
+\begin{center}
+$\lor \lbrack\mathbb{F}, \mathbb{F}\rbrack = \mathbb{F}$ \\
+$\lor \lbrack\mathbb{F}, \mathbb{T}\rbrack = \mathbb{T}$ \\
+$\lor \lbrack\mathbb{T}, \mathbb{F}\rbrack = \mathbb{T}$ \\
+$\lor \lbrack\mathbb{T}, \mathbb{T}\rbrack = \mathbb{T}$ \\
+\end{center}
+
+
+
+
+
+
+\section{Exclusive Or (Xor)}
+\subsection{Definition}
+\subsection{Alternate Definition}
+
+
+
+
+
+
+
+\section{Not Or (Nor)}
+\subsection{Definition}
+\subsection{Alternate Definition}
+
+
+
+\section{Exclusive Nor (Xnor)}
+\subsection{Definition}
+\subsection{Alternate Definition}
+
+
+
+
+
+\section{Not And (Nand)}
+\subsection{Definition}
+\subsection{Alternate Definition}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
