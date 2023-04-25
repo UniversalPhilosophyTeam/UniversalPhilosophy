@@ -8,11 +8,20 @@
 \def \loop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}}
 \def \nestedloop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}^n}
 
+
+
 \begin{document}
-
-
 \section*{Logic}
 
+
+
+\section{Law of Non-Contradiction}
+Let $a$ denote a boolean statement
+\begin{center}
+$a$ = $a$
+\end{center}
+\subsection{Commentary}
+In digital logic, the Law of Non-Contradiction is often referred to as a buffer
 
 
 
@@ -31,54 +40,95 @@ $\lnot \lbrack \mathbb{F} \rbrack \rightarrow \mathbb{T}$
 
 
 
-
-\section{Logical And $\land$}
-\subsection{Definition}
+\section{Contradiction}
 \begin{center}
-$
-a \land b = \land \lbrack{a,b}\rbrack :=
-$
+$a$ = $\lnot a \Rightarrow$ contradiction
 \end{center}
-\begin{center}
-$\lnot (\hspace{1mm} \exists \hspace{1mm} \mathbb{F} \in \{a,b\}) =$
-
-$\vspace{1.5mm} \not \exists \hspace{1mm} \mathbb{F} \in \{a,b\}$
-\end{center}
-
-
-
-
-\subsection{Alternate Definition}
-\begin{center}
-$\land \lbrack\mathbb{F}, \mathbb{F}\rbrack = \mathbb{F}$ \\
-$\land \lbrack\mathbb{F}, \mathbb{T}\rbrack = \mathbb{F}$ \\
-$\land \lbrack\mathbb{T}, \mathbb{F}\rbrack = \mathbb{F}$ \\
-$\land \lbrack\mathbb{T}, \mathbb{T}\rbrack = \mathbb{T}$ \\
-\end{center}
-
-
-
-
-
-\section{Law of Non-Contradiction}
-\begin{center}
-Introduce the symbol for contradiction, proof by contradiction
-\end{center}
+\subsection{Proof by Contradiction}
 
 
 
 
 \newpage
-\section{All Logical Functions Can Be Built from Not And}
-\subsection{Proof}
+\section{Logical Function}
+\subsection{Definition}
+Define logical function with boolean input(s) $a_1,...,a_n$ and a boolean output $b$
+\begin{center}
+$f_{logical}$ $:=$\\
+$f[a_1,...,a_n] \rightarrow b$
+\end{center}
+
+
+
+
+\section{Non-Trivial Logical Functions}
+\subsection{Definition}
+\subsection{Proof All Logical Functions Can Be Built from Not with Any Non-Trivial Logical Function}
+
+
+
+\newpage
+\section{Logical And $\land$}
+\subsection{Definition}
+\begin{center}
+$a \land b$ = $\land \lbrack a,b \rbrack$ :=\\
+$\lnot (\exists \mathbb{F} \in \{a,b\})$ =\\
+$\not \exists \mathbb{F} \in \{a,b\}$
+\end{center}
+\subsection{Alternate Definition}
+\begin{center}
+$\land \lbrack \mathbb{F},\mathbb{F} \rbrack = \mathbb{F}$\\
+$\land \lbrack \mathbb{F},\mathbb{T} \rbrack = \mathbb{F}$\\
+$\land \lbrack \mathbb{T},\mathbb{F} \rbrack = \mathbb{F}$\\
+$\land \lbrack \mathbb{T},\mathbb{T} \rbrack = \mathbb{T}$
+\end{center}
+
+
+\section{Logical Or $\lor$}
+\subsection{Definition}
+\begin{center}
+$a \land b$ = $\land \lbrack a,b \rbrack$ :=\\
+$\exists \mathbb{T} \in \{a,b\})$
+\end{center}
+\subsection{Alternate Definition}
+\begin{center}
+$\land \lbrack \mathbb{F},\mathbb{F} \rbrack = \mathbb{F}$\\
+$\land \lbrack \mathbb{F},\mathbb{T} \rbrack = \mathbb{T}$\\
+$\land \lbrack \mathbb{T},\mathbb{F} \rbrack = \mathbb{T}$\\
+$\land \lbrack \mathbb{T},\mathbb{T} \rbrack = \mathbb{T}$
+\end{center}
+
+
+
+\newpage
+\section{Exclusive Or (Xor)}
+\subsection{Definition}
+\subsection{Alternate Definition}
+
+
+\section{Not Or (Nor)}
+\subsection{Definition}
+\subsection{Alternate Definition}
 
 
 
 
 
+\newpage
+\section{Exclusive Nor (Xnor)}
+\subsection{Definition}
+\subsection{Alternate Definition}
 
+\section{Not And (Nand)}
+\subsection{Definition}
+\subsection{Alternate Definition}
+
+
+
+
+\newpage
+\section*{Appendix}
 \section{Criticism logical union, set union, logical and, set and}
-Verify on Wiki \\
 - logical or is a function logical and is a function\\
 - language muks up our understanding\\
 
@@ -93,74 +143,6 @@ set or, I'll take bag 1 or bag 2 I'll take just one\\
 
 Do we ever confuse set union, set and with logical or, and?\\
 (Don't we describe set union $\cup$ as "or")
-
-
-
-
-\newpage
-\section*{Appendix}
-
-
-\section{Logical Or $\lor$}
-\subsection{Definition}
-\begin{center}
-$
-a \lor b = \lor \lbrack{a,b}\rbrack :=
-$
-\end{center}
-\begin{center}
-$
-\exists \hspace{1mm} \mathbb{T} \in \{a,b\}
-$
-\end{center}
-
-
-
-\subsection{Alternate Definition}
-\begin{center}
-$\lor \lbrack\mathbb{F}, \mathbb{F}\rbrack = \mathbb{F}$ \\
-$\lor \lbrack\mathbb{F}, \mathbb{T}\rbrack = \mathbb{T}$ \\
-$\lor \lbrack\mathbb{T}, \mathbb{F}\rbrack = \mathbb{T}$ \\
-$\lor \lbrack\mathbb{T}, \mathbb{T}\rbrack = \mathbb{T}$ \\
-\end{center}
-
-
-
-
-
-
-\section{Exclusive Or (Xor)}
-\subsection{Definition}
-\subsection{Alternate Definition}
-
-
-
-
-
-
-
-\section{Not Or (Nor)}
-\subsection{Definition}
-\subsection{Alternate Definition}
-
-
-
-\section{Exclusive Nor (Xnor)}
-\subsection{Definition}
-\subsection{Alternate Definition}
-
-
-
-
-
-\section{Not And (Nand)}
-\subsection{Definition}
-\subsection{Alternate Definition}
-
-
-
-
-
 
 
 
