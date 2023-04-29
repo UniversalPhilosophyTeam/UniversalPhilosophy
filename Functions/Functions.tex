@@ -1,0 +1,214 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx,graphicx}
+
+\newcommand{\test}{\circlearrowright}
+\def \loop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}}
+\def \nestedloop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}$^n$}
+
+\begin{document}
+
+\section*{Functions}
+
+
+
+
+
+
+\section{+ Addition}
+\subsection{Definition}
+$\forall S_i,S_j$
+\begin{center}
+$
++\lbrack S_i,S_j\rbrack := |S_i \cup S_j| +  |S_i \cap S_j| \hspace{3mm}
+$
+[1]
+\end{center}
+\subsection{Alternative Definition}
+Alternatively + can be defined as the magnitude of a disjoint union
+\begin{center}
+$
++[S_i,S_j] := |S_i \cup S_j| \hspace{3mm}
+$\\ \vspace{2mm}
+$
+\forall i,j : S_i \cap S_j = \emptyset
+$
+\end{center}
+
+
+
+
+
+\section{$\setminus$ Set Difference}
+\subsection{Definition}
+Define $\setminus$, the operator for (subset) subtraction.
+\begin{center}
+$ S_1 \subseteq S_2
+$
+\\
+$
+\setminus[S_1,S_2] = S_1 \setminus S_2 = \{s_i,...\} : s_i \not \in S_1,s_i \not \in S_2 \hspace{3mm} \forall i
+$
+\end{center}
+\subsection{Notation}
+
+
+
+
+
+\section{Assignment $\leftarrow$}
+
+\subsection{Elemental Definition}
+
+\subsection{Set Definition}
+\begin{center}
+$\leftarrow \lbrack S,\{x_1,...,x_N\} \rbrack = S \leftarrow \{x_1,...,x_N\} :=$
+\\ \vspace{2mm}
+$S = \emptyset \cup \{x_1,...x_N\} =  \{x_1,...x_N\}$
+\end{center}
+
+
+
+
+
+\section{Delete}
+
+\subsection{Elemental Definition}
+
+\subsection{Set Definition}
+\begin{center}
+$delete \hspace{1mm} \lbrack S \rbrack :=$
+\\ \vspace{2mm}
+$delete \hspace{1mm} \lbrack S \rbrack \rightarrow S = \emptyset$
+\end{center}
+
+
+
+
+
+\section{Append}
+
+\subsection{Elemental Definition}
+
+\subsection{Set Definition}
+\begin{center}
+$append \hspace{1mm} \lbrack S_1,S_2 \rbrack :=$
+\\ \vspace{2mm}
+$S_1 = \{a_1,a_2,...,a_N\}; \hspace{2mm} S_2 = \{b_1,b_2,...,b_M\}$
+\\ \vspace{2mm}
+$append \hspace{1mm} \lbrack S_1,S_2 \rbrack \rightarrow S_1  =  \{a_1,a_2,...,a_N, b_1,b_2,...,b_M\} =$
+\\ \vspace{2mm}
+$S_1  =  \{a_1,a_2,...,a_N, b_{N+1},b_{N+2},...,b_{N+M}\}$
+\end{center}
+
+
+
+
+
+\section{Insertion}
+
+\subsection{Elemental Definition}
+
+\subsection{Set Definition}
+\begin{center}
+$insert \hspace{1mm} \lbrack S_1,S_2,K \rbrack :=$
+\\ \vspace{2mm}
+$S_1 = \{a_1,a_2,...,a_N\}; \hspace{2mm} S_2 = \{b_1,b_2,...,b_M\}; \hspace{2mm} 0 \leq K \leq N$
+\\ \vspace{2mm}
+$insert \hspace{1mm} \lbrack S_1,S_2,K \rbrack \rightarrow S_1 = \{a_1,a_2,...,a_K,b_1,b_2,...,b_M,a_{K+1},...,a_N\} = $
+\\ \vspace{2mm} 
+$S_1 = \{a_1,a_2,...,a_K,b_{K+1},b_{K+2},...,b_{K+M},a_{K+M+1},...,a_{M + N}\}$
+\end{center}
+
+
+
+
+
+\section{Remove}
+
+\subsection{Indexed Definition}
+\begin{center}
+$remove \hspace{1mm} \lbrack S,K \rbrack :=$
+\\ \vspace{2mm}
+$S = \{a_1,a_2,...,a_N\}; \hspace{2mm} \hspace{2mm} 1 \leq K \leq N$
+\\ \vspace{2mm}
+$remove \hspace{1mm} \lbrack S,K \rbrack \rightarrow \{a_1,a_2,...,a_{K-1},a_{K+1},...,a_N\}$
+\end{center}
+
+\subsection{Elemental Definition}
+\begin{center}
+$remove \hspace{1mm} \lbrack S,a_M \rbrack :=$
+\\ \vspace{2mm}
+$S = \{a_1,a_2,...,a_N\}; \hspace{2mm} \hspace{2mm} 1 \leq M \leq N$
+\\ \vspace{2mm}
+$remove \hspace{1mm} \lbrack S,a_M \rbrack \rightarrow \{a_1,a_2,...,a_{M-1},a_{M+1},...,a_N\}$
+\end{center}
+
+\subsection{Set Definition}
+
+
+
+
+
+
+\section{Iteration \loop}
+
+\subsection{Definition}
+Define iteration \loop
+\begin{center}
+$\loop \lbrack S,k,n,l \rbrack :=$
+\\ \vspace{2mm}
+$S = \{s_1,s_2,...,s_n\}$
+\\ \vspace{2mm}
+$\loop \lbrack S,k,n \rbrack \rightarrow$
+\end{center}
+
+\subsection{Define * = \loop}
+Define multiplication x * n
+\begin{center}
+$* \lbrack x,n \rbrack = x * n :=$
+\\ \vspace{2mm}
+$S = \{s_1,s_2,...,s_x\}$
+\\ \vspace{2mm}
+$ x * n \rightarrow | \hspace{1mm} \loop \lbrack S,0,x,n \rbrack|$
+\end{center}
+
+
+
+
+
+\section{Nested Iteration \nestedloop}
+
+\subsection{Definition}
+Define nested iteration \nestedloop
+
+\subsection{Definition Exponentiation}
+Define exponentiation $x^n$
+\begin{center}
+$ exponentiate \lbrack x,N \rbrack = x^N := $
+\\ \vspace{2mm}
+$S = \{s_1,s_2,...,s_x\}$
+\\ \vspace{2mm}
+$x^N \rightarrow$ |\nestedloop $\lbrack S,0,x,x,N \rbrack|$
+\end{center}
+
+
+
+
+
+\section{Division}
+\subsection{Definition}
+Define division, iterative subtraction with remainder
+
+
+
+
+\newpage
+\section*{Citations}
+[1] https://en.wikipedia.org/wiki/Cardinality
+
+
+
+
+\end{document}
