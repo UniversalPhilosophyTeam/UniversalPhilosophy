@@ -1,0 +1,352 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx,graphicx}
+
+\newcommand{\test}{\circlearrowright}
+\def \loop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}}
+\def \nestedloop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}^n}
+
+\begin{document}
+
+\section*{Equivalence }
+
+
+
+
+
+\section{Equivalence =}
+Let = denote equivalence
+\begin{center}
+$x_i = x_i \hspace{2mm} \forall i$
+\end{center}
+
+
+
+
+\section{Is equal to ==}
+\begin{center}
+$==\lbrack x_i,x_j \rbrack :=$
+\\
+$==\lbrack x_i,x_j\rbrack \rightarrow \mathbb{T} \hspace{2mm} i = j$
+\\
+$==\lbrack x_i,x_j\rbrack \rightarrow \mathbb{F} \hspace{2mm} i \neq j$
+\end{center}
+
+\subsection{Alternate Notation}
+\begin{center}
+$x_i == x_j$
+\end{center}
+
+
+
+
+
+\section{Is not equal to !=}
+\begin{center}
+$!=\lbrack x_i,x_j \rbrack :=$
+\\
+$!=\lbrack x_i,x_j\rbrack \rightarrow \mathbb{T} \hspace{2mm} i \neq j$
+\\
+$!=\lbrack x_i,x_j\rbrack \rightarrow \mathbb{F} \hspace{2mm} i = j$
+\end{center}
+
+\subsection{Alternate Notation}
+\begin{center}
+$x_i \hspace{1mm} != x_j$
+\end{center}
+
+
+
+
+\newpage
+\section*{Set Theory}
+
+\section{Element}
+Define element $l$
+\begin{center}
+$
+l = \{l\}
+$
+\end{center}
+
+
+
+
+
+\section{Identity}
+Define identity of element $l$\\
+\begin{center}
+$
+|l| := 1
+$
+\end{center}
+
+
+
+
+
+\section{Empty Set}
+Define Empty Set, the set containing no elements
+\begin{center}
+$
+\emptyset := \{\}
+$
+\end{center}
+
+
+
+
+\section{Null Identity}
+Define the null identity
+\begin{center}
+$
+|\emptyset| := 0
+$
+\end{center}
+
+
+
+
+\section{Union $\cup$}
+Define $\cup$ the union of two elements
+\begin{center}
+$\cup \lbrack l_i,l_j\rbrack = l_i \cup l_j = \{l_i\} \cup \{l_j\} :=$
+\\ \vspace{2mm}
+$\cup \lbrack l_i,l_j\rbrack \rightarrow \{l_i\} \hspace{2mm} i = j$
+\\
+$\cup \lbrack l_i,l_j\rbrack \rightarrow \{l_i,l_j\} \hspace{2mm} i \neq j$
+\end{center}
+
+\subsection{Translation}
+$\cup$ is often read as "and"
+
+\subsection{Comma ,}
+In set notation the comma "," denotes union $\cup$
+\begin{center}
+$l_1 \cup l_2 = \{l_1\} \cup \{l_2\} = \{l_1,l_2\}$
+\end{center}
+
+
+
+
+
+\section{Intersection $\cap$}
+Define $\cap$, the intersection of two elements
+\begin{center}
+$l_1 \cap l_2 = \{l_1\} \cap\{ l_2\}$
+\\ \vspace{2mm}
+$\cap \lbrack l_i,l_j\rbrack \rightarrow \{l_i\} \hspace{2mm} i = j$
+\\
+$\cap \lbrack l_i,l_j\rbrack \rightarrow \emptyset \hspace{2mm} i \neq j$
+\end{center}
+
+
+
+
+
+\section{Sets}
+
+
+
+
+\subsection{Definition}
+Define set $S$ as an ordered union of elements $s_i$
+
+\begin{center}
+$
+S :=   s_1 \cup  s_2 \cup\ ... \cup s_{n-1} \cup\ s_n = \{s_1,s_2,..s_N\}
+$
+\end{center}
+\subsection{Alternate Notation}
+\begin{center}
+$
+S := s_i \in  S :  i=1,2,...,N-1,N \hspace{5mm}$
+\\$
+S = \{s_1,s_2,...,s_{N-1},s_N\}
+$
+
+\end{center}
+
+
+
+
+
+\subsection{Magnitude of a Set}
+\begin{center}
+$
+|S| = |\hspace{.5mm} \{x_1,...,x_N\}| = N
+$
+\end{center}
+
+
+\subsection{Counting}
+\begin{center}
+$1,2,...,N = 1:N$
+\end{center}
+
+
+
+\subsection{Definition Unordered Set}
+Set $S$ is unordered if
+\begin{center}
+$
+S = \{x_1,x_2,..x_n\} :=
+$
+\\
+$
+x_i,x_j \in S; \hspace{2mm} x_i = x_j; \hspace{3mm}\forall i,j \neq i
+$
+\end{center}
+
+
+
+
+
+\subsection{Definition of Unique Set}
+\begin{center}
+$
+a_i, a_j \in S
+$
+\\
+$
+a_i \neq a_j \hspace{3mm} \forall i,j \neq i
+$
+\end{center}
+
+
+
+
+
+\subsection{Definition of Countable/Uncountable set}
+Potentially just a line?
+\subsection{Define line $\mathbb{L}$}
+Define line $\mathbb{L}$
+\begin{center}
+$
+\mathbb{L} := \{l_0,l_{1},l_{2},...,l_{N-1},l_N,l_{N+1},...
+$
+\\
+$
+\Longleftrightarrow \exists l_i \in \mathbb{L} \hspace{2mm} \forall i
+$
+\end{center}
+
+
+\section{Hierarchy of Elements to Sets}
+Every element is a set, but not all sets are elements
+
+
+\section{Universal Set}
+
+\subsection{Definition}
+Define Universe, the "Universal Set" containing all elements
+\begin{center}
+$
+\Omega := s_i \in \Omega, \forall i \hspace{5mm}
+$
+\end{center}
+
+
+
+
+
+\section{Definition of Span}
+A function mapping to every element of L?
+
+
+
+
+
+\section{Containment}
+\subsection{Contains}
+\subsection{Equals = }
+Define set equivalence  =
+\begin{center}
+$
+S_1 \subseteq S_2 ; \hspace{3mm} S_2 \subseteq S_1 \hspace{1mm} \Longleftrightarrow S_1 = S_2 \hspace{3mm}
+$
+\end{center}
+
+
+\subsection{Subset}
+
+
+
+\subsection{Proper Subset Citation}
+
+
+
+
+\subsection{Definition of Complement}
+\begin{center}
+$
+S = \{ s_1,s_2,...,s_N \}
+$
+\\
+$
+S^C :=
+$
+\\
+$
+s_j: \{ s_j \in \Omega\} \cap \{s_j \not \in S\}; \hspace{2mm} \forall j
+$
+\end{center}
+\subsection{Alternate Notation}
+Wikipedia definition of complement
+\begin{center}
+$
+S^C = U - S = \{x \in \Omega : x \not \in S\} \hspace{3mm} 
+$
+https://en.wikipedia.org/wiki/Complement\_(set\_theory)
+\end{center}
+
+
+
+\section*{Computational Functions}
+\section{$\leftarrow$ "Assignment"}
+\subsection{Definition}
+
+\section{Insertion}
+
+\section{Append}
+
+\section{"Deletion"}
+\subsection{Definition}
+
+\section{Iteration \loop}
+\subsection{Definition}
+Define iteration \loop
+
+
+
+
+
+\newpage
+\section*{Appendix}
+
+
+\section{Proofs and Properties}
+$
+1. \vspace{3mm} \hspace{3mm} \Omega \subset \emptyset \\
+2. \vspace{3mm} \hspace{3mm} \Omega \cap \Omega = \Omega \\
+3. \vspace{3mm} \hspace{3mm} \Omega \cup \Omega = \Omega \\
+4. \vspace{3mm} \hspace{3mm} \Omega \cup \emptyset = \Omega \\
+5. \vspace{3mm} \hspace{3mm} \Omega \cap \emptyset = \emptyset \\
+6. \vspace{3mm} \hspace{3mm} \Omega \cap  S = S \\
+7. \vspace{3mm} \hspace{3mm} \Omega \cup S = \Omega \\
+8. \vspace{3mm} \hspace{3mm} \emptyset \not\subseteq \Omega \\
+9. \vspace{3mm} \hspace{3mm} \emptyset \cup \emptyset = \emptyset \\
+10. \vspace{3mm} \hspace{3mm} \emptyset \cap \emptyset = \emptyset \\
+11. \vspace{3mm} \hspace{3mm} \emptyset \cap  S = \emptyset \\
+12. \vspace{3mm} \hspace{3mm} \emptyset \cup S = S\\
+13. \vspace{3mm} \hspace{3mm} \emptyset = \emptyset\\
+14. \vspace{3mm} \hspace{3mm}\emptyset = \Omega^C\\
+15. \vspace{3mm} \hspace{3mm} \Omega \subseteq  S
+$
+
+
+
+
+
+\end{document}
