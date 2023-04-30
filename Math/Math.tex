@@ -1,0 +1,233 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx,graphicx}
+
+\newcommand{\test}{\circlearrowright}
+\def \loop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}}
+\def \nestedloop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}^n}
+
+\begin{document}
+
+\section*{Math}
+
+
+
+
+
+\section{Definition of a line  $\mathbb{L}$}
+\subsection{Definition}
+\begin{center}
+$\mathbb{L} := \{l_i,...$
+\\ \vspace{2mm}
+$\exists l_i \in \mathbb{L} \hspace{3mm} \forall i$
+\end{center}
+
+
+
+
+\section{Whole Numbers $\mathbb{W}$}
+\subsection{Definition}
+Define the positive number line $\mathbb{W}$, the set of whole numbers
+\begin{center}
+$\mathbb{W} :=$
+\\ \vspace{2mm}
+$|S_i| \in \mathbb{W} \hspace{3mm} \forall i$
+\end{center}
+
+
+
+
+
+\section{Injection (one-to-one)}
+\subsection{Definition$\lbrack 1 \rbrack$}
+\begin{center}
+$\hspace{2mm} S_1 = \{a_1,a_2,...,a_n\}; \hspace{2mm} S_2 = \{b_1,b_2,...,b_m\} \hspace{2mm} m \geq n$
+\\ \vspace{2mm}
+$injective \lbrack S_1, S_2 \rbrack \rightarrow (\forall a_i \in S_1 \hspace{2mm} \exists b_j \in S_2 : f \lbrack a_i \rbrack \rightarrow b_j)$
+\\ \vspace{2mm}
+$\forall a_i,a_j \in S_1; f \lbrack a_i \rbrack = f \lbrack a_j \rbrack \Longleftrightarrow a_i = a_j \hspace{2mm} \lbrack 2 \rbrack$
+\end{center}
+
+
+
+
+
+\section{Surjection (onto)}
+\subsection{Definition $\lbrack 2 \rbrack$}
+\begin{center}
+$\hspace{2mm} S_1 = \{a_1,a_2,...,a_n\}; \hspace{2mm} S_2 = \{b_1,b_2,...,b_m\} \hspace{2mm} m \geq n$
+\\ \vspace{2mm}
+$surjective \lbrack S_1, S_2 \rbrack \rightarrow (\forall a_i \in S_1 \hspace{2mm} \exists b_j \in S_2 : f \lbrack a_i \rbrack \rightarrow b_j)$
+\end{center}
+
+
+
+
+
+
+
+\section{Bijection (One-to-one and onto)}
+Also known as invertible
+
+\subsection{Definition $\lbrack 3 \rbrack$}
+\begin{center}
+$\hspace{2mm} S_1 = \{a_1,a_2,...,a_n\}; \hspace{2mm} S_2 = \{b_1,b_2,...,b_n\}$
+\\ \vspace{2mm}
+$Invertible \lbrack S_1,S_2 \rbrack \rightarrow$
+\\ \vspace{2mm}
+$ (\forall a_i \in S_1 \hspace{2mm} \exists b_j \in S_2 : f \lbrack a_i \rbrack \rightarrow b_j) \land (\forall b_j \in S_2 \hspace{2mm} \exists a_i \in S_1 : g \lbrack b_j \rbrack \rightarrow a_i)$
+\end{center}
+
+
+
+
+\section{Hierarchy of Bijections Surjections and Injections}
+
+
+
+
+
+\section{Vector}
+Define vector as a set of more than one cardinalities
+
+\subsection{Definition}
+\begin{center}
+$\vec{v} :=$
+\\ \vspace{2mm}
+$|S_1| = x_1; |S_2| = x_2;...;|S_N| = x_N$
+\\ \vspace{2mm}
+$\vec{v} = \{|S_1|,|S_2|,...,|S_N|\} = <x_1,x_2,...,x_N>$
+\end{center}
+
+\subsection{Dimensionality}
+\begin{center}
+$
+dim \lbrack \vec{v} \rbrack = |\vec{v}| :=
+$
+\\ \vspace{2mm}
+$
+\vec{v} = \{|S_1|,|S_2|,...,|S_N|\} = <x_1,x_2,...,x_N>
+$
+\\ \vspace{2mm}
+$
+| \vec{v} | = N
+$
+\end{center}
+
+
+
+\section{Vector Space}
+Define Vector Space $\bold{V}$ as a set of more than one lines
+\subsection{Definition}
+\begin{center}
+$\bold{V} := \{ \mathbb{L}_1,\mathbb{L}_2,...,\mathbb{L}_N\}$
+\end{center}
+
+
+
+\section{Spans}
+A function/system mapping to a vector space
+
+\subsection{Bijective Span}
+\subsection{Injective Span}
+\subsection{Surjective Span}
+
+
+
+
+\section{Summation Notation}
+Define summation $\sum$; the notation for successive additions
+\begin{center}
+$\sum_{i=1}^{N} a :=$
+\\ \vspace{2mm}
+$\sum_{i=1}^{N} a = a + \sum_{i=2}^{N} a =$
+\\ \vspace{2mm}
+$a + a + \sum_{i=3}^{N} a = ... = a + a + ... + a = a * N$
+\end{center}
+
+
+
+
+\section{Definition of Series}
+Define series
+\begin{center}
+$series :=$
+\\ \vspace{2mm}
+$\sum_{i=1}^{N} x_i = x_1 + x_2 + ... + x_N$
+\end{center}
+
+
+
+
+\section{Convergent Series}
+Defines the bound of a series; also known as a limit\\
+\subsection{Definition}
+\begin{center}
+$ f \lbrack n \rbrack = \sum_{i=1}^{n} x_i$
+\\ \vspace{2mm}
+$convergent \lbrack f \lbrack n \rbrack \rbrack \rightarrow$
+\\ \vspace{2mm}
+$\exists C :$
+\\ \vspace{2mm}
+$ (C >  f[n] \hspace{3mm} \forall n) \land (\not \exists K : C - \sum_{i=1}^{n} x_i > K \hspace{3mm} \forall n; K > 0)$
+\end{center}
+
+\subsection{Convergence}
+\begin{center}
+$ f \lbrack n \rbrack = \sum_{i=1}^{n} x_i$
+\\ \vspace{2mm}
+$\forall f \lbrack n \rbrack : convergent \lbrack f \lbrack n \rbrack \rbrack \rightarrow \mathbb{T}$
+\\ \vspace{2mm}
+$ \lim_{n \rightarrow \infty} f \lbrack n \rbrack = C:=$
+\\ \vspace{2mm}
+$C >  f[n] \hspace{3mm} \forall n$
+\\ \vspace{2mm}
+$\not \exists K : C - \sum_{i=1}^{n} x_i > K \hspace{3mm} \forall n; K > 0$
+\end{center}
+
+
+
+
+
+\newpage
+\section*{Appendix}
+
+
+
+
+\section{Properties of Sums $\sum$}
+
+
+
+
+
+\section{For all convergent series, there exists only one bound}
+\begin{center}
+$\forall f \lbrack n \rbrack : convergent \lbrack f \lbrack n \rbrack \rbrack \rightarrow \mathbb{T}$
+\\ \vspace{2mm} 
+$\lim_{n \rightarrow \infty} f \lbrack n \rbrack = C_1; \lim_{n \rightarrow \infty} f \lbrack n \rbrack = C_2$
+\\ \vspace{2mm}
+$\Longleftrightarrow C_1 = C_2$
+\end{center}
+\subsection{Proof}
+Proof by contradiction
+
+
+
+
+\newpage
+\section*{Citations}
+$
+\lbrack 1 \rbrack \hspace{2mm}  https://en.wikipedia.org/wiki/Bijection,\_injection\_and\_surjection\#Injection
+$
+\\
+$
+\lbrack 2 \rbrack \hspace{2mm}  https://en.wikipedia.org/wiki/Bijection,\_injection\_and\_surjection\#Surjection
+$
+\\
+$
+\lbrack 3 \rbrack \hspace{2mm}  https://en.wikipedia.org/wiki/Bijection,\_injection\_and\_surjection\#Bijection
+$
+
+\end{document}
