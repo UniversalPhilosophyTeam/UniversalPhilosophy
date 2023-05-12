@@ -168,7 +168,8 @@ $
 
 
 
-
+% No-op; While Loop; For Loop
+\newpage
 \section{No-op ;}
 
 \subsection{Definition}
@@ -185,12 +186,18 @@ $y_o$ = $y_{o2}$ $\forall$;  insertions
 
 
 
+\section{For Loop \loop}
+\subsection{Definition}
 
 
 
 
 
 
+
+
+\section{Nested For Loop $\nestedloop$}
+\subsection{Definition}
 
 
 
@@ -675,7 +682,8 @@ $
 
 
 
-% Polynomial Complexity; Set of all Polynomial Problems; Polynomial Order of Complexity
+% Total Polynomial Complexity; Set of all Polynomial Problems; Polynomial Order of Complexity
+\newpage
 \section{Polynomial Complexity}
 
 \subsection{Definition}
@@ -711,7 +719,6 @@ $
 
 
 \subsection{Polynomial Order of Complexity}
-MINIMUM K SATISFYING THE CONDITION; Need additional information on Kopt; Kopt could be too high as shown\\
 Total complexity $O[n]$ is said to be of order $K_{opt}$
 \begin{center}
 $
@@ -723,20 +730,27 @@ $O_{opt}\lbrack n \rbrack := O \lbrack n \rbrack :$
 $ \not \exists \hat{O} \lbrack n \rbrack < O_{opt}\lbrack n \rbrack \hspace{2mm} \forall n$
 \\ \vspace{2mm}
 $O_{opt}[n] < (\lambda_{K_{opt}} n)^{K_{opt}} + (\lambda_{K_{opt}-1} n)^{K_{opt}-1}... + \lambda_1 n +  C \hspace{4mm} \forall n$
+\\ \vspace{2mm}
+$K_{opt} := K :$
+\\ \vspace{2mm}
+$\not \exists \hat{K} : O_{T}[n] < (\lambda_{\hat{K}} n)^{\hat{K}} + (\lambda_{\hat{K}-1} n)^{\hat{K}-1}... + \lambda_1 n +  C \hspace{4mm} \forall n,\hspace{1mm} \hat{K} < K$
 \end{center}
 
 
 
 
 
-\section{Corrolary of Optimal Complexity}
+
+
+
+\subsection{Corrolary of Optimal Complexity}
 \begin{center}
 $\not \exists s^+ \in S^+ :$
 \\ \vspace{2mm}
 $O_{T}[n] < (\lambda_{\hat{K}} n)^{\hat{K}} + (\lambda_{\hat{K}-1} n)^{\hat{K}-1}... + \lambda_1 n +  C \hspace{4mm} \forall n,\hspace{1mm} \hat{K} < K_{opt}$
 \end{center}
 
-\subsection{Proof}
+\subsubsection{Proof}
 Proof by contradiction; definition of optimal complexity
 
 
@@ -747,6 +761,12 @@ Proof by contradiction; definition of optimal complexity
 
 
 
+\subsection{Property of Polynomial  Complexity 1}
+lim n->inf O[n+1] / O[n] approaches 1
+
+
+\subsection{Property of Polynomial Complexity 2}
+lim n->inf O[n+1] - O[n] approaches
 
 
 
@@ -757,10 +777,11 @@ Proof by contradiction; definition of optimal complexity
 
 
 % Polynomial Complexity Time Based Proofs
+\newpage
 \section{Polynomial Time Complexity}
 
 \subsection{Definition}
-Decision problem $D$ with (optimal) Time Complexity $O_T[n]$ is bound by polynomial time complexity if
+Decision problem $D$ with (optimal) Time Complexity $O_T[n]$ is bounded by polynomial time complexity if
 \begin{center}
 $\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
 \\ \vspace{2mm}
@@ -774,11 +795,11 @@ $O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace
 
 
 
-\subsection{Polynomial Problems}
-Define $\mathbb{P}$, the set of Decision Problems that can be solved with polynomial time complexity
+\subsection{Polynomial Time Problems}
+Define $\mathbb{P}_{time}$, the set of Decision Problems that can be solved with polynomial time complexity
 \begin{center}
 $
-\mathbb{P} := \{D_1,D_2,...\} : 
+\mathbb{P}_{time} := \{D_1,D_2,...\} : 
 $
 \\
 $
@@ -797,25 +818,9 @@ $
 
 \subsection{Total Polynomial Complexity Implies Time bounded Polynomial Complexity}
 Proof Trivial
-
-
-
-
-\subsection{Time bounded Polynomial Complexity implies Total Polynomial Complexiy}
-Proof harder use O[n] = |L| + |M|
-
-
-
-\subsection{Polynomial Time Complexity iff Polynomial Complexity}
-Follows from previous 2 sections
-
-
-
-\subsection{Order of Complexity?}
-Time complexity $O_T[n]$ is said to be of order ?
 \begin{center}
 $
- O_T[n] \sim ?
+D \in \mathbb{P} \Longrightarrow D \in \mathbb{P}_{time}
 $
 \end{center}
 
@@ -824,8 +829,133 @@ $
 
 
 
-\section{Theorem of Optimal (Polynomial?) Complexity}
-Formally define dynamic programming, Optimal complexity minimizes the difference between time and space complexity order
+\subsection{Time bounded Polynomial Complexity implies Total Polynomial Complexiy}
+Proof harder use O[n] = |L| + |M|
+\begin{center}
+$
+D \in \mathbb{P}_{time} \Longrightarrow D \in \mathbb{P}
+$
+\end{center}
+
+
+
+
+
+
+\subsection{Polynomial Time Complexity iff Polynomial Complexity}
+Follows from previous 2 sections
+
+
+
+
+\subsection{Property of Polynomial Time Complexity 1}
+lim n->inf O[n+1] / O[n] approaches 1
+
+
+\subsection{Property of Polynomial Time Complexity 2}
+lim n->inf O[n+1] - O[n] approaches
+
+
+
+
+\subsection{Order of Complexity}
+Time complexity $O_T[n]$ is said to be of order
+\begin{center}
+$
+O_T[n]
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Polynomial Space Complexity
+\newpage
+\section{Polynomial Space Complexity}
+\subsection{Defintion}
+\subsection{Polynomial Space Problems}
+\subsection{Total Polynomial Complexity Implies Space bounded Polynomial Complexity}
+\subsection{Space Bounded Polynomial Complexity Implies Total Polynomial Complexity}
+\subsection{Polynomial Space Complexity iff Polynomial Complexity}
+\subsection{Property of Polynomial Space Complexity 1}
+\subsection{Property of Polynomial Space Complexity 2}
+\subsection{Order of Complexity}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Trivial show there exists a problem in P; N sum problem
+\newpage
+\section{Proof of the existence of $\mathbb{P}$}
+Trivial; N sum problem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Theorem of Polynomial Duality; Polynomial in time and space
+\newpage
+\section{Polynomial Duality}
+\subsection{D $\in \mathbb{P}$ iff polynomial in Time}
+\subsection{D $\in \mathbb{P}$ iff polynomial in Space}
+\subsection{Polynomial in time iff Polynomial in space}
+\subsection{Theorem Either OT or OS is on the order of Oopt}
+Proof by contradiction
+
+
+
+
+
+% Definition of a Duality Function
+\subsection{Duality Functions}
+
+
+
+
+
+
+
+
+\subsection{Theorem of Polynomial Duality}
+For all Problems in P there exists a duality function\\
+Formally define dynamic programming, Optimal polynomial complexity minimizes the difference between time and space complexity order
 \begin{center}
 \vspace{2mm}
 $
@@ -862,26 +992,65 @@ $
 \end{center}
 
 
+
+
+
+
+
+% Polynomial Duality Proof
 \subsection{Proof}
+Prove that Order can be subtracted from Os or Ot and added to the other; double check cauchy schwartz inequal
+\begin{center}
+$
+O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_j \in \mathbb{P}
+$
+\\ \vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O_T[n] + O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_j \in \mathbb{P}
+$
+\end{center}
+
+
+
+
+
+
+
+\subsection{There exists an optimal OT and OS on the order of Oopt}
 
 \subsection{Even ordered decision problems}
+M-N = N-M = 0
 \subsection{Odd ordered decision problems}
-
-
-\section{Theorem of Polynomial Duality}
-\subsection{polynomial in time iff polynomial in space}
-\subsection{D $\in \mathbb{P}$ iff polynomial in Time}
-\subsection{D $\in \mathbb{P}$ iff polynomial in Space}
-
-
-
-\section{Proof of the existence of $P$}
-Trivial
+N = M + 1 or M = N + 1
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% NP Problems
+\newpage
 \section{Definition of Non-Polynomial Problems}
 Define $\mathcal{N}$, the set of Decision Problems that cannot be solved with Polynomial Time Complexity
 \begin{center}
@@ -914,6 +1083,12 @@ $
 $
 \end{center}
 
+\subsection{Property of Divergent Problems 1}
+\subsection{Property of Divergent Problems 2}
+
+
+
+
 
 
 
@@ -923,7 +1098,8 @@ $
 
 
 \section{Fundamental Theorem of Computation}
-Prove no convergent solution exists for Divergent Problems
+\subsection{Prove the universal bound of Polynomial Problems is $n^n$}
+\subsection{Non-Polynomial implies Divergent}
 
 
 
@@ -933,13 +1109,23 @@ Prove no convergent solution exists for Divergent Problems
 
 
 
-\section{Proof of the existence of $\mathcal{N}$}
+
+
+
+
+
+
+
+
+
+
+
+% Proof of Non-Polynomial Problems Traveling Salesman
+\newpage
+\section{Proof of the existence of $\hat{\mathcal{D}}$}
 Non-trivial; Formalize the traveling salesman problem as a decision problem (any optimization problem)
 
-
-
-\newpage
-\section{The Traveling Salesman Problem}
+\subsection{The Traveling Salesman Problem}
 English description
 
 \subsection{Formal Definition}
@@ -964,6 +1150,89 @@ $
 \exists c_k \in \bar{P} \hspace{2mm} \forall c_k \in X_i
 $
 \end{center}
+
+\subsection{Prove Traveling Salesman Problem is in $\hat{\mathcal{D}}$}
+Either show not in $\mathbb{P}$ or in $\hat{\mathcal{D}}$
+
+\subsubsection{Determine a duality function for The Traveling Salesman Problem}
+\subsubsection{Show that the limit of O[n+1]/O[n] is a function of n}
+\subsubsection{Show that The Traveling Salesman Problem must be in $\hat{\mathcal{D}}$}
+
+
+
+
+
+\newpage
+\section{Proof of "P $\neq$ NP"}
+
+
+
+
+
+
+
+
+
+
+
+% Theorem of Prime Numbers "Riemann Hypothesis"
+\newpage
+\section{Theorem of Prime Numbers "Riemann Hypothesis"}
+Riemann Zeta Function
+\begin{center}
+$
+\zeta (s) \equiv \sum_{n=1}^{\infty} \frac{1}{n^s} \hspace{3mm} \lbrack 2 \rbrack
+$
+\end{center}
+"The prime number theorem determines the average distribution of the primes. The Riemann hypothesis tells us about the deviation from the average. Formulated in Riemann's 1859 paper, it asserts that all the 'non-obvious' zeros of the zeta function are complex numbers with real part 1/2." \lbrack 2\rbrack\\
+\\
+Prove the problem is divergent\\
+There fore it can only be proven to a certain degree\\
+The limit as n approaches infinity implies a real part of one half\\
+Connection with the real and imaginary part of O $\lbrack n \rbrack$
+
+\subsection{Prove $O_{opt}$ is performing $O_{opt}$ recursively for the ints less than square root of n}
+Testing the primes less than sqrt(n)? double check \\
+1. Optimal solution for n=1,2,3, everything else is a recursive optimal proof by induction\\
+Time Complexity seems to be on the order of n log n... implies divergence or lack of bound? Add in the complexity of division.. probably approaches $n^n$
+
+%\subsection{Show that $O_{opt}$ diverges with $n^n$, isn't bounded by $n^n$}
+%Proves O is divergent
+
+\subsection{Since divergent, no $s^{+}$ exists.. only rules}
+Express as a limit
+
+\subsection{Show that the limit as n $\rightarrow \infty$ implies the real part is 1/2}
+1/2 ± 14.134725 i
+1/2 ± 21.022040 i
+1/2 ± 25.010858 i
+1/2 ± 30.424876 i
+1/2 ± 32.935062 i
+1/2 ± 37.586178 i
+
+Z = $\zeta(1/2 + it)$
+
+\subsection{Notation, real imaginary parts of the problem}
+Even numbers and numbers ending in 5 are automatically convergent\\
+Testing numbers ending in 1,3,7,9 results in divergent expression\\
+we can continue to add rules to a certain degree
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
