@@ -48,8 +48,6 @@ append\\
 if\\
 ==\\
 !\\
-$f[X_i] \rightarrow Y_i$\\
-
 
 
 
@@ -173,20 +171,42 @@ $
 \section{No-op ;}
 
 \subsection{Definition}
-Define ";" , the no-op (The C representation of a null statement or no-op)\\
-$y_o$ = $y_{o2}$ $\forall$;  insertions
+\begin{center}
+$
+; := \emptyset
+$
+\end{center}
 
-\subsection{Properties of No-op}
-1. Can be added to any solution $S_i$ and remain a solution for all i anywhere in the order for all j
+\subsection{Property of No-op}
+No-op can be inserted into any set with equality
+\begin{center}
+$
+S= \{s_1,s_2,...,s_N\}
+$
+\\ \vspace{2mm}
+$
+S_; = insert \lbrack S,;, i \rbrack
+$
+\\ \vspace{2mm}
+$
+S_; = S_1 \hspace{2mm} \forall i
+$
+\\ \vspace{2mm}
+$
+|S_;| = |S| \hspace{2mm} \forall i
+$
+\end{center}
 
 
-
+\subsection{Proof}
+by definition of magnitude of null = 0 with Set And
 
 
 
 
 
 \section{For Loop \loop}
+\loop \lbrack startindex, endindex, condition\rbrack
 \subsection{Definition}
 
 
@@ -197,6 +217,7 @@ $y_o$ = $y_{o2}$ $\forall$;  insertions
 
 
 \section{Nested For Loop $\nestedloop$}
+\loop \lbrack startindex, endindex, condition1,...condition n\rbrack
 \subsection{Definition}
 
 
@@ -255,6 +276,30 @@ $
 s^+ = P \lbrack X_i \rbrack = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},X_i,y_o \} \hspace{3mm} \forall X_i
 $
 \end{center}
+
+
+
+
+
+\subsubsection{Property of No-op ;}
+No-op ; can be added to any solution $S_i$ and remain a solution for all i anywhere in the order for all j
+\begin{center}
+$
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},X_i,y_o\}
+$
+\\ \vspace{2mm}
+$
+\hat{s}^+ = insert \lbrack s^+,;,k \rbrack
+$
+\\ \vspace{2mm}
+$
+\hat{s}^+ = s^+ \hspace{2.5mm} \forall k
+$
+\end{center}
+
+
+
+
 
 \subsection{Definition of $S^+$}
 Define $S^+$; the set of solutions to decision problem D
@@ -535,7 +580,17 @@ $= |\mathcal{L}| + |\mathcal{M}| = N + M$
 
 
 
+\subsection{Axiom O[n] $\neq$ 0}
+\subsection{Theorem $O_T[n] + O_S[n] \neq$ 0}
+\subsubsection{Proof}
 
+
+
+\subsection{Theorem $O[n] \geq O_T[n]$}
+\subsubsection{Proof}
+
+\subsection{Theorem $O[n] \geq O_S[n]$}
+\subsubsection{Proof}
 
 
 
@@ -762,16 +817,71 @@ Proof by contradiction; definition of optimal complexity
 
 
 \subsection{Property of Polynomial  Complexity 1}
-lim n->inf O[n+1] / O[n] approaches 1
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
+$
+\end{center}
+\subsubsection{Proof WIP}
+Show there exists no constant satisfying the decreasing limit condition
+\begin{center}
+$
+O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
+$
+\\ \vspace{2mm}
+$
+O[n+1] < (\lambda_K (n+1))^K + (\lambda_{K-1} (n+1))^{K-1}... + \lambda_1 (n+1) + C
+$
+\\ \vspace{2mm}
+$
+O[n] \sim (\lambda n)^K; \hspace{2mm} O[n+1] \sim  (\lambda n)^K
+$
+\\ \vspace{2mm}
+$
+lim_{n \rightarrow \infty} \frac{(\lambda n)^K}{(\lambda n)^K} = 1
+$
+\end{center}
+
+
+
+
+
 
 
 \subsection{Property of Polynomial Complexity 2}
-lim n->inf O[n+1] - O[n] approaches
+\begin{center}
+$
+lim_{n \rightarrow \infty}( O[n+1] - O[n] ) \hspace{2mm} diverges
+$
+\end{center}
+\subsubsection{Proof}
+\begin{center}
+$
+O[n+1] < (\lambda_K (n+1))^K + (\lambda_{K-1} (n+1))^{K-1}... + \lambda_1 (n+1) + C
+$
+\\ \vspace{2mm}
+$
+O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
+$
+
+\end{center}
 
 
 
 
 
+
+\subsection{Order of Complexity}
+Total Complexity is said to be on the order of $K_{max}$
+\begin{center}
+$
+O[n] < (\lambda_{K_{max}} n)^{K_{max}} + (\lambda_{K_{max}-1} n)^{K_{max}-1}... + \lambda_1 n + C
+$
+\\ \vspace{2mm}
+$
+O[n] \sim K_{max}
+$
+\end{center}
 
 
 
@@ -807,7 +917,7 @@ $
 $
 \\
 $
-O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_j \in \mathbb{P}
+O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_j \in \mathbb{P}_{time}
 $
 \end{center}
 
@@ -817,23 +927,25 @@ $
 
 
 \subsection{Total Polynomial Complexity Implies Time bounded Polynomial Complexity}
-Proof Trivial
 \begin{center}
+\vspace{1mm}
 $
 D \in \mathbb{P} \Longrightarrow D \in \mathbb{P}_{time}
 $
 \end{center}
 
-
-
-
-
-
-\subsection{Time bounded Polynomial Complexity implies Total Polynomial Complexiy}
-Proof harder use O[n] = |L| + |M|
+\subsubsection{Proof}
 \begin{center}
 $
-D \in \mathbb{P}_{time} \Longrightarrow D \in \mathbb{P}
+O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\\ \vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_T[n] \leq O[n]
+$
+\\ \vspace{2mm}
+$
+\therefore O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
 $
 \end{center}
 
@@ -842,27 +954,41 @@ $
 
 
 
-\subsection{Polynomial Time Complexity iff Polynomial Complexity}
-Follows from previous 2 sections
+\subsection{Time bounded Polynomial Complexity implies Total Polynomial Complexity?}
+\subsection{Polynomial Time Complexity iff Polynomial Complexity?}
 
 
 
 
 \subsection{Property of Polynomial Time Complexity 1}
-lim n->inf O[n+1] / O[n] approaches 1
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O_T[n+1]}{O_T[n]} = 1
+$
+\end{center}
+\subsubsection{Proof}
 
 
 \subsection{Property of Polynomial Time Complexity 2}
-lim n->inf O[n+1] - O[n] approaches
+\begin{center}
+$
+lim_{n \rightarrow \infty}( O_T[n+1] - O_T[n] ) \hspace{2mm} diverges
+$
+\end{center}
+\subsubsection{Proof}
 
 
 
 
 \subsection{Order of Complexity}
-Time complexity $O_T[n]$ is said to be of order
+Time complexity $O_T[n]$ is said to be on the order of $K_{max}$
 \begin{center}
 $
-O_T[n]
+O_T[n] < (\lambda_{K_{max}} n)^{K_{max}} + (\lambda_{K_{max}-1} n)^{K_{max}-1}... + \lambda_1 n + C
+$
+\\ \vspace{2mm}
+$
+O_T[n] \sim K_{max}
 $
 \end{center}
 
@@ -891,29 +1017,53 @@ $
 \subsection{Total Polynomial Complexity Implies Space bounded Polynomial Complexity}
 \subsection{Space Bounded Polynomial Complexity Implies Total Polynomial Complexity}
 \subsection{Polynomial Space Complexity iff Polynomial Complexity}
+
+
+
+
+
+
+
+
 \subsection{Property of Polynomial Space Complexity 1}
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O_S[n+1]}{O_S[n]} = 1
+$
+\end{center}
+
+
+
+
+
+
+
 \subsection{Property of Polynomial Space Complexity 2}
+\begin{center}
+$
+lim_{n \rightarrow \infty}( O_S[n+1] - O_S[n] ) \hspace{2mm} diverges
+$
+\end{center}
+
+
+
+
+
+
+
+
 \subsection{Order of Complexity}
+Space complexity $O_S[n]$ is said to be on the order of $K_{max}$
+\begin{center}
+$
+O_S[n] < (\lambda_{K_{max}} n)^{K_{max}} + (\lambda_{K_{max}-1} n)^{K_{max}-1}... + \lambda_1 n + C
+$
+\\ \vspace{2mm}
+$
+O_S[n] \sim K_{max}
+$
+\end{center}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% Trivial show there exists a problem in P; N sum problem
-\newpage
-\section{Proof of the existence of $\mathbb{P}$}
-Trivial; N sum problem
 
 
 
@@ -933,9 +1083,25 @@ Trivial; N sum problem
 % Theorem of Polynomial Duality; Polynomial in time and space
 \newpage
 \section{Polynomial Duality}
-\subsection{D $\in \mathbb{P}$ iff polynomial in Time}
-\subsection{D $\in \mathbb{P}$ iff polynomial in Space}
-\subsection{Polynomial in time iff Polynomial in space}
+\subsection{Proof of the existence of $O_{S_{opt}}$}
+\subsection{Proof of the existence of $O_{T_{opt}}$}
+
+
+
+
+
+
+%\subsection{Proof that $O_{T_{opt}}[n] \neq 0$}
+%Proof by contradiction
+%\subsection{Proof that $O_{S_{opt}}[n] \neq 0$}
+%Proof by contradiction
+%\subsection{Polynomial in time iff Polynomial in space?}
+
+
+
+
+
+
 \subsection{Theorem Either OT or OS is on the order of Oopt}
 Proof by contradiction
 
@@ -943,8 +1109,63 @@ Proof by contradiction
 
 
 
+
+
+
+
+
 % Definition of a Duality Function
 \subsection{Duality Functions}
+\begin{center}
+\vspace{1mm}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+s^+ = s^+\lbrack n \rbrack := P \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+s^+ = \{ \mathcal{L},\mathcal{M},X_i,y_o\} \hspace{2mm}
+$
+\\ \vspace{6mm}
+$
+f_{\mathcal{L} \rightarrow \mathcal{M}} := f[\mathcal{L},\mathcal{M}] \rightarrow \hat{\mathcal{L}}, \hat{\mathcal{M}} :
+$
+\\ \vspace{2mm}
+$
+s_{\mathcal{L} \rightarrow \mathcal{M}}^+ = \{f_{\mathcal{L} \rightarrow \mathcal{M}}[\mathcal{L},\mathcal{M}],X_i,y_o\} =
+$
+\\ \vspace{2mm}
+$
+\{ \hat{\mathcal{L}},\hat{\mathcal{M}},X_i,y_o\}  \hspace{2mm} \forall s^+ \in S^+; \hspace{2mm} \hat{\mathcal{M}} \subseteq \mathcal{M}; \hspace{2mm} \mathcal{L} \subseteq \hat{\mathcal{L}}
+$
+\\ \vspace{6mm}
+$
+f_{\mathcal{M} \rightarrow \mathcal{L}} := f[\mathcal{L},\mathcal{M}] \rightarrow \hat{\mathcal{L}}, \hat{\mathcal{M}} :
+$
+\\ \vspace{2mm}
+$
+s_{\mathcal{M} \rightarrow \mathcal{L}}^+ = \{f_{\mathcal{L} \rightarrow \mathcal{M}}[\mathcal{L},\mathcal{M}],X_i,y_o\} =
+$
+\\ \vspace{2mm}
+$
+\{ \hat{\mathcal{L}},\hat{\mathcal{M}},X_i,y_o\}  \hspace{2mm} \forall s^+ \in S^+; \hspace{2mm} \hat{\mathcal{L}} \subseteq \mathcal{L}; \hspace{2mm} \mathcal{M} \subseteq \hat{\mathcal{M}}
+$
+\\ \vspace{7mm}
+$
+s_{\mathcal{L} \rightarrow \mathcal{M}}^+\lbrack n \rbrack := P_{\mathcal{L}\rightarrow \mathcal{M}} \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+s_{\mathcal{M} \rightarrow \mathcal{L}}^+\lbrack n \rbrack := P_{\mathcal{M}\rightarrow \mathcal{L}} \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
+$
+\end{center}
 
 
 
@@ -953,7 +1174,101 @@ Proof by contradiction
 
 
 
-\subsection{Theorem of Polynomial Duality}
+
+
+
+
+
+% Inductive Function
+\subsection{Inductive Function O[n+1]}
+System of equations? Might be able to tie back to O[n]
+\begin{center}
+\vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O[n+1] = O_T[n+1] + O_S[n+1]
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+% Inductive Function in relation to duality function
+\subsubsection{Connection to duality functions}
+System of equations? Might be able to tie back to O[n]
+\begin{center}
+\vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O[n+1] = O_T[n+1] + O_S[n+1]
+$
+\\ \vspace{2mm}
+$
+O_T[n] := |\mathcal{L}| = N; \hspace{2mm} O_S[n] := |\mathcal{M}| = M
+$
+\\ \vspace{6mm}
+
+
+
+
+$
+s_{\mathcal{L} \rightarrow \mathcal{M}}^+\lbrack n \rbrack := P_{\mathcal{L}} \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i =
+$
+\\ \vspace{2mm}
+$
+\{f_{\mathcal{L} \rightarrow \mathcal{M}}[\mathcal{L},\mathcal{M}],X_i,y_o\} = \{ \hat{\mathcal{L}},\hat{\mathcal{M}},X_i,y_o\}  \hspace{3mm} \forall s^+ \in S^+; \hspace{3mm} \hat{\mathcal{M}} \subseteq \mathcal{M}; \hspace{2mm} \mathcal{L} \subseteq \hat{\mathcal{L}}
+$
+\\ \vspace{8mm}
+
+
+
+
+$
+s_{\mathcal{M} \rightarrow \mathcal{L}}^+\lbrack n \rbrack := P_{\mathcal{M}} \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+\{f_{\mathcal{M} \rightarrow \mathcal{L}}[\mathcal{L},\mathcal{M}],X_i,y_o\} = \{ \hat{\mathcal{L}},\hat{\mathcal{M}},X_i,y_o\}  \hspace{3mm} \forall s^+ \in S^+; \hspace{3mm} \hat{\mathcal{L}} \subseteq \mathcal{L}; \hspace{2mm} \mathcal{M} \subseteq \hat{\mathcal{M}}
+$
+\\ \vspace{6mm}
+
+
+
+
+
+
+
+$
+limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
+$
+
+
+
+
+\end{center}
+
+
+
+
+
+
+
+
+
+% Theorem of Polynomia? Duality
+\subsection{Theorem of (Polynomial?) Duality}
 For all Problems in P there exists a duality function\\
 Formally define dynamic programming, Optimal polynomial complexity minimizes the difference between time and space complexity order
 \begin{center}
@@ -1035,6 +1350,292 @@ N = M + 1 or M = N + 1
 
 
 
+% N Sum Problem
+\newpage
+\subsection{N Sum Problem}
+
+\subsubsection{Restate formal definition}
+\begin{center}
+\vspace{1.5mm}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+s^+ = s^+\lbrack n \rbrack := P \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},X_i,y_o \} = \{ \mathcal{L},\mathcal{M},X_i,y_o\}
+$
+\\ \vspace{6mm}
+$
+D = f[X_i] = \exists x_j,x_k \in X_i : x_j + x_k = N
+$
+\end{center}
+
+\subsubsection{Express a formal solution}
+\begin{center}
+\vspace{1.5mm}
+$
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},X_i,y_o \} = \{ \mathcal{L},\mathcal{M},X_i,y_o\}
+$
+\\ \vspace{2mm}
+$
+b_1 = s_{O_S[n]} = y_o \leftarrow \mathbb{F};
+$
+\\ \vspace{2mm}
+$
+s_1 ... s_{O_T[n]} = s_1 ... s_{\frac{n(n-1)}{2}} = y_o \leftarrow y_o \cup (x_i + x_j == N)  \hspace{3mm}  \forall i,j > i
+$
+\\ \vspace{2mm}
+$
+s^+ = \{y_o \leftarrow \mathbb{F},y_o \leftarrow y_o \cup (x_i + x_j == N) \hspace{3mm} \forall i,j > i\}
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Express the order of complexity, order of time complexity, order of space complexity}
+\begin{center}
+\vspace{1.5mm}
+$
+O_T[n] = \frac{n(n-1)}{2} \sim n^2
+$
+\\ \vspace{2mm}
+$
+O_S[n] = 1 \sim n^0
+$
+\\ \vspace{2mm}
+$
+O[n] = \frac{n(n-1)}{2} + 1 \sim n^2
+$
+\end{center}
+
+
+
+
+
+\subsubsection{Express O[n+1] in terms of O[n]}
+\begin{center}
+$
+O[n] = n^2 - n + 2 
+$
+\\ \vspace{2mm}
+$
+O[n+1] = (n+1)^2 - n - 1  + 2 = n^2 + 2n + 1 - n - 1 + 2 = O[n] + 2n 
+$
+\end{center}
+
+
+
+\subsubsection{Prove |$\mathbb{P}$| > 0}
+\begin{center}
+$
+O[n] = n^2 - n + 2 
+$
+\\ \vspace{2mm}
+$
+O[n] = n^2 - n +2  < n^2 - n + 3 \hspace{3mm} \forall n
+$
+\\ \vspace{2mm}
+$
+\therefore D \in \mathbb{P}
+$
+\end{center}
+
+
+
+
+
+
+
+
+% Alternate Solution
+\newpage
+\subsubsection{N Sum alternate solution}
+\begin{center}
+\vspace{1.5mm}
+$
+s_1 = (b_1 = y_o) \leftarrow \mathbb{F}
+$
+\\ \vspace{2mm}
+$
+s_2,s_4,...,s_{2n} = s_{2i} =  b_{i+1} \leftarrow N - x_i \hspace{3mm} i = 1...n
+$
+\\ \vspace{2mm}
+$
+s_3,s_5 ... s_{2n+1} = s_{2i+1} = y_o \leftarrow y_o \cup (x_i \in \mathcal{M})) \hspace{3mm} i = 1...n
+$
+\\ \vspace{2mm}
+$
+O_S[n] = n + 1; O_T[n] = n(1 + O_s[n])
+$
+\\ \vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n] = n(1 + O_S[n]) + n + 1 = n(1 + n + 1) + n + 1
+$
+\\ \vspace{2mm}
+$
+O[n] = n^2 + 3n + 1
+$
+\end{center}
+
+
+\subsubsection{Find a dual function of solution $s^+$}
+\begin{center}
+$
+O_S[n] = n + 1; O_T[n] = n(1 + O_S[n])
+$
+\\ \vspace{2mm}
+$
+O[n] = O_T[n] + O_S[n] = n(1 + O_S[n]) + O_S[n] = n + O_S[n](1+n)
+$
+\end{center}
+
+\subsubsection{Find an inductive function for $O_S[n]$}
+\begin{center}
+$
+O_S[n] = n + 1; O_S[n+1] = n+2
+$
+\\ \vspace{2mm}
+$
+O_S[n+1] = n + 2 = (n+1) + 1 = O_S[n] + 1
+$
+\end{center}
+
+% O[n+1] Alternate Solution
+\subsubsection{Find an expression for O[n+1] as a function of O[n]}
+\begin{center}
+$
+O[n] = O_T[n] + O_S[n] =n(1+O_S[n]) + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O[n+1] = n+1(1+O_S[n]) + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O[n] + inductive[n] = O[n+1]
+$
+\\ \vspace{2mm}
+$
+n(1+O_S[n]) + O_S[n] + inductive[n] =  (n+1)(1+O_S[n + 1]) + O_S[n + 1] 
+$
+\\ \vspace{2mm}
+$
+inductive[n] =  (n+1)(1+O_S[n + 1]) + O_S[n + 1]  - n(1+O_S[n]) - O_S[n]
+$
+\\ \vspace{2mm}
+$
+inductive[n] =  (n+1)(1+O_S[n] + 1) + O_S[n] + 1  - n(1+O_S[n]) - O_S[n]
+$
+\\ \vspace{2mm}
+$
+inductive[n] =  (n+1)(O_S[n] + 2) + 1  - n(1+O_S[n])
+$
+\\ \vspace{2mm}
+$
+inductive[n] =  nO_S[n] + 2n + O_S[n] + 2 + 1 - n - nO_S[n]
+$
+\\ \vspace{2mm}
+$
+inductive[n] =  2n + O_s[n] - n + 3 = 2n + n + 1 - n + 3 = 2n + 4
+$
+\\ \vspace{4mm}
+$
+O[n+1] = O[n] + inductive[n] = O[n] + 2n + 4
+$
+
+%$
+%O[n] = n^2 + 3n + 1
+%$
+%\\ \vspace{2mm}
+%$
+%O[n+1] = (n+1)^2 + 3(n+1) + 1 = n^2 + 2n + 1 + 3n + 3 +1 = n^2 + 5n + 5
+%$
+%\\ \vspace{2mm}
+%$
+%O[n+1] = n^2 + 3n + 1 + 2n + 4 = O[n] + 2n + 4
+%$
+\end{center}
+
+
+
+% Limit without an explicit O[n] N Sum
+\subsubsection{Show the limit$_{n\rightarrow\infty} \frac{O[n+1]}{O[n]}$ = 1}
+\begin{center}
+$
+limit_{n\rightarrow\infty} \frac
+{O[n+1]}
+{O[n]} =
+$
+\\ \vspace{4mm}
+$
+limit_{n\rightarrow\infty} \frac
+{O[n] + 2n + 4}
+{O[n]} =
+$
+\\ \vspace{4mm}
+$
+limit_{n\rightarrow\infty} 1 + \frac{2n+4}{O[n]}
+$
+\\ \vspace{4mm}
+$
+\not \exists K : 1 - 1 + \frac{2n + 4}{O[n]} > K \hspace{3mm} \forall n,K>0
+$
+\\ \vspace{4mm}
+$
+\therefore  limit_{n\rightarrow\infty} \frac{O[n+1]}{O[n]} = 1
+$
+\end{center}
+
+
+
+
+
+
+\subsubsection{Prove |$\mathbb{P}$| > 0}
+\begin{center}
+$
+D \in \mathbb{P} \Longleftrightarrow limit_{n\rightarrow\infty} \frac{O[n+1]}{O[n]} = 1
+$
+\\ \vspace{2mm}
+$
+\therefore D \in \mathbb{P}
+$
+\end{center}
+
+
+
+
+\subsubsection{Criticism on interpretation of hashing solutions}
+In the below solution to N sum problem, the solution is typically considered to be $O_T[n] \sim n$. However, the line "if element in M:" 
+requires a search through an (indexed) dictionary. During element $x_i$; |M| = i . If M is pre-allocated to the total number of elements the search requires n lookups each iteration
+where n = |$int\_list$|. Additional proofs required for optimized indexing. Prove the cost of storing and querying yields the same or different optimal order of complexity.\\
+\\
+def SumToN(int\_list,N): \\
+output = False;\\
+M = \{\}; \\
+for element in int\_list: \\
+if element in M:\\
+output = True;\\
+else:\\
+M[N - element] = True;\\
+output = output;\\
+return output;
 
 
 
@@ -1073,32 +1674,114 @@ $
 
 
 \section{Divergent Problems}
+\subsection{Definition}
 \begin{center}
 $
-\mathcal{\hat{D}} := \{ D_1,D_2,...\} 
+\mathcal{\hat{D}} := \{ \hat{D}_1,\hat{D}_2,...\} 
 $
 \\ \vspace{2mm}
 $
-\hspace{2mm} \hat{O}_T[n] \geq n^n \hspace{3mm} \forall n, D_j \in \mathcal{N}
+lim_{n \rightarrow \infty} \frac{\hat{O}[n+1]}{\hat{O}[n]} \hspace{2mm} diverges
+$
+\\ \vspace{2mm}
+$
+\forall s^+_{\hat{D}}
+$
+\end{center}
+%\begin{center}
+%$
+%\mathcal{\hat{D}} := \{ D_1,D_2,...\} 
+%$
+%\\ \vspace{2mm}
+%$
+%\hspace{2mm} \hat{O}[n] \geq n^n \hspace{3mm} \forall n, D_j \in \mathcal{N}
+%$
+%\end{center}
+
+\subsection{Property of Divergent Problem Complexity 1}
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{\hat{O}[n+1]}{\hat{O}[n]} \hspace{2mm} diverges
+$
+\end{center}
+\subsubsection{Proof}
+
+
+\subsection{Property of Divergent Problem Complexity 2}
+\begin{center}
+$
+lim_{n \rightarrow \infty}( \hat{O}[n+1] - \hat{O}[n] ) \hspace{2mm} diverges
+$
+\end{center}
+\subsubsection{Proof}
+
+
+
+
+
+
+
+
+\subsection{Divergent Duality?}
+\subsection{Divergent Induction Functions?}
+
+
+
+
+
+
+
+
+
+% Fundamental Theorem of Computation
+\newpage
+\section{Fundamental Theorem of Computation}
+Some solutions for Polynomial Problems are divergent; There exist no solution for divergent problems with polynomial bound
+\begin{center}
+$
+\mathbb{P} = \{D_1,D_2,...\}
+$
+\\ \vspace{2mm}
+$
+S^+_{\mathbb{P}} = \{s_1,s_2,...\}
+$
+\\ \vspace{2mm}
+$
+\not \exists s \in S^+_{\mathbb{P}} : O[n] \geq n^n \hspace{4mm} \forall s_i \in S^+_{\mathbb{P}} 
+$
+\\ \vspace{2mm}
+$
+\mathbb{P} \cap \hat{D} = \emptyset
+$
+\\ \vspace{6mm}
+$
+limit_{n \rightarrow \infty} \nestedloop [s^+[n]] = n^n  \hspace{4mm} \forall s_i \in S^+_{\mathbb{P}} 
 $
 \end{center}
 
-\subsection{Property of Divergent Problems 1}
-\subsection{Property of Divergent Problems 2}
+\subsection{Proof}
+\begin{center}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{6mm}
+$
+Let \hspace{2mm} D \in \mathbb{P}
+$
+\\ \vspace{2mm}
+$
+s^+ := P \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+O[n] = O_T[n] + O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
+$
+\end{center}
 
-
-
-
-
-
-
-
-
-
-
-
-\section{Fundamental Theorem of Computation}
-\subsection{Prove the universal bound of Polynomial Problems is $n^n$}
 \subsection{Non-Polynomial implies Divergent}
 
 
@@ -1151,12 +1834,15 @@ $
 $
 \end{center}
 
-\subsection{Prove Traveling Salesman Problem is in $\hat{\mathcal{D}}$}
-Either show not in $\mathbb{P}$ or in $\hat{\mathcal{D}}$
-
-\subsubsection{Determine a duality function for The Traveling Salesman Problem}
-\subsubsection{Show that the limit of O[n+1]/O[n] is a function of n}
-\subsubsection{Show that The Traveling Salesman Problem must be in $\hat{\mathcal{D}}$}
+\subsection{Determine $s^+ \Longrightarrow O_{S_{opt}}$}
+\subsection{Express $O[n],O_T[n],O_S[n] =  O_{S_{opt}}$}
+\subsection{Revisit expressions properties inequalities connecting $O_{opt}; O_{T_{opt}}; O_{S_{opt}}$}
+\subsection{Determine an alternate solution storing subpaths}
+\subsection{Express $O[n],O_T[n],O_S[n]$}
+\subsection{Determine a dual function}
+\subsection{Show $limit_{n \rightarrow \infty} \frac{\hat{O}[n+1]}{\hat{O}[n]}$ \hspace{1mm} diverges}
+\subsection{Let $\hat{s}^+$; a solution with $limit_{n \rightarrow \infty} \frac{\hat{O}[n+1]}{\hat{O}[n]}$ = 1}
+\subsection{Show $\hat{s}^+$ implies a contradiction}
 
 
 
@@ -1190,6 +1876,9 @@ Prove the problem is divergent\\
 There fore it can only be proven to a certain degree\\
 The limit as n approaches infinity implies a real part of one half\\
 Connection with the real and imaginary part of O $\lbrack n \rbrack$
+
+\subsection{Determine a duality function for the Riemann Hypothesis}
+\subsection{Determine an expression for O[n+1] as a function of O[n]}
 
 \subsection{Prove $O_{opt}$ is performing $O_{opt}$ recursively for the ints less than square root of n}
 Testing the primes less than sqrt(n)? double check \\
