@@ -598,7 +598,7 @@ By definition of decision problem; Proof by contradiction; $y_o$ must be set to 
 \subsection{$O_{opt}[n] > O_{S_{opt}}[n]$}
 \subsubsection{Proof}
 
-\subsection{$O_{opt}[n] < O_{S_{opt}}[n] +  O_{T_{opt}}[n]$ ?}
+\subsection{$O_{opt}[n] < O_{S_{opt}}[n] +  O_{T_{opt}}[n]$}
 \subsubsection{Proof}
 
 
@@ -731,13 +731,28 @@ $
 
 
 
+\subsection{Conjecture of Optimal Solutions}
+$O_{T_{min}}$ subject to $O_{S_{opt}} = 1$
+\begin{center}
+$
+\exists s^+_{opt} :
+$
+\\ \vspace{2mm}
+$
+O_{opt}[n] = 1 + O_T[n] = O_{S_{opt}} + O_T[n] \hspace{3mm} \forall s^+ \in S^+
+$
+\end{center}
+\subsubsection{Proof}
 
 
 
 
-
-
-
+\subsection{Theorem of Optimal Solutions}
+Alternate way of expressing $O_{opt}[n]$ possibly with efficiency function and equivalence functions?\\
+$f_{S \rightarrow T}[n,O_S[n]]$ as a function of space complexity order K?\\
+Efficiency function ($f_{S \rightarrow T}[n,O_S[n]]$ as a function of space complexity order K) is strictly decreasing for Polynomial Functions\\
+Or there's an inflection point\\
+Efficiency function might have a general pattern for all problems in D
 
 
 
@@ -816,6 +831,83 @@ $O_{T}[n] < (\lambda_{\hat{K}} n)^{\hat{K}} + (\lambda_{\hat{K}-1} n)^{\hat{K}-1
 
 \subsubsection{Proof}
 Proof by contradiction; definition of optimal complexity
+
+
+
+
+
+
+
+
+
+\subsection{Total Polynomial Complexity Implies Time bounded Polynomial Complexity}
+\begin{center}
+\vspace{1mm}
+$
+D \in \mathbb{P} \Longrightarrow \exists s^+ \in \mathbb{S}^+_{time}
+$
+\end{center}
+
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\\ \vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_T[n] < O[n]
+$
+\\ \vspace{2mm}
+$
+\therefore O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+\subsection{Total Polynomial Complexity Implies Space bounded Polynomial Complexity}
+\begin{center}
+\vspace{1mm}
+$
+D \in \mathbb{P} \Longrightarrow \exists s^+ \in \mathbb{S}^+_{space}
+$
+\end{center}
+
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\\ \vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_S[n] < O[n]
+$
+\\ \vspace{2mm}
+$
+\therefore O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+\subsection{Total Polynomial Complexity iff Time and Space bounded by Polynomial Complexity}
+Use limit definition
+
+
 
 
 
@@ -908,6 +1000,15 @@ $
 
 
 
+
+
+
+
+
+
+
+
+
 % Polynomial Complexity Time Based Proofs
 \newpage
 \section{Polynomial Time Complexity}
@@ -927,11 +1028,11 @@ $O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace
 
 
 
-\subsection{Polynomial Time Problems}
-Define $\mathbb{P}_{time}$, the set of Decision Problems that can be solved with polynomial time complexity
+\subsection{Polynomial Time Solutions}
+Define $\mathbb{S}^+_{time}$, the set of solutions that can be solved with polynomial time complexity
 \begin{center}
 $
-\mathbb{P}_{time} := \{D_1,D_2,...\} : 
+\mathbb{S}^+_{time} := \{s^+_1,s^+_2,...\} : 
 $
 \\
 $
@@ -939,45 +1040,13 @@ $
 $
 \\
 $
-O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_j \in \mathbb{P}_{time}
+O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, s_i \in \mathbb{S}^+_{time}
 $
 \end{center}
 
 
 
 
-
-
-\subsection{Total Polynomial Complexity Implies Time bounded Polynomial Complexity}
-\begin{center}
-\vspace{1mm}
-$
-D \in \mathbb{P} \Longrightarrow D \in \mathbb{P}_{time}
-$
-\end{center}
-
-\subsubsection{Proof}
-\begin{center}
-$
-O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
-$
-\\ \vspace{2mm}
-$
-O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_T[n] < O[n]
-$
-\\ \vspace{2mm}
-$
-\therefore O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
-$
-\end{center}
-
-
-
-
-
-
-\subsection{Time bounded Polynomial Complexity implies Total Polynomial Complexity?}
-\subsection{Polynomial Time Complexity iff Polynomial Complexity?}
 
 
 
@@ -998,7 +1067,7 @@ $
 $
 \\ \vspace{2mm}
 $
-(O_T[n+1] - O_T[n]) <  (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n \hspace{2mm} \forall n
+(O_T[n+1] - O_T[n]) <  (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
 $
 \end{center}
 \subsubsection{Proof}
@@ -1038,8 +1107,45 @@ $
 % Polynomial Space Complexity
 \newpage
 \section{Polynomial Space Complexity}
+
+
+% Definition of Polynomial Space Complexity
 \subsection{Defintion}
+Decision problem $D$ with (optimal) Time Complexity $O_S[n]$ is bounded by polynomial time complexity if
+\begin{center}
+$\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
+\\ \vspace{2mm}
+$O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\end{center}
+
+
+
+
+
+
+
 \subsection{Polynomial Space Problems}
+Define $\mathbb{S}^+_{space}$, the set of solutions that can be solved with polynomial time complexity
+\begin{center}
+$
+\mathbb{S}^+_{space} := \{s_1,s_2,...\} : 
+$
+\\
+$
+\exists K,C,\lambda_1...\lambda_K : 
+$
+\\
+$
+O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, s_i \in \mathbb{S}^+_{time}
+$
+\end{center}
+
+
+
+
+
+
+
 \subsection{Total Polynomial Complexity Implies Space bounded Polynomial Complexity}
 \subsection{Space Bounded Polynomial Complexity Implies Total Polynomial Complexity}
 \subsection{Polynomial Space Complexity iff Polynomial Complexity}
@@ -1112,28 +1218,11 @@ $
 
 
 
-% Theorem of Polynomial Duality; Polynomial in time and space
+% Theorem of Computational Duality; Polynomial in time and space
 \newpage
 \section{Polynomial Duality}
 \subsection{Proof of the existence of $O_{S_{opt}}$}
 \subsection{Proof of the existence of $O_{T_{opt}}$}
-
-
-
-
-
-
-%\subsection{Proof that $O_{T_{opt}}[n] \neq 0$}
-%Proof by contradiction
-%\subsection{Proof that $O_{S_{opt}}[n] \neq 0$}
-%Proof by contradiction
-%\subsection{Polynomial in time iff Polynomial in space?}
-
-
-
-
-
-
 \subsection{Theorem Either OT or OS is on the order of Oopt}
 Proof by contradiction
 
@@ -1141,63 +1230,6 @@ Proof by contradiction
 
 
 
-
-
-
-
-
-% Definition of a Duality Function
-%\subsection{Duality Functions}
-%\begin{center}
-%\vspace{1mm}
-%$
-%X_i = \{x_1,...,x_n\}
-%$
-%\\ \vspace{2mm}
-%$
-%D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
-%$
-%\\ \vspace{2mm}
-%$
-%s^+ = s^+\lbrack n \rbrack := P \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
-%$
-%\\ \vspace{2mm}
-%$
-%s^+ = \{ \mathcal{L},\mathcal{M},X_i,y_o\} \hspace{2mm}
-%$
-%\\ \vspace{6mm}
-%$
-%f_{\mathcal{L} \rightarrow \mathcal{M}} := f[\mathcal{L},\mathcal{M}] \rightarrow \hat{\mathcal{L}}, \hat{\mathcal{M}} :
-%$
-%\\ \vspace{2mm}
-%$
-%s_{\mathcal{L} \rightarrow \mathcal{M}}^+ = \{f_{\mathcal{L} \rightarrow \mathcal{M}}[\mathcal{L},\mathcal{M}],X_i,y_o\} =
-%$
-%\\ \vspace{2mm}
-%$
-%\{ \hat{\mathcal{L}},\hat{\mathcal{M}},X_i,y_o\}  \hspace{2mm} \forall s^+ \in S^+; \hspace{2mm} \hat{\mathcal{M}} \subseteq \mathcal{M}; \hspace{2mm} \mathcal{L} \subseteq \hat{\mathcal{L}}
-%$
-%\\ \vspace{6mm}
-%$
-%f_{\mathcal{M} \rightarrow \mathcal{L}} := f[\mathcal{L},\mathcal{M}] \rightarrow \hat{\mathcal{L}}, \hat{\mathcal{M}} :
-%$
-%\\ \vspace{2mm}
-%$
-%s_{\mathcal{M} \rightarrow \mathcal{L}}^+ = \{f_{\mathcal{L} \rightarrow \mathcal{M}}[\mathcal{L},\mathcal{M}],X_i,y_o\} =
-%$
-%\\ \vspace{2mm}
-%$
-%\{ \hat{\mathcal{L}},\hat{\mathcal{M}},X_i,y_o\}  \hspace{2mm} \forall s^+ \in S^+; \hspace{2mm} \hat{\mathcal{L}} \subseteq \mathcal{L}; \hspace{2mm} \mathcal{M} \subseteq \hat{\mathcal{M}}
-%$
-%\\ \vspace{7mm}
-%$
-%s_{\mathcal{L} \rightarrow \mathcal{M}}^+\lbrack n \rbrack := P_{\mathcal{L}\rightarrow \mathcal{M}} \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
-%$
-%\\ \vspace{2mm}
-%$
-%s_{\mathcal{M} \rightarrow \mathcal{L}}^+\lbrack n \rbrack := P_{\mathcal{M}\rightarrow \mathcal{L}} \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
-%$
-%\end{center}
 
 
 
@@ -1212,8 +1244,7 @@ Proof by contradiction
 
 
 % Inductive Function
-\subsection{Inductive Function O[n+1]}
-System of equations? Might be able to tie back to O[n]
+\subsection{Inductive Function $f_{n+1}$}
 \begin{center}
 \vspace{2mm}
 $
@@ -1223,9 +1254,18 @@ $
 $
 O[n+1] = O_T[n+1] + O_S[n+1]
 $
+\\ \vspace{4mm}
+$
+f_{n+1} := f :
+$
+\\ \vspace{2mm}
+$
+O[n+1] = f[n] + O[n] \hspace{3mm} \forall n
+$
 \end{center}
 
-
+\subsubsection{Proof of existence}
+Proof by contradiction
 
 
 
@@ -1238,76 +1278,45 @@ $
 % Equivalence Functions of OT and OS
 \subsection{Equivalence Functions}
 \subsubsection{$O_T$ to $O_S$}
+Define equivalence function $f_{T \rightarrow S}$; a function converting logical operations into memory elements
+\begin{center}
+$
+f_{T \rightarrow S} := f :
+$
+\\ \vspace{2mm}
+$
+O_S[n] = f[n,O_T[n]] \hspace{3mm} \forall n, s^+ \in S^+
+$
+\end{center}
+
 \subsubsection{$O_S$ to $O_T$}
+Define equivalence function $f_{S \rightarrow T}$; a function converting memeory elements into logical operations
+\begin{center}
+$
+f_{S \rightarrow T} := f :
+$
+\\ \vspace{2mm}
+$
+O_T[n] = f[n,O_S[n]] \hspace{3mm} \forall n, s^+ \in S^+
+$
+\end{center}
+
+
+\subsubsection{Proof of existence}
+Proof by contradiction
+
 \subsubsection{Invertibility}
 \subsubsection{Polynomial Bounded}
 
 
 
 
+\subsection{Efficiency Function}
+Function relating the decrease in O[n] as $O_S[n]$ increases in order\\
+$f_{S \rightarrow T}[n,O_S[n]]$ as a function of space complexity order K?
 
 
 
-
-
-
-
-% Inductive Function in relation to duality function
-%\subsubsection{Connection to duality functions}
-%System of equations? Might be able to tie back to O[n]
-%\begin{center}
-%\vspace{2mm}
-%$
-%O[n] := O_T[n] + O_S[n]
-%$
-%\\ \vspace{2mm}
-%$
-%O[n+1] = O_T[n+1] + O_S[n+1]
-%$
-%\\ \vspace{2mm}
-%$
-%O_T[n] := |\mathcal{L}| = N; \hspace{2mm} O_S[n] := |\mathcal{M}| = M
-%$
-%\\ \vspace{6mm}
-
-
-
-
-%$
-%s_{\mathcal{L} \rightarrow \mathcal{M}}^+\lbrack n \rbrack := P_{\mathcal{L}} \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i =
-%$
-%\\ \vspace{2mm}
-%$
-%\{f_{\mathcal{L} \rightarrow \mathcal{M}}[\mathcal{L},\mathcal{M}],X_i,y_o\} = \{ \hat{\mathcal{L}},\hat{\mathcal{M}},X_i,y_o\}  \hspace{3mm} \forall s^+ \in S^+; \hspace{3mm} \hat{\mathcal{M}} \subseteq \mathcal{M}; \hspace{2mm} \mathcal{L} \subseteq \hat{\mathcal{L}}
-%$
-%\\ \vspace{8mm}
-
-
-
-
-%$
-%s_{\mathcal{M} \rightarrow \mathcal{L}}^+\lbrack n \rbrack := P_{\mathcal{M}} \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
-%$
-%\\ \vspace{2mm}
-%$
-%\{f_{\mathcal{M} \rightarrow \mathcal{L}}[\mathcal{L},\mathcal{M}],X_i,y_o\} = \{ \hat{\mathcal{L}},\hat{\mathcal{M}},X_i,y_o\}  \hspace{3mm} \forall s^+ \in S^+; \hspace{3mm} \hat{\mathcal{L}} \subseteq \mathcal{L}; \hspace{2mm} \mathcal{M} \subseteq \hat{\mathcal{M}}
-%$
-%\\ \vspace{6mm}
-
-
-
-
-
-
-
-%$
-%limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
-%$
-
-
-
-
-%\end{center}
 
 
 
@@ -1318,7 +1327,7 @@ $
 
 
 % Theorem of Polynomia? Duality
-\subsection{Theorem of (Polynomial?) Duality}
+\subsection{Theorem of Computational Duality}
 For all Problems in P there exists a duality function\\
 Formally define dynamic programming, Optimal polynomial complexity minimizes the difference between time and space complexity order
 \begin{center}
@@ -1332,27 +1341,27 @@ O[n] := O_T[n] + O_S[n]
 $
 \\ \vspace{2mm}
 $
-O_{opt}[n] := O[n] :
+limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1 \hspace{3mm} \forall s^+ \in S_{\mathbb{P}}^+
+$
+\\ \vspace{7mm}
+$
+O_T[n] = f_{S \rightarrow T}[n,O_S[n]]
 $
 \\ \vspace{2mm}
 $
-\not \exists \hat{O} \lbrack n \rbrack < O[n] \hspace{3mm} \forall n
+O_S[n] = f_{T \rightarrow S}[n,O_T[n]]
 $
-\\ \vspace{6mm}
+\\ \vspace{7mm}
 $
-O_T^+[n] := |\mathcal{L}| = N :
+limit_{n \rightarrow \infty} \frac{O_T[n+1] + O_S[n+1]}{O_T[n] + O_S[n]} = 1 \hspace{3mm} \forall s^+ \in S_{\mathbb{P}}^+
 $
-\\ \vspace{2mm}
+\\ \vspace{7mm}
 $
-\not \exists \hat{O_T} \lbrack n \rbrack < O^+_{T}[n] \hspace{3mm} \forall n
+limit_{n \rightarrow \infty} \frac{ f_{S \rightarrow T}[n+1,O_S[n+1]] + O_S[n+1]}{ f_{S \rightarrow T}[n,O_S[n]] + O_S[n]} = 1 \hspace{3mm} \forall s^+ \in S_{\mathbb{P}}^+
 $
-\\ \vspace{2mm}
+\\ \vspace{3mm}
 $
-O_S^+[n] := |\mathcal{M}| = M
-$
-\\ \vspace{2mm}
-$
-\not \exists \hat{O_S} \lbrack n \rbrack < O^+_{S}[n] \hspace{3mm} \forall n
+limit_{n \rightarrow \infty} \frac{O_T[n+1] + f_{T \rightarrow S}[n+1,O_T[n+1]]}{O_T[n] + f_{T \rightarrow S}[n,O_T[n]]} = 1 \hspace{3mm} \forall s^+ \in S_{\mathbb{P}}^+
 $
 \end{center}
 
@@ -1361,13 +1370,11 @@ $
 
 
 
-
-% Polynomial Duality Proof
-\subsection{Proof}
-Prove that Order can be subtracted from Os or Ot and added to the other; double check cauchy schwartz inequal
+\subsection{Theorem of Computational Duality part2}
+Relate $f_{n+1}[n]$ to equivalence functions
 \begin{center}
 $
-O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_j \in \mathbb{P}
+D \in \mathbb{P}
 $
 \\ \vspace{2mm}
 $
@@ -1375,40 +1382,52 @@ O[n] := O_T[n] + O_S[n]
 $
 \\ \vspace{2mm}
 $
-O_T[n] + O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_j \in \mathbb{P}
+O[n+1] = O_T[n+1] + O_S[n+1] = O[n] + f_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+O_T[n] = f_{S \rightarrow T}[n,O_S[n]]
+$
+\\ \vspace{2mm}
+$
+O_S[n] = f_{T \rightarrow S}[n,O_T[n]]
+$
+\\ \vspace{2mm}
+$
+f_{S \rightarrow T}[n+1,O_S[n+1]] + O_S[n+1] = O[n] + f_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+f_{S \rightarrow T}[n+1,O_S[n+1]] + O_S[n+1] - O[n] = f_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+O_T[n+1] + f_{T \rightarrow S}[n+1,O_T[n+1]] - O[n] = f_{n+1}[n]
 $
 \end{center}
 
 
 
 
-
-
-
-\subsection{There exists an optimal OT and OS on the order of Oopt}
-
-\subsection{Even ordered decision problems}
-M-N = N-M = 0
-\subsection{Odd ordered decision problems}
-N = M + 1 or M = N + 1
-
-
-
-
-
+\subsection{Property of Polynomial Complexity}
+$f_{n+1}[n]$ has order less than O[n]\\
+$f_{n+1}[n]$ is bound by $K_{max}$ - 1
+\subsubsection{Proof}
+Proof by contradiction; limit doesn't converge
 
 
 
 
 % N Sum Problem
 \newpage
-\subsection{N Sum Problem}
+\section{Sum to N Problem with 2 integers}
 
-\subsubsection{Restate formal definition}
+% Zero Order Space Complexity Solution
+\subsection{State formal definition of Sum to N : $x_i + x_j == N$}
 \begin{center}
 \vspace{1.5mm}
 $
-X_i = \{x_1,...,x_n\}
+X_i = \{x_1,...,x_n,N\}
 $
 \\ \vspace{2mm}
 $
@@ -1420,89 +1439,149 @@ s^+ = s^+\lbrack n \rbrack := P \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_
 $
 \\ \vspace{2mm}
 $
-s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},X_i,y_o \} = \{ \mathcal{L},\mathcal{M},X_i,y_o\}
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \} = \{ \mathcal{L},\mathcal{M},y_o\}
 $
 \\ \vspace{6mm}
 $
-D = f[X_i] = \exists x_j,x_k \in X_i : x_j + x_k = N
+D = f[X_i] = \exists x_j,x_k \in X_i : x_j + x_k == N
 $
 \end{center}
 
-\subsubsection{Express a formal solution}
+\subsection{Express a formal solution : $O_S[n] \sim n^0$}
 \begin{center}
 \vspace{1.5mm}
 $
-s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},X_i,y_o \} = \{ \mathcal{L},\mathcal{M},X_i,y_o\}
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \} = \{ \mathcal{L},\mathcal{M},y_o\}
 $
 \\ \vspace{2mm}
 $
-b_1 = s_{O_S[n]} = y_o \leftarrow \mathbb{F};
+s_1 = y_o \leftarrow \mathbb{F};
 $
 \\ \vspace{2mm}
 $
-s_1 ... s_{O_T[n]} = s_1 ... s_{\frac{n(n-1)}{2}} = y_o \leftarrow y_o \cup (x_i + x_j == N)  \hspace{3mm}  \forall i,j > i
+\forall i,j > i
 $
 \\ \vspace{2mm}
 $
-s^+ = \{y_o \leftarrow \mathbb{F},y_o \leftarrow y_o \cup (x_i + x_j == N) \hspace{3mm} \forall i,j > i\}
+s_2,s_3,s_8,s_9,...,s_{3ij-4},s_{3ij-3}...,s_{3n(n-1)-4},s_{3n(n-1)-3} =  b_1 \leftarrow x_i + x_j 
+$
+\\ \vspace{2mm}
+$
+s_4,s_5,s_{10},s_{11},...,s_{3ij-2},s_{3ij-1}...,s_{3n(n-1)-2},s_{3n(n-1)-1} = b_1 \leftarrow b_1 == N
+$
+\\ \vspace{2mm}
+$
+s_6,s_7,s_{12},s_{13}...,s_{3ij},s_{3ij+1}...,s_{3n(n-1)},s_{3n(n-1)+1} = y_o \leftarrow y_o \lor b_1
+$
+\\ \vspace{2mm}
+$
+s^+ = \{y_o \leftarrow \mathbb{F},y_o \leftarrow y_o \lor (x_i + x_j == N) \hspace{3mm} \forall i,j > i \hspace{1mm}| \hspace{1mm} b_1,y_o\}
 $
 \end{center}
 
-
-
-
-
-
-
-
-
-
-
-\subsubsection{Express the order of complexity, order of time complexity, order of space complexity}
-\begin{center}
-\vspace{1.5mm}
-$
-O_T[n] = \frac{n(n-1)}{2} \sim n^2
-$
-\\ \vspace{2mm}
-$
-O_S[n] = 1 \sim n^0
-$
-\\ \vspace{2mm}
-$
-O[n] = \frac{n(n-1)}{2} + 1 \sim n^2
-$
-\end{center}
-
-
-
-
-
-\subsubsection{Express O[n+1] in terms of O[n]}
+\subsection{Determine $O[n], O_S[n], O_T[n]$ for the above solution}
 \begin{center}
 $
-O[n] = n^2 - n + 2 
+O_S[n] = |y_o| + |b_1| = 2
 $
 \\ \vspace{2mm}
 $
-O[n+1] = (n+1)^2 - n - 1  + 2 = n^2 + 2n + 1 - n - 1 + 2 = O[n] + 2n 
+O_T[n] = 3n(n-1) + 1 = 3n(n-1) -1 + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O[n] = 3n(n-1) + 3 = 3n^2 -3n + 3
 $
 \end{center}
 
-
-
-\subsubsection{Prove |$\mathbb{P}$| > 0}
+\subsection{Show $s^+$ is bounded by Polynomial Complexity by the definition of Total Polynomial Complexity}
 \begin{center}
 $
-O[n] = n^2 - n + 2 
+O[n] = 3n(n-1) + 3 = 3n^2 -3n + 3
 $
 \\ \vspace{2mm}
 $
-O[n] = n^2 - n +2  < n^2 - n + 3 \hspace{3mm} \forall n
+O[n] = 3n^2 -3n + 3 < 3n^2 -3n +4 \hspace{2mm} \forall n
 $
 \\ \vspace{2mm}
 $
-\therefore D \in \mathbb{P}
+\therefore s^+ \in S^+_{\mathbb{P}}
+$
+\end{center}
+
+\subsection{Show $s^+$ is bounded by Polynomial Complexity by showing limit$_{n \rightarrow \infty}\frac{O[n+1]}{O[n]}$ = 1}
+
+
+
+
+% First Order Space Complexity Solution
+\subsection{Express a formal solution : $O_S[n] \sim n^1$}
+
+
+\subsection{Determine $O[n], O_S[n], O_T[n]$ for the above first order space complexity solution}
+\begin{center}
+$
+O_S[n] = |y_o| + |b_1...b_n| + |b_{n+1}| = n + 2
+$
+\\ \vspace{2mm}
+$
+O_T[n] = 1 + 2n + \sum_{i=1}^n i = 1 + 2n + 2n(n+1) = 2n^2 + 4n + 1 
+$
+\\ \vspace{2mm}
+$
+O[n] = 2n^2 + 4n + n + 1 + 2 = 2n^2 + 5n + 3
+$
+\end{center}
+
+
+\subsection{Express equivalence function $f_{S \rightarrow T}[n,O_S[n]]$}
+\begin{center}
+$
+O_T[n] = O[n] - O_S[n] =  2n^2 + 5n + 3 - O_S[n] = f_{S \rightarrow T}[n,O_S[n]]
+$
+\end{center}
+
+\subsection{Determine inductive function $f_{n+1}$ using equivalence function $f_{S \rightarrow T}[n,O_S[n]]$}
+\begin{center}
+$
+f_{S \rightarrow T}[n+1,O_S[n+1]] + O_S[n+1] - O[n] = f_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+2(n+1)^2 +5(n+1) +3 - O_S[n+1] +  O_S[n+1] - (2n^2 - 5n - 3) = f_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+2(n+1)^2 +5(n+1) - 2n^2 - 5n  = f_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+2n^2 + 4n + 2 + 5n + 5 - 2n^2 - 5n  = f_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+4n + 7  = f_{n+1}[n]
+$
+\end{center}
+
+
+\subsection{Show $s^+$ is bounded by Polynomial Complexity by showing limit$_{n \rightarrow \infty}\frac{O[n+1]}{O[n]}$ = 1}
+By showing the order $f_{n+1}[n]$ is less than O[n]
+\begin{center}
+$
+limit_{n \rightarrow \infty}\frac{O[n+1]}{O[n]} = 
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty}\frac{O[n]+ f_{n+1}[n]}{O[n]} = 
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty} 1 + \frac{f_{n+1}[n]}{O[n]} = 
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty} 1 + \frac{4n+7}{2n^2 + 5n + 3} = 
 $
 \end{center}
 
@@ -1511,187 +1590,11 @@ $
 
 
 
-
-
-% Alternate Solution
 \newpage
-\subsubsection{N Sum alternate solution}
-\begin{center}
-\vspace{1.5mm}
-$
-s_1 = (b_1 = y_o) \leftarrow \mathbb{F}
-$
-\\ \vspace{2mm}
-$
-s_2,s_4,...,s_{2n} = s_{2i} =  b_{i+1} \leftarrow N - x_i \hspace{3mm} i = 1...n
-$
-\\ \vspace{2mm}
-$
-s_3,s_5 ... s_{2n+1} = s_{2i+1} = y_o \leftarrow y_o \cup (x_i \in \mathcal{M})) \hspace{3mm} i = 1...n
-$
-\\ \vspace{2mm}
-$
-O_S[n] = n + 1; O_T[n] = n(1 + O_s[n])
-$
-\\ \vspace{2mm}
-$
-O[n] := O_T[n] + O_S[n] = n(1 + O_S[n]) + n + 1 = n(1 + n + 1) + n + 1
-$
-\\ \vspace{2mm}
-$
-O[n] = n^2 + 3n + 1
-$
-\end{center}
+\section{Sum to N Problem General Solution}
+\subsection{State formal definition of Sum to N with 3 integers : $x_i + x_j + x_k == N$}
 
-
-\subsubsection{Find a dual function of solution $s^+$}
-\begin{center}
-$
-O_S[n] = n + 1; O_T[n] = n(1 + O_S[n])
-$
-\\ \vspace{2mm}
-$
-O[n] = O_T[n] + O_S[n] = n(1 + O_S[n]) + O_S[n] = n + O_S[n](1+n)
-$
-\end{center}
-
-\subsubsection{Find an inductive function for $O_S[n]$}
-\begin{center}
-$
-O_S[n] = n + 1; O_S[n+1] = n+2
-$
-\\ \vspace{2mm}
-$
-O_S[n+1] = n + 2 = (n+1) + 1 = O_S[n] + 1
-$
-\end{center}
-
-% O[n+1] Alternate Solution
-\subsubsection{Find an expression for O[n+1] as a function of O[n]}
-\begin{center}
-$
-O[n] = O_T[n] + O_S[n] =n(1+O_S[n]) + O_S[n]
-$
-\\ \vspace{2mm}
-$
-O[n+1] = n+1(1+O_S[n]) + O_S[n]
-$
-\\ \vspace{2mm}
-$
-O[n] + inductive[n] = O[n+1]
-$
-\\ \vspace{2mm}
-$
-n(1+O_S[n]) + O_S[n] + inductive[n] =  (n+1)(1+O_S[n + 1]) + O_S[n + 1] 
-$
-\\ \vspace{2mm}
-$
-inductive[n] =  (n+1)(1+O_S[n + 1]) + O_S[n + 1]  - n(1+O_S[n]) - O_S[n]
-$
-\\ \vspace{2mm}
-$
-inductive[n] =  (n+1)(1+O_S[n] + 1) + O_S[n] + 1  - n(1+O_S[n]) - O_S[n]
-$
-\\ \vspace{2mm}
-$
-inductive[n] =  (n+1)(O_S[n] + 2) + 1  - n(1+O_S[n])
-$
-\\ \vspace{2mm}
-$
-inductive[n] =  nO_S[n] + 2n + O_S[n] + 2 + 1 - n - nO_S[n]
-$
-\\ \vspace{2mm}
-$
-inductive[n] =  2n + O_s[n] - n + 3 = 2n + n + 1 - n + 3 = 2n + 4
-$
-\\ \vspace{4mm}
-$
-O[n+1] = O[n] + inductive[n] = O[n] + 2n + 4
-$
-
-%$
-%O[n] = n^2 + 3n + 1
-%$
-%\\ \vspace{2mm}
-%$
-%O[n+1] = (n+1)^2 + 3(n+1) + 1 = n^2 + 2n + 1 + 3n + 3 +1 = n^2 + 5n + 5
-%$
-%\\ \vspace{2mm}
-%$
-%O[n+1] = n^2 + 3n + 1 + 2n + 4 = O[n] + 2n + 4
-%$
-\end{center}
-
-
-
-% Limit without an explicit O[n] N Sum
-\subsubsection{Show the limit$_{n\rightarrow\infty} \frac{O[n+1]}{O[n]}$ = 1}
-\begin{center}
-$
-limit_{n\rightarrow\infty} \frac
-{O[n+1]}
-{O[n]} =
-$
-\\ \vspace{4mm}
-$
-limit_{n\rightarrow\infty} \frac
-{O[n] + 2n + 4}
-{O[n]} =
-$
-\\ \vspace{4mm}
-$
-limit_{n\rightarrow\infty} 1 + \frac{2n+4}{O[n]}
-$
-\\ \vspace{4mm}
-$
-\not \exists K : 1 - 1 + \frac{2n + 4}{O[n]} > K \hspace{3mm} \forall n,K>0
-$
-\\ \vspace{4mm}
-$
-\therefore  limit_{n\rightarrow\infty} \frac{O[n+1]}{O[n]} = 1
-$
-\end{center}
-
-
-
-
-
-
-\subsubsection{Prove |$\mathbb{P}$| > 0}
-\begin{center}
-$
-D \in \mathbb{P} \Longleftrightarrow limit_{n\rightarrow\infty} \frac{O[n+1]}{O[n]} = 1
-$
-\\ \vspace{2mm}
-$
-\therefore D \in \mathbb{P}
-$
-\end{center}
-
-
-
-
-\subsubsection{Criticism on interpretation of hashing solutions}
-In the below solution to N sum problem, the solution is typically considered to be $O_T[n] \sim n$. However, the line "if element in M:" 
-requires a search through an (indexed) dictionary. During element $x_i$; |M| = i . If M is pre-allocated to the total number of elements the search requires n lookups each iteration
-where n = |$int\_list$|. Additional proofs required for optimized indexing. Prove the cost of storing and querying yields the same or different optimal order of complexity.\\
-\\
-def SumToN(int\_list,N): \\
-output = False;\\
-M = \{\}; \\
-for element in int\_list: \\
-if element in M:\\
-output = True;\\
-else:\\
-M[N - element] = True;\\
-output = output;\\
-return output;
-
-
-
-
-
-
+\subsection{State general definition of Sum to N with q integers : $x_1 + x_2 \hspace{1mm} ... \hspace{1mm} + x_q == N$}
 
 
 
@@ -1702,27 +1605,6 @@ return output;
 
 % NP Problems
 \newpage
-\section{Definition of Non-Polynomial Problems}
-Define $\mathcal{N}$, the set of Decision Problems that cannot be solved with Polynomial Time Complexity
-\begin{center}
-$
-\mathcal{N} := \{ D_1,D_2,...\} 
-$
-\\
-$ 
-\not \exists K,C,\lambda_1...\lambda_K : \hspace{2mm}
-$
-\\
-$
-\hspace{2mm} O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_j \in \mathcal{N}
-$
-\end{center}
-
-
-
-
-
-
 \section{Divergent Problems}
 \subsection{Definition}
 \begin{center}
@@ -1898,6 +1780,10 @@ $
 \subsection{Let $\hat{s}^+$; a solution with $limit_{n \rightarrow \infty} \frac{\hat{O}[n+1]}{\hat{O}[n]}$ = 1}
 \subsection{Show $\hat{s}^+$ implies a contradiction}
 
+
+\subsection{Determine $s^+_{S_{opt}}$}
+\subsection{Determine equivalence function}
+\subsection{Determine an expression for $\frac{\hat{O_{opt}}[n+1]}{\hat{O_{opt}}[n]}$}
 
 
 
