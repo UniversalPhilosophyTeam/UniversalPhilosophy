@@ -1994,7 +1994,7 @@ $
 // $d_{proposed}$ is the shortest path\\
 $y_o \leftarrow \mathbb{T}$
 \\ \vspace{3mm}
-//$d_{proposed}$ exists as a path\\
+//$d_{proposed}$ exists as a total path length\\
 $ b_1 \leftarrow \mathbb{F}$
 \\ \vspace{3mm}
 // shortest path register\\
@@ -2147,13 +2147,23 @@ $
 
 
 
+\subsection{$\bold{Sub_+[X]}$}
+Let $Sub_+[X]$ denote a subfuction that adds all subpaths of length 1\\
+Let $O_+[n]$ denote the total complexity of subfunction $Sub_+[X]$
 
-
-\subsection{Find an expression for $O_+[n]$ := the number of $\tilde{L} \lbrack l_i,l_j \rbrack$ + $\tilde{L} \lbrack l_j,l_k \rbrack$  length 1 subpath additions}
+\subsubsection{Find an expression for $O_+[n]$ := the number of $\tilde{L} \lbrack l_i,l_j \rbrack$ + $\tilde{L} \lbrack l_j,l_k \rbrack$  length 1 subpath additions}
 \begin{center}
 \vspace{2mm}
 $
-O_+[n] =
+O_+[n] = (\sum_{i=1}^n 1)\frac{(n P (n-1)}{2}
+$
+\\ \vspace{2mm}
+$
+O_+[n] = \frac{n(n-1)!}{2}
+$
+\\ \vspace{2mm}
+$
+O_+[n] = \frac{n!}{2}
 $
 \end{center}
 
@@ -2162,14 +2172,92 @@ $
 
 
 
+\subsection{Prove $Sub_+[X]$ is a subfunction of all $s^+$ by contradiction}
+suppose not all subpaths are considered\\
+there could exist subpath resulting in an incorrect solution\\
+contradicts definition of solution\\
 
-\subsection{Prove $O_+[n]$ is a subfunction of all $s^+$ by contradiction}
-\subsection{Express the solution that stores subpaths of length 1 in memory in terms of $O_+[n]$}
-\subsection{Express $O[n],O_T[n],O_S[n],f_{n+1}$ in terms of subfunction complexities including $O_+[n]$ as a subfunction}
-\subsection{Show $O_+[n]$ diverges}
+
+
+\subsection{Show the solution storing subpaths of length 1 contains $\bold{Sub_+[X]}$}
+\begin{center}
+\vspace{4mm}
+// $d_{proposed}$ is the shortest path\\
+$y_o \leftarrow \mathbb{T}$
+\\ \vspace{3mm}
+//$d_{proposed}$ exists as a total path length\\
+$ b_1 \leftarrow \mathbb{F}$
+\\ \vspace{3mm}
+// shortest path register\\
+$ b_2 \leftarrow d_{proposed}$
+\\ \vspace{3mm}
+$loadM1Subpaths\lbrack X\rbrack$
+\\ \vspace{1mm}
+$computeAllRoutes\lbrack X \rbrack$
+\end{center}
+
+
+
+
+
+
+
+
+\subsection{Express $O[n]$ in terms of subfunction complexities including $O_+[n]$ as a subfunction complexity}
+\begin{center}
+$
+O\lbrack n \rbrack = O_{sub1}\lbrack n \rbrack + O_{sub2}\lbrack n \rbrack + 3
+$
+\\ \vspace{2mm}
+$
+ O_{sub2}\lbrack n \rbrack = O_+[n] + 8\frac{nP(n-1)}{2}
+$
+\\ \vspace{2mm}
+$
+ O_{sub2}\lbrack n \rbrack = O_+[n] + 8\frac{(n-1)!}{2}
+$
+\\ \vspace{2mm}
+$
+O\lbrack n \rbrack = O_{sub1}\lbrack n \rbrack + O_+[n] + 8\frac{(n-1)!}{2} + 3
+$
+\end{center}
+
+
+
+
+
+
+\subsection{Show $limit_{n \rightarrow \infty}\frac{O_+[n+1]}{O_+[n]}$ diverges}
+\begin{center}
+$
+limit_{n \rightarrow \infty}\frac{O_+[n+1]}{O_+[n]}
+$
+\\ \vspace{2mm}
+$
+= limit_{n \rightarrow \infty}\frac{(n+1)!}{2} \frac{2}{n!}
+$
+\\ \vspace{2mm}
+$
+= limit_{n \rightarrow \infty}\hspace{1mm} n
+$
+\end{center}
+There does not exist ... \\
+therefore $limit_{n \rightarrow \infty}\frac{O_+[n+1]}{O_+[n]}$ diverges
+
+
+
 \subsection{Prove D diverges by the theorem of divergent subfunctions}
 
 
+
+
+
+\newpage
+\section{Imaginary Problems}
+Problems with a contradictory subproblem\\
+O[n] = $n^n$\\
+Show no general finite solution exists only\\
+General approach is obtained by negative recursive set span
 
 
 % Universal Bound of Computation
