@@ -9,7 +9,7 @@
 
 \begin{document}
 
-\section*{Ch. 5 Computation}
+\section*{Computation}
 
 
 
@@ -531,7 +531,7 @@ $O[n] := O_T[n] + O_S[n] + \sum_{i=3}^{V} O_i[n]$
 % Simple Computational Complexity; Restate Time and Space Complexity; (Simple) Total Complexity
 \newpage
 \section{Simple Computational Complexity}
-The remainder of this chapter assumes simple computational complexity of dimension 2
+The remainder of this document assumes simple computational complexity of dimension 2
 
 \subsection{Definition}
 Define simple computational complexity of dimension 2
@@ -583,27 +583,141 @@ $= |\mathcal{L}| + |\mathcal{M}| + |y_o| = N + M + 1$
 \end{center}
 
 
-\subsection{$O_S[n] \neq 0$}
+\subsection{$O_S[n] > 0$}
 \subsubsection{Proof}
-By definition of decision problem; Proof by contradiction; $y_o$ must be set to TF by definition; Suppose yo = 0; then yo is empty set; contradicts definition of D
+Assume $O_S[n]$ = 0
+\begin{center}
+$
+O_S[n] := |\mathcal{M}| + |y_o| 
+$
+\\ \vspace{2mm}
+$
+O_S[n] = 0 \Rightarrow \mathcal{M} = y_o = \emptyset
+$
+\\ \vspace{2mm}
+$
+y_o = \emptyset; \hspace{2mm} y_o \in \{\mathbb{T},\mathbb{F}\}$ by definition of $s^+$
+\\ \vspace{4mm}
+$
+\therefore O_S[n] = 0$ contradicts the definition of solution $s^+$ of a decision problem
+\\ \vspace{2mm}
+$
+O_S[n] \geq 0$ by definition of magnitude
+\\ \vspace{2mm}
+$
+\therefore O_S[n] > 0
+$
+\end{center}
 
-\subsection{$O_T[n] \neq 0$}
-\subsubsection{Proof}
-By definition of decision problem; Proof by contradiction; $y_o$ must be set to TF by definition; Suppose |L| = 0; yo <- TF cap L is null by definition of empty set; implies yo emptyset (doesnt exist)
 
-\subsection{O[n] = $O_T[n] + O_S[n] \neq$ 0}
+\subsection{$O_T[n] > 0$}
 \subsubsection{Proof}
+Assume $O_T[n] = 0$
+\begin{center}
+$
+O_T[n] := |\mathcal{L}| 
+$
+\\ \vspace{2mm}
+$
+O_T[n] = 0 \Rightarrow y_o \not \in \{\mathbb{T},\mathbb{F}\}
+$
+\\ \vspace{2mm}
+$
+y_o \not \in \{\mathbb{T},\mathbb{F}\}; \hspace{2mm} y_o \in \{\mathbb{T},\mathbb{F}\}$ by definition of $s^+$
+\\ \vspace{4mm}
+$
+\therefore O_T[n] = 0$ contradicts the definition of solution $s^+$ of a decision problem
+\\ \vspace{2mm}
+$
+O_T[n] \geq 0$ by definition of magnitude
+\\ \vspace{2mm}
+$
+\therefore O_T[n] > 0
+$
+\end{center}
+
+
+
+
+\subsection{O[n] > 0}
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{3mm}
+$
+O_T[n] > 0; \hspace{2mm} O_S[n] > 0
+$
+\\ \vspace{3mm}
+$
+\therefore O[n] > 0
+$
+\end{center}
 
 \subsection{$O[n] > O_T[n]$}
 \subsubsection{Proof}
+\begin{center}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{3mm}
+$
+\hspace{2mm} O_S[n] > 0
+$
+\\ \vspace{3mm}
+$
+\therefore O[n] > O_T[n]
+$
+\end{center}
 
 \subsection{$O[n] > O_S[n]$}
 \subsubsection{Proof}
+\begin{center}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{3mm}
+$
+O_T[n] > 0
+$
+\\ \vspace{3mm}
+$
+\therefore O[n] > O_S[n]
+$
+\end{center}
 
 
 \subsection{$O[n+1] \geq O[n]$}
-
-
+\subsubsection{Proof}
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{4mm}
+$
+O[n] = |\hspace{1mm} s^+[X_i]|
+$
+\\ \vspace{2mm}
+$
+O[n+1] = \hat{O}[n] = |\hspace{1mm} s^+[\hat{X}_i]|
+$
+\end{center}
+\hspace{4mm}
+For general solutions $s^+$
+\begin{center}
+$
+s^+[\hat{X}_i] \supseteq s^+[X_i] 
+$
+\\ \vspace{2mm}
+$
+\Rightarrow |s^+[\hat{X}_i]| \geq |s^+[X_i]|
+$
+\\ \vspace{2mm}
+$
+\therefore \hat{O}[n] = O[n+1] \geq O[n]
+$
+\end{center}
 
 
 
@@ -732,7 +846,7 @@ Define $\mathbb{P}$, the set of Decision Problems that can be solved with Polyno
 $
 \mathbb{P} := \{D_1,D_2,...\} : 
 $
-\\
+\\ \vspace{4mm}
 $
 \exists K,C,\lambda_1...\lambda_K : 
 $
@@ -770,24 +884,34 @@ $
 lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
 $
 \end{center}
-\subsubsection{Proof WIP}
-FIX!!!
-Show there exists no constant satisfying the decreasing limit condition
+\subsubsection{Proof}
 \begin{center}
 $
-O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
 $
 \\ \vspace{2mm}
 $
-O[n+1] < (\lambda_K (n+1))^K + (\lambda_{K-1} (n+1))^{K-1}... + \lambda_1 (n+1) + C
+O[n+1] = (\lambda_K (n+1))^K + (\lambda_{K-1} (n+1))^{K-1}... + \lambda_1 (n+1) + C
 $
 \\ \vspace{2mm}
+$ 
+=  (\lambda_K n)^K + (\tilde{\lambda}_{K-1} n)^{K-1}... + \tilde{\lambda_1} n + \tilde{C}
 $
-O[n] \sim (\lambda n)^K; \hspace{2mm} O[n+1] \sim  (\lambda n)^K
+\\ \vspace{5mm}
 $
-\\ \vspace{2mm}
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}
 $
-lim_{n \rightarrow \infty} \frac{(\lambda n)^K}{(\lambda n)^K} = 1
+\\ \vspace{3mm}
+$
+= lim_{n \rightarrow \infty} \frac{ (\lambda_K n)^K + (\tilde{\lambda}_{K-1} n)^{K-1}... + \tilde{\lambda_1} n + \tilde{C}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}
+$
+\\ \vspace{3mm}
+$
+= lim_{n \rightarrow \infty} \frac{ (\lambda_K n)^K}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C} + \frac{ (\tilde{\lambda}_{K-1} n)^{K-1}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C} + ... + \frac{ \tilde{\lambda}_1 n}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C} +  \frac{ \tilde{C}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}
+$
+\\ \vspace{3mm}
+$
+= 1 = lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}
 $
 \end{center}
 
@@ -800,21 +924,33 @@ $
 \subsection{Property of Polynomial Complexity 2}
 \begin{center}
 $
-\exists K,C,\lambda_1,...,\lambda_K :
+\exists K,\hat{C},\hat{\lambda}_1,...,\hat{\lambda}_{K-1} :
 $
 \\ \vspace{2mm}
 $
-( O[n+1] - O[n] ) = f_{n+1}[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
+O[n+1] - O[n] = f_{n+1}[n] = (\hat{\lambda}_{K-1} n)^{K-1}... + \hat{\lambda}_1 n + \hat{C} \hspace{3mm} \forall n
 $
 \end{center}
-\subsubsection{Proof FIX!!!}
+\subsubsection{Proof}
 \begin{center}
 $
-O[n+1] < (\lambda_K (n+1))^K + (\lambda_{K-1} (n+1))^{K-1}... + \lambda_1 (n+1) + C
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
 $
 \\ \vspace{2mm}
 $
-O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
+O[n+1] = (\lambda_K (n+1))^K + (\lambda_{K-1} (n+1))^{K-1}... + \lambda_1 (n+1) + C
+$
+\\ \vspace{2mm}
+$ 
+=  (\lambda_K n)^K + (\tilde{\lambda}_{K-1} n)^{K-1}... + \tilde{\lambda_1} n + \tilde{C}
+$
+\\ \vspace{2mm}
+$
+O[n+1] - O[n] = ((\tilde{\lambda}_{K-1}- \lambda_{K-1})n)^{K-1}... + (\tilde{\lambda_1} - \lambda_1) n + (\tilde{C} - C)
+$
+\\ \vspace{2mm}
+$
+O[n+1] - O[n] = (\hat{\lambda}_{K-1}n)^{K-1}... + \hat{\lambda}_1  n + \hat{C}
 $
 \end{center}
 
@@ -828,18 +964,18 @@ $
 \begin{center}
 \vspace{1mm}
 $
-D \in \mathbb{P} \Longrightarrow O_T[n] < ...
+D \in \mathbb{P} \Longrightarrow O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
 $
 \end{center}
 
-\subsubsection{Proof FIX!!!}
+\subsubsection{Proof}
 \begin{center}
 $
-O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
 $
 \\ \vspace{2mm}
 $
-O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_T[n] < O[n]
+O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_S[n] > 0
 $
 \\ \vspace{2mm}
 $
@@ -860,18 +996,18 @@ $
 \begin{center}
 \vspace{1mm}
 $
-D \in \mathbb{P} \Longrightarrow O_S[n] < ...
+D \in \mathbb{P} \Longrightarrow O_S[n] <  (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
 $
 \end{center}
 
-\subsubsection{Proof FIX!!!}
+\subsubsection{Proof}
 \begin{center}
 $
-O[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
 $
 \\ \vspace{2mm}
 $
-O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_S[n] < O[n]
+O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_T[n] > 0
 $
 \\ \vspace{2mm}
 $
@@ -888,8 +1024,8 @@ $
 
 
 
-\subsection{Total Polynomial Complexity iff Time and Space bounded by Polynomial Complexity}
-Use limit definition
+%\subsection{Total Polynomial Complexity iff Time and Space bounded by Polynomial Complexity}
+%Use limit definition
 
 
 
@@ -901,241 +1037,9 @@ Use limit definition
 
 
 
+%\subsection{Theorem Either OT or OS is on the order of Oopt}
+%Proof by contradiction
 
-
-\subsection{Order of Complexity}
-ERROR in second condition\\
-Total Complexity is said to be on the order of $K_{max}$
-\begin{center}
-$
-O[n] \sim K_{max}
-$
-\\ \vspace{2mm}
-$
-K_{max} := K :
-$
-\\ \vspace{2mm}
-$
-O[n] < (\lambda_{K_{max}} n)^{K_{max}} + (\lambda_{K_{max}-1} n)^{K_{max}-1}... + \lambda_1 n + C \hspace{3mm} \forall n
-$
-\\ \vspace{2mm}
-$
-\not \exists O[n] < (\lambda_{\hat{K}_{max}} n)^{\hat{K}_{max}} + (\lambda_{\hat{K}_{max}-1} n)^{\hat{K}_{max}-1}... + \lambda_1 n + C \hspace{3mm} \forall n,\hat{K} < K_{max}
-$
-\end{center}
-
-
-
-
-
-\subsection{Theorem Either OT or OS is on the order of Oopt}
-Proof by contradiction
-
-
-
-
-
-
-
-
-% Polynomial Complexity Time Based Proofs
-\newpage
-\section{Polynomial Time Complexity}
-
-\subsection{Definition}
-Decision problem $D$ with (optimal) Time Complexity $O_T[n]$ is bounded by polynomial time complexity if
-\begin{center}
-$\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
-\\ \vspace{2mm}
-$O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
-\end{center}
-
-
-
-
-
-
-
-
-\subsection{Polynomial Time Solutions}
-Define $\mathbb{S}^+_{time}$, the set of solutions that can be solved with polynomial time complexity
-\begin{center}
-$
-\mathbb{S}^+_{time} := \{s^+_1,s^+_2,...\} : 
-$
-\\
-$
-\exists K,C,\lambda_1...\lambda_K : 
-$
-\\
-$
-O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, s_i \in \mathbb{S}^+_{time}
-$
-\end{center}
-
-
-
-
-
-
-
-
-\subsection{Property of Polynomial Time Complexity 1}
-\begin{center}
-$
-lim_{n \rightarrow \infty} \frac{O_T[n+1]}{O_T[n]} = 1
-$
-\end{center}
-\subsubsection{Proof}
-
-
-\subsection{Property of Polynomial Time Complexity 2}
-\begin{center}
-$
-\exists K,C,\lambda_1,...,\lambda_K :
-$
-\\ \vspace{2mm}
-$
-(O_T[n+1] - O_T[n]) <  (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
-$
-\end{center}
-\subsubsection{Proof}
-
-
-
-
-\subsection{Order of Complexity}
-Time complexity $O_T[n]$ is said to be on the order of $K_{max}$
-\begin{center}
-$
-O_T[n] < (\lambda_{K_{max}} n)^{K_{max}} + (\lambda_{K_{max}-1} n)^{K_{max}-1}... + \lambda_1 n + C
-$
-\\ \vspace{2mm}
-$
-O_T[n] \sim K_{max}
-$
-\end{center}
-
-
-\subsection{Proof of the existence of $O_{T_{opt}}$}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% Polynomial Space Complexity
-\newpage
-\section{Polynomial Space Complexity}
-
-
-% Definition of Polynomial Space Complexity
-\subsection{Defintion}
-Decision problem $D$ with (optimal) Time Complexity $O_S[n]$ is bounded by polynomial time complexity if
-\begin{center}
-$\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
-\\ \vspace{2mm}
-$O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
-\end{center}
-
-
-
-
-
-
-
-\subsection{Polynomial Space Problems}
-Define $\mathbb{S}^+_{space}$, the set of solutions that can be solved with polynomial time complexity
-\begin{center}
-$
-\mathbb{S}^+_{space} := \{s_1,s_2,...\} : 
-$
-\\
-$
-\exists K,C,\lambda_1...\lambda_K : 
-$
-\\
-$
-O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, s_i \in \mathbb{S}^+_{time}
-$
-\end{center}
-
-
-
-
-
-
-
-\subsection{Total Polynomial Complexity Implies Space bounded Polynomial Complexity}
-\subsection{Space Bounded Polynomial Complexity Implies Total Polynomial Complexity}
-\subsection{Polynomial Space Complexity iff Polynomial Complexity}
-
-
-
-
-
-
-
-
-\subsection{Property of Polynomial Space Complexity 1}
-\begin{center}
-$
-lim_{n \rightarrow \infty} \frac{O_S[n+1]}{O_S[n]} = 1
-$
-\end{center}
-\subsubsection{Proof}
-
-
-
-
-
-
-
-\subsection{Property of Polynomial Space Complexity 2}
-\begin{center}
-$
-\exists K,C,\lambda_1,...,\lambda_K :
-$
-\\ \vspace{2mm}
-$
-( O_S[n+1] - O_S[n] ) < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n \hspace{2mm} \forall n
-$
-\end{center}
-\subsubsection{Proof}
-
-
-
-
-
-
-
-
-\subsection{Order of Complexity}
-Space complexity $O_S[n]$ is said to be on the order of $K_{max}$
-\begin{center}
-$
-O_S[n] < (\lambda_{K_{max}} n)^{K_{max}} + (\lambda_{K_{max}-1} n)^{K_{max}-1}... + \lambda_1 n + C
-$
-\\ \vspace{2mm}
-$
-O_S[n] \sim K_{max}
-$
-\end{center}
-
-
-
-
-\subsection{Proof of the existence of $O_{S_{opt}}$}
 
 
 
@@ -1164,7 +1068,7 @@ $
 \\ \vspace{2mm}
 $\not \exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
 \\ \vspace{2mm}
-$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n,\tilde{D} \in \mathcal{N}$
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n, \hspace{1mm}  s^+ \in S^+_i, \hspace{1mm} \tilde{D}_i \in \mathcal{N}$
 \end{center}
 
 \subsection{$\mathbb{P}$ and $\mathcal{N}$ are disjoint}
@@ -1176,9 +1080,53 @@ $
 \end{center}
 
 \subsubsection{Proof}
-Proof by contradiction
-
-
+Let D $\in \mathcal{N}$
+\begin{center}
+$\not \exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\end{center}
+\vspace{4mm}
+Assume D $\in \mathbb{P}$
+\begin{center}
+$\exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\\ \vspace{4mm}
+Contradicts the definition of $\mathcal{N}$
+\\ \vspace{2mm}
+$
+\therefore D \in \mathcal{N} \Rightarrow D \not \in \mathbb{P}
+$
+\end{center}
+\vspace{6mm}
+Let D $\in \mathbb{P}$
+\begin{center}
+$\exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\end{center}
+\vspace{4mm}
+Assume D $\in \mathcal{N}$
+\begin{center}
+$\not \exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\\ \vspace{4mm}
+Contradicts the definition of $\mathbb{P}$
+\\ \vspace{2mm}
+$
+\therefore D \in \mathbb{P} \Rightarrow D \not \in \mathcal{N}
+$
+\\ \vspace{6mm}
+$
+D \in \mathcal{N} \Rightarrow D \not \in \mathbb{P}; D \in \mathbb{P} \Rightarrow D \not \in \mathcal{N}
+$
+\\ \vspace{2mm}
+$
+\therefore \mathbb{P} \cap \mathcal{N} = \emptyset
+$
+\end{center}
 
 
 % Divergent Problems
@@ -1201,7 +1149,7 @@ $
 $
 \\ \vspace{2mm}
 $
-lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} \hspace{2mm} diverges \hspace{3mm} \forall \hat{D} \in \mathcal{\hat{D}}
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} \hspace{2mm} diverges \hspace{3mm} \forall s^+ \in S^+_i, \hspace{1mm} \hat{D}_i \in \mathcal{\hat{D}}
 $
 \end{center}
 
@@ -1209,13 +1157,13 @@ $
 
 
 
-\subsection{Derivative Property of Divergent Solutions}
-\begin{center}
-$
-lim_{n \rightarrow \infty} \hspace{2mm} O[n+1] - O[n]$ diverges
-\end{center}
+%\subsection{Derivative Property of Divergent Solutions}
+%\begin{center}
+%$
+%lim_{n \rightarrow \infty} \hspace{2mm} O[n+1] - O[n]$ diverges
+%\end{center}
 
-\subsubsection{Proof}
+%\subsubsection{Proof}
 
 
 
@@ -1250,26 +1198,46 @@ $
 \end{center}
 
 \subsection{Proof}
-Proof by contradiction; Let $s^+ \in \mathbb{P}, \hat{D}; s^+ \in \mathbb{P} \cap \hat{D}$
+Let D $\in \hat{\mathcal{D}}$
 \begin{center}
 $
-X_i = \{x_1,...,x_n\}
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} \hspace{2mm} diverges$ by definition
+\end{center}
+\vspace{4mm}
+Assume D $\in \mathbb{P}$
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
 $
 \\ \vspace{2mm}
 $
-D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+ lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$ = 1 contradicts the definition of Divergent Problems
+\\ \vspace{2mm}
 $
-\\ \vspace{6mm}
+\therefore D \in \hat{\mathcal{D}} \Rightarrow D \not \in \mathbb{P}
 $
-Let \hspace{2mm} D \in \mathbb{P}
+\end{center}
+\vspace{12mm}
+Let D $\in \mathbb{P}$
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1$ by property of Polynomial complexity
+\end{center}
+\vspace{4mm}
+Assume D $\in \hat{D}$
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$ diverges
+\\ \vspace{2mm}
+$
+ lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$ diverges contradicts a property of Polynomial complexity
+\\ \vspace{2mm}
+$
+\therefore D \in \mathbb{P} \Rightarrow D \not \in \hat{\mathcal{D}}
 $
 \\ \vspace{2mm}
 $
-s^+ := P \lbrack X_i \rbrack \rightarrow y_{o} : y_o = a_{o} \hspace{3mm} \forall X_i
-$
-\\ \vspace{2mm}
-$
-O[n] = O_T[n] + O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
+\therefore \mathbb{P} \cap \hat{\mathcal{D}} = \emptyset
 $
 \end{center}
 
@@ -1307,18 +1275,9 @@ O[n+1] = O_T[n+1] + O_S[n+1]
 $
 \\ \vspace{4mm}
 $
-f_{n+1}[n] := f[n] :
-$
-\\ \vspace{2mm}
-$
-O[n+1] = f[n] + O[n] \hspace{3mm} \forall n
+f_{n+1}[n] := O[n+1] - O[n]
 $
 \end{center}
-
-\subsubsection{Proof of existence}
-Algebraic Proof
-
-
 
 
 
@@ -1332,25 +1291,23 @@ Algebraic Proof
 \subsection{Inductive Space and Time Formulas}
 \begin{center}
 $
-f^T_{n+1} := O_T[n+1] - O_T[n]
+f^T_{n+1}[n] := O_T[n+1] - O_T[n]
 $
 \\ \vspace{2mm}
 $
-O_T[n+1] = O_T[n] + f^T_{n+1}
+O_T[n+1] = O_T[n] + f^T_{n+1}[n]
 $
 \\ \vspace{2mm}
 $
-f^S_{n+1} := O_S[n+1] - O_S[n]
+f^S_{n+1}[n] := O_S[n+1] - O_S[n]
 $
 \\ \vspace{2mm}
 $
-O_S[n+1] = O_S[n] + f^S_{n+1}
+O_S[n+1] = O_S[n] + f^S_{n+1}[n]
 $
 
 \end{center}
 
-\subsubsection{Proof of existence}
-Algebraic Proof
 
 
 
@@ -1418,11 +1375,34 @@ $
 
 
 \subsection{Property of Polynomial Complexity}
-$f_{n+1}[n]$ has order less than O[n]\\
-$f_{n+1}[n]$ is bound by $K_{max}$ - 1
-\subsubsection{Proof}
-Proof by contradiction; limit doesn't converge
+\begin{center}
+$
+limit_{n \rightarrow \infty } \frac{f_{n+1}[n]}{O[n]} = 0
+$
+\end{center}
 
+\subsubsection{Proof}
+\begin{center}
+$
+limit_{n \rightarrow \infty } \frac{O[n+1]}{O[n]} = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty } \frac{O[n] + f_{n+1}[n]}{O[n]} = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty } \frac{O[n]}{O[n]}+  \frac{f_{n+1}[n]]}{O[n]}  = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty } 1 +  \frac{f_{n+1}[n]]}{O[n]}  = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty }  \frac{f_{n+1}[n]]}{O[n]}  = 0
+$
+\end{center}
 
 
 
@@ -1618,6 +1598,7 @@ $
 
 % Subfunction Decomposition
 \subsection{Subfunction Decomposition of Solutions}
+FIX Double check conditions!!!
 Solutions $s^+$ can be written as the union of subfunctions $Sub_k[X_i]$
 \begin{center}
 $
@@ -1808,6 +1789,14 @@ $
 $
 \\ \vspace{4mm}
 $
+s^+ = \{ \mathcal{L}_1| \mathcal{M},y_o\} \cup \{  \mathcal{L}_2| \mathcal{M},y_o\} \cup ... \cup \{  \mathcal{L}_z| \mathcal{M},y_o\} :
+$
+\\ \vspace{2mm}
+$
+\mathcal{L}_i \cap \mathcal{L}_j = \emptyset \hspace{2mm} \forall i,j\neq i
+$
+\\ \vspace{4mm}
+$
 \mathcal{M} = \cup_{i=1}^z \mathcal{M}_i  = \cup_{i=1}^z \mathcal{M}
 $
 \\ \vspace{4mm}
@@ -1816,7 +1805,7 @@ O_S[n] = |\mathcal{M}| = M
 $
 \\ \vspace{2mm}
 $
-O_S[n] = |\cup_{i=1}^z \mathcal{M}_i| =  |\cup_{i=1}^z \mathcal{M}| = M
+O_S[n] = |\cup_{i=1}^z \mathcal{M}_i| = M
 $
 \end{center}
 
@@ -1918,8 +1907,7 @@ $
 
 \newpage
 
-\section{Subfunction Theorems}
-Might be for subfunctions of polynomial and divergent
+\section{Polynomial Solution Subfunction Properties}
 
 \subsection{Restate Definition of Subfunction}
 \begin{center}
@@ -1953,184 +1941,13 @@ $
 \end{center}
 
 
-
-
-
-\subsection{The Union of Two Converging Subfunctions is Convergent}
+\subsection{Property of Polynomial Solution Subfunctions}
 Let
 \begin{center}
 $
-Sub_1[X]$ with total complexity $O_1[n]$
-\\ \vspace{2mm}
+D \in \mathbb{P}
 $
-O_1[n]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty}\frac{O_1[n+1]}{O_1[n]} = c_1
-$
-\\ \vspace{6mm}
-$
-Sub_2[X]$ with total complexity $O_2[n]$
-\\ \vspace{2mm}
-$
-O_2[n]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty}\frac{O_2[n+1]}{O_2[n]} = c_2
-$
-\end{center}
-\vspace{1mm}
-\begin{center}
-$
-Sub_{1;2}[X] = Sub_1[X] \cup Sub_2[X]$ with complexity $O[n]
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty}\frac{O[n+1]}{O[n]} = c
-$
-\end{center}
-\subsubsection{Proof}
-Show
-\begin{center}
-$
-limit_{n \rightarrow \infty}\frac{O[n+1]}{O[n]} = c
-$
-\\ \vspace{4mm}
-$
-Sub_{1;2}[X] = Sub_1[X] \cup Sub_2[X]$ with complexity $O[n]
-$
-\\ \vspace{2mm}
-$
-O_1[n] = O_{T_1}[n] + O_S[n]
-$
-\\ \vspace{2mm}
-$
-O_2[n] = O_{T_2}[n] + O_S[n]
-$
-\\ \vspace{2mm}
-$
-O[n] = O_{T_1}[n] + O_{T_2}[n] + O_S[n]
-$
-\\ \vspace{8mm}
-$
-\frac{O[n+1]}{O[n]} = \frac{O_{T_1}[n+1] + O_{T_2}[n+1] + O_S[n+1]}{O_{T_1}[n] + O_{T_2}[n] + O_S[n]}
-$
-\\ \vspace{2mm}
-$
-\frac{O[n+1]}{O[n]} = \frac{O_{T_1}[n+1] + O_S[n+1]}{O_{T_1}[n] + O_{T_2}[n] + O_S[n]} + \frac{O_{T_2}[n+1]}{O_{T_1}[n] + O_{T_2}[n] + O_S[n]}
-$
-\end{center}
-\vspace{8mm}
-For all non-decreasing functions f[n], g[n]
-\begin{center}
-$f_{n+1}$ goes to 0 faster
-\end{center}
-
-
-
-\subsection{The Union of Two Divergent Subfunctions is Divergent}
-Let
-\begin{center}
-$
-Sub_1[X]$ with total complexity $O_1[n]$
-\\ \vspace{2mm}
-$
-O_1[n]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty}\frac{O_1[n+1]}{O_1[n]} diverges
-$
-\\ \vspace{6mm}
-$
-Sub_2[X]$ with total complexity $O_2[n]$
-\\ \vspace{2mm}
-$
-O_2[n]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty}\frac{O_2[n+1]}{O_2[n]} diverges
-$
-\end{center}
-\vspace{1mm}
-\begin{center}
-$
-Sub_{1;2}[X] = Sub_1[X] \cup Sub_2[X]$ with complexity $O[n]
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty}\frac{O[n+1]}{O[n]} diverges
-$
-\end{center}
-\subsubsection{Proof}
-Show
-\begin{center}
-$
-limit_{n \rightarrow \infty}\frac{O[n+1]}{O[n]} diverges
-$
-\end{center}
-
-
-
-
-\subsection{The Union of a convergent and divergent subfunction is Divergent}
-Let
-\begin{center}
-$
-Sub_1[X]$ with total complexity $O_1[n]$
-\\ \vspace{2mm}
-$
-O_1[n]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty}\frac{O_1[n+1]}{O_1[n]} = c_1
-$
-\\ \vspace{6mm}
-$
-Sub_2[X]$ with total complexity $O_2[n]$
-\\ \vspace{2mm}
-$
-O_2[n]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty}\frac{O_2[n+1]}{O_2[n]} = diverges
-$
-\end{center}
-\vspace{1mm}
-\begin{center}
-$
-Sub_{1;2}[X] = Sub_1[X] \cup Sub_2[X]$ with complexity $O[n]$
-\end{center}
-\vspace{2mm}
-Show
-\begin{center}
-$
-limit_{n \rightarrow \infty}\frac{O[n+1]}{O[n]} diverges
-$
-\end{center}
-\subsubsection{Proof}
-
-
-
-
-
-
-
-\subsection{Theorem of Divergent Subfunctions}
-
-
-% Theorem of Divergent Subfunctions direction 1
-\subsubsection{$limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$  diverges $\Rightarrow\\ \exists Sub_h[X_i]: limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n]}$ diverges}
-If any subfunction of $s^+$ diverges, then O[n+1]/O[n] diverges, f$_{n+1}$/O[n] diverges
-Consider solution $s^+$ with polynomial total complexity O[n] containing $z$ subfunctions $Sub_k[X_i]$ k = 1..z\\
-FIX!!! concerns about OS memory complexity; $c_h$ = $c_{T_h} + c_{S_h}$; $c_{S_h}$ is the same for all subfuncrions
-\vspace{1mm}
-\begin{center}
+\\ \vspace{5mm}
 $
 X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
 $
@@ -2144,223 +1961,49 @@ $
 $
 \\ \vspace{4mm}
 $
-s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :
 $
 \\ \vspace{2mm}
 $
-= \{ \mathcal{L},\mathcal{M},y_o\}
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
 $
-\\ \vspace{6mm}
-$
-Sub_h[X_i] := S_h = \{s_j,...|b_k,...,y_o\}:
-$
-\\ \vspace{2mm}
-$
-s_j, b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S_h
-$
-\\ \vspace{6mm}
+\\ \vspace{5mm}
 $
 s^+ = Sub_1[X_i] \cup Sub_2[X_i] \cup ... \cup Sub_z[X_i]
 $
 \\ \vspace{6mm}
 $
-O[n] = O_{T_1}[n] + O_{T_2}[n] + ... + O_{T_z}[n] + |O_{S_1}[n] \cup O_{S_2}[n] \cup  ... \cup O_{S_z}[n]|
+limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
 $
 \\ \vspace{2mm}
 $
-= O_{T_1}[n] + O_{T_2}[n] + ... + O_{T_z}[n] + O_S[n]
-$
-\end{center}
-\vspace{8mm}
-By defintion of divergent complexity
-\begin{center}
-\vspace{1mm}
-$
-limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$  diverges
-\end{center}
-\vspace{6mm}
-Suppose there does not exist a diverging subfunction $Sub_h[X_i]$ for all h
-\begin{center}
-$
-\not \exists Sub_h[X_i]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n]}$ diverges $\hspace{2mm} \forall h$
-\\ \vspace{2mm}
-$
-\Rightarrow limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n]} = c_h \hspace{2mm} \forall h
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty} \frac{O_{1}[n+1] + O_{2}[n+1] + ... + O_{z}[n+1]}{O_{1}[n] + O_{2}[n] + ... + O_{z}[n]}
-$
-\end{center}
-\vspace{4mm}
-Let
-\begin{center}
-$
-g_h[n] = \sum_{i \neq h} O_i[n] \geq 0^*
-$
-\\ \vspace{2mm}
-$
-\Rightarrow0 \leq limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n] + g_h[n]} \leq c_h
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty} \frac{O_{1}[n+1]}{O_1[n] + g_1[n]} + \frac{O_{2}[n+1]}{O_2[n] + g_2[n]} +  ... + \frac{O_{z}[n+1]}{O_{1}[n] + g_z[n]}
-$
-\\ \vspace{2mm}
-$
-0 \leq limit_{n \rightarrow \infty} \frac{O_{1}[n+1]}{O_1[n] + g_1[n]} + \frac{O_{2}[n+1]}{O_2[n] + g_2[n]} +  ... + \frac{O_{z}[n+1]}{O_{1}[n] + g_z[n]} \leq \sum_{i=1}^{z} c_i
-$
-\\ \vspace{2mm}
-$
-\Rightarrow limit_{n \rightarrow \infty} \frac{O_{1}[n+1]}{O_1[n] + g_1[n]} + \frac{O_{2}[n+1]}{O_2[n] + g_2[n]} +  ... + \frac{O_{z}[n+1]}{O_{1}[n] + g_z[n]} = \tilde{C}
-$
-\\ \vspace{2mm}
-$
-0 \leq \tilde{C} \leq \sum_{i=1}^{z} c_i
-$
-\end{center}
-\vspace{2mm}
-*O$_i[n]\geq$ 0 is a non-decreasing function
-\vspace{10mm}
-\\Assuming
-\begin{center}
-$
-\not \exists Sub_h[X_i]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n]}$ diverges $\hspace{2mm} \forall h$
-\\ \vspace{2mm}
-$
-\Rightarrow  limit_{n \rightarrow \infty} \frac{O_[n+1]}{O_1[n]} = \tilde{C}
-$
-\end{center}
-Contradicting the definition of divergent solution
-\vspace{6mm}
-\begin{center}
-$
-\therefore \exists Sub_h[X_i]:
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n]}$ diverges $\hspace{2mm}$
-\end{center}
-
-
-
-
-% Theorem of Divergent Subfunctions direction 2
-\newpage
-\subsubsection{$\exists Sub_h[X_i]: limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n]}$ diverges $\Rightarrow\\ limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$  diverges}
-FIX!!! SPACE OS portion
-\vspace{1mm}
-\begin{center}
-$
-X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
-$
-\\ \vspace{2mm}
-$
-s^+ = s^+[X_i] := P :
-$
-\\ \vspace{2mm}
-$
-(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+= limit_{n \rightarrow \infty} \frac{O^1_T[n+1] + O^2_T[n+1] + ... + O^z_T[n+1] + O_S[n+1]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]}
 $
 \\ \vspace{4mm}
 $
-s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+= limit_{n \rightarrow \infty} \frac{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n] + f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]}
+$
+\\ \vspace{4mm}
+$
+= limit_{n \rightarrow \infty} 1 + \frac{f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} =1
+$
+\\ \vspace{4mm}
+$
+\Rightarrow limit_{n \rightarrow \infty} \frac{f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} = 0^*
+$
+\\ \vspace{3mm}
+$
+\Rightarrow  limit_{n \rightarrow \infty} \frac{f^i_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} = 0 \hspace{2mm} \forall i
 $
 \\ \vspace{2mm}
 $
-= \{ \mathcal{L},\mathcal{M},y_o\}
+limit_{n \rightarrow \infty} \frac{f^i_{n+1}[n]}{O[n]} = 0 \hspace{2mm} \forall i
 $
-\\ \vspace{6mm}
-$
-Sub_h[X_i] := S_h = \{s_j,...|b_k,...,y_o\}:
-$
-\\ \vspace{2mm}
-$
-s_j, b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S_h
-$
-\\ \vspace{6mm}
-$
-s^+ = Sub_1[X_i] \cup Sub_2[X_i] \cup ... \cup Sub_z[X_i]
-$
-\\ \vspace{2mm}
-$
-O[n] = O_{T_1}[n] + O_{T_2}[n] + ... + O_{T_z}[n] + |O_{S_1}[n] \cup O_{S_2}[n] \cup  ... \cup O_{S_z}[n]|
-$
-\\ \vspace{2mm}
-$
-= O_{T_1}[n] + O_{T_2}[n] + ... + O_{T_z}[n] + O_S[n]
-$
+%$
+%s^+ = Sub_1[X_i] \cup Sub_2[X_i] \cup ... \cup Sub_z[X_i]
+%$
 \end{center}
-\vspace{8mm}
-Suppose 
-\begin{center}
-$
-\exists Sub_h[X_i]: limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n]}$ diverges
-\\ \vspace{8mm}
-$
-\frac{O_h[n+1]}{O_h[n]} \geq 1^* \hspace{4mm} \forall h
-$
-\\ \vspace{2mm}
-$^* O_h[n]$ is a positive non-decreasing function
-\\ \vspace{6mm}
-$
-limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}
-$
-\\ \vspace{2mm}
-$
-= limit_{n \rightarrow \infty} \frac{O_{1}[n+1] + O_{2}[n+1] + ... + O_{z}[n+1]}{O_{1}[n] + O_{2}[n] + ... + O_{z}[n]}
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty} \frac{O_{1}[n+1]}{O[n]} + ... + \frac{O_{h}[n+1]}{O[n]} +  ... + \frac{O_{z}[n+1]}{O[n]}
-$
-\\ \vspace{8mm}
-$
-limit_{n \rightarrow \infty} \frac{O_{h}[n+1]}{O[n]} = limit_{n \rightarrow \infty} \frac{O_{h}[n+1]}{O_h[n] + g_h[n]} 
-$
-\\ \vspace{2mm}
-$
-= limit_{n \rightarrow \infty} (\frac{O_{h}[n+1]}{O_h[n]]} - \frac{g_h[n]O_h[n+1]}{O_h[n](O_h[n] + g_h[n])})
-$
-\\ \vspace{2mm}
-$
-= limit_{n \rightarrow \infty} (\frac{O_{h}[n+1]}{O_h[n]]} - \frac{(O[n] - O_h[n])(O_h[n] + f_{n+1}[n])}{O_h[n]O[n]})
-$
-\\ \vspace{2mm}
-$
-= limit_{n \rightarrow \infty} (\frac{O_{h}[n+1]}{O_h[n]]} + \frac{-O_h[n]O[n]-f_{n+1}[n]O[n]+O_h^2[n]+f_{n+1}O_h[n]}{O_h[n]O[n]})
-$
-\\ \vspace{2mm}
-$
-= limit_{n \rightarrow \infty} (\frac{O_{h}[n+1]}{O_h[n]]} - 1 - \frac{f^h_{n+1}[n]}{O_h[n]} + \frac{O_h[n]}{O[n]} + \frac{f^h_{n+1}[n]}{O[n]})
-$
-\end{center}
-
-
-
-
-
-
-
-
-\subsection{Sum of convergent, divergent, and constant subfunctions}
-Let
-\begin{center}
-$
-s^+ = \cup_{i=1}^z Sub_i[X]
-$
-\end{center}
-
-
-
+$^*$ O[n] is a positive, non-decreasing function
 
 
 
@@ -2610,7 +2253,7 @@ $
 % Proof of Non-Polynomial Problems Traveling Salesman
 \newpage
 \section*{Traveling Salesman Problem of Dimension 2}
-\section{Proof of the existence of $\hat{\mathcal{D}}$}
+\section{Proof of the existence of $\mathcal{N}$}
 
 \subsection{The Traveling Salesman Problem of Dimension 2}
 English description
@@ -3085,18 +2728,126 @@ therefore $limit_{n \rightarrow \infty}\frac{O_+[n+1]}{O_+[n]}$ diverges
 
 
 
-\subsection{Prove D diverges by the theorem of divergent subfunctions}
+
+
+\subsection{Prove D is not in $\mathbb{P}$ by the definition of Polynomial Complexity}
+Let
+\begin{center}
+$
+Sub_i[X]$ denote all subfunctions of a solution $s^+$ except $Sub_+[X]
+$
+\\ \vspace{4mm}
+$
+O[n] = O_+[n] + \sum_{i=1}^z O_{i_T}[n]
+$
+\\ \vspace{3mm}
+$
+O[n] = \frac{n!}{2} + \sum_{i=1}^z O_{i_T}[n]
+$
+\end{center}
+\vspace{6mm}
+Assume O[n] satisfies the condition of Polynomial total complexity for $n = \hat{n}$ Let n = K!!!
+\begin{center}
+$\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
+\\ \vspace{2mm}
+$O[\hat{n}] = (\lambda_K \hat{n})^K + (\lambda_{K-1} \hat{n})^{K-1}... + \lambda_1 \hat{n} + C \hspace{3mm}
+$
+\\ \vspace{2mm}
+$
+= \frac{\hat{n}!}{2} + \sum_{i=1}^z O_{i_T}[\hat{n}]
+$
+\end{center}
+\vspace{5mm}
+Let $n = \hat{n}+1$
+\begin{center}
+$
+O[\hat{n} + 1] =  (\lambda_K \hat{n})^K + (\hat{\lambda_{K-1}} \hat{n})^{K-1}... + \hat{\lambda_1} \hat{n} +\hat{C} \sim (\lambda_K \hat{n})^K 
+$
+\\ \vspace{2mm}
+$
+\neq \frac{(\hat{n}+1)!}{2} + \sum_{i=1}^z O_{i_T}[\hat{n}+1] \sim (\lambda_K \hat{n})^{K+1}
+$
+\end{center}
+\vspace{1mm}
+\begin{center}
+$
+\therefore D \in \mathbb{P}$ is a contradiction
+\\ \vspace{3mm}
+$
+\therefore D \not \in \mathbb{P} \Rightarrow D \in \mathcal{N}
+$
+\end{center}
+
+
+\subsection{Prove D is not in $\mathbb{P}$ by limit property of Polynomial Complexity}
+Let
+\begin{center}
+$
+Sub_i[X]$ denote all subfunctions of a solution $s^+$ except $Sub_+[X]
+$
+\\ \vspace{4mm}
+$
+O[n] = O_+[n] + \sum_{i=1}^z O_{i_T}[n]
+$
+\\ \vspace{3mm}
+$
+O[n] = \frac{n!}{2} + \sum_{i=1}^z O_{i_T}[n]
+$
+\end{center}
+\vspace{6mm}
+Assume O[n] satisfies the condition of Polynomial total complexity
+\begin{center}
+$\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm}
+$
+\\ \vspace{8mm}
+$
+f_{+_{n+1}}[n] = O_+[n+1] - O_+[n] = \frac{(n+1)!}{2} - \frac{n!}{2}
+$
+\\ \vspace{2mm}
+$
+= \frac{n!(n+1 - 1)}{2} = \frac{n*n!}{2}
+$
+\\ \vspace{8mm}
+$
+limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty} \frac{\frac{(n+1)!}{2} + \sum_{i=1}^z O_{i_T}[n+1]}{ (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty} \frac{\frac{(n+1)!}{2}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C} +  \frac{\sum_{i=1}^z O_{i_T}[n+1]}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}
+$
+\\ \vspace{6mm}
+$
+limit_{n \rightarrow \infty} \frac{\frac{(n+1)!}{2}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}$ diverges
+\\ \vspace{4mm} 
+$O_{i_T}[n+1]$ is a positive, non-decreasing function
+\\ \vspace{2mm}
+$
+\therefore limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$ diverges
+\end{center}
+\vspace{1mm}
+\begin{center}
+$
+\therefore D \in \mathbb{P}$ contradicts the limit property of Polynomial solutions
+\\ \vspace{3mm}
+$
+\therefore D \not \in \mathbb{P} \Rightarrow D \in \mathcal{N}
+$
+\end{center}
 
 
 
-
-\subsection{Connection to "P $\neq$ NP"}
+%\subsection{Connection to "P $\neq$ NP"}
 
 
 
 \newpage
 \section*{Citations}
-
 \lbrack1\rbrack \hspace{1mm} $chatgpt$\\
 \lbrack2\rbrack \hspace{1mm} $https://stackoverflow.com/questions/3518973/floating-point-exponentiation-without-power-function$\\
 \lbrack3\rbrack \hspace{1mm} $https://stackoverflow.com/questions/27086195/linear-index-upper-triangular-matrix$\\
