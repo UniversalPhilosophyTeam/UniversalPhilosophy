@@ -13,8 +13,6 @@
 
 
 
-
-
 % Definition of Program
 \section{Programs}
 \subsection{Logical Instructions}
@@ -39,7 +37,7 @@ $\mathcal{M} := \{b_1,b_2,...,b_M\}$
 
 
 \subsection{State |}
-Define state; the memory utilized to perform program P
+Define state; the memory $b_i$ utilized to perform program P
 \begin{center}
 $
 P := \{ s_1, s_2,...,s_{N} | b_1, b_2,...,b_M\} =
@@ -200,19 +198,75 @@ by definition of magnitude of null = 0 with Set And
 
 
 
-% Decision Problems and Solutions
+% Problems / Questions Definitions
 \newpage
-\section{Decision Problems}
-
-\subsection{Definition}
-Define decision problem; a function with inputs $x_i$ and boolean output "answer" $a_o$
+\section{Problem Definition}
+Also denoted as a "Question"
 \begin{center}
 $
-X_i = \{x_1,...,x_n,C\}
+X_i = \{x_1,...,x_n\}
 $
 \\ \vspace{2mm}
 $
-D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+Q := f \lbrack X_i \rbrack = Y_{o} \subseteq \Omega \hspace{3mm} \forall X_i
+$
+\end{center}
+\subsection{Set of Questions}
+Define $\mathbb{Q}$; the set of questions
+\begin{center}
+$
+\mathbb{Q} := \{Q_1,Q_2,...\}:
+$
+\\ \vspace{2mm}
+$
+Q_i = f[X_j] = Y_o \subseteq \Omega \hspace{2mm} \forall X_j, i
+$
+\end{center}
+
+% Decision Question
+\subsection{Decision Questions / Decision Problems}
+\subsubsection{Definition}
+Define decision problem; a function with inputs $x_i$ and boolean output "answer" $a_o$
+\begin{center}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+D := f \lbrack X_i \rbrack = a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\end{center}
+
+
+
+% Numerical Questions
+\subsection{Numerical Questions / Numerical Problems}
+
+\subsubsection{Definition}
+Define numerical problem; a function with inputs $x_i$ and numerical output $y_o$
+\begin{center}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+Q := f \lbrack X_i \rbrack = y_{o} \in \mathbb{R} \hspace{3mm} \forall X_i
+$
+\end{center}
+
+
+
+% System Question
+\subsection{System Questions / System Problems}
+\subsubsection{Definition}
+Define system problem; a function with inputs $x_i$ and outputs $y_j$
+\begin{center}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+Q := f \lbrack X_i \rbrack = Y_{o} = \{y_1,...,y_m\} \hspace{3mm} \forall X_i
 $
 \end{center}
 
@@ -2006,7 +2060,43 @@ $
 $^*$ O[n] is a positive, non-decreasing function
 
 
+% Solution Space
+\newpage
+\section{Solution Spaces}
+\subsection{Definition of Solution Space}
+\begin{center}
+\vspace{4mm}
+$
+\mathbb{S} = \{c_1^+,c_2^+,...,c_{C[n]}^+\}
+$
+\\ \vspace{4mm}
+$
+s^+[X_n] = \lor_{c_i^+ \in \mathbb{S}}\hspace{2mm} c_i^+
+$
+\end{center}
+\subsection{Existence, Uniqueness, etc.}
+\subsection{Worst Case}
 
+
+
+% Fundament Theorem of Computation
+\newpage
+\section{Fundamental Theorem of Computation}
+The Fundamental Theorem of Computation relates the complexity of optimal solution to the number of candidate solutions in the Solution Space.
+
+\begin{center}
+$
+\mathbb{S} = \{c_1^+,c_2^+,...,c_{C[n]}^+\}
+$
+\\ \vspace{2mm}
+$
+s^+[X_n] = \lor_{c_i^+ \in \mathbb{S}}\hspace{2mm} c_i^+
+$
+\end{center}
+$O_{opt}[n]$ has the same order as C[n]
+
+\subsection{Proof by Induction}
+\subsection{Proof by Contradiction}
 
 % N Sum Problem
 \newpage
@@ -2016,29 +2106,35 @@ $^*$ O[n] is a positive, non-decreasing function
 \begin{center}
 \vspace{1.5mm}
 $
-X_i = \{x_1,...,x_n,N\}
+X_n= \{x_1,...,x_n\}
+$
+\\ \vspace{6mm}
+$
+D := f \lbrack X_i,N \rbrack = a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{6mm}
+$
+s^+[X_n]= P[X_n] :
 $
 \\ \vspace{2mm}
 $
-D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+(P \lbrack X_i \rbrack = y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[{X}_{n+1}] \supseteq P[X_n] \hspace{3mm} \forall X_{n+1})
 $
-\\ \vspace{2mm}
-$
-s^+ = P :
-$
-\\ \vspace{2mm}
-$
-(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
-$
-\\ \vspace{2mm}
+\\ \vspace{6mm}
 $
 s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \} = \{ \mathcal{L},\mathcal{M},y_o\}
 $
 \\ \vspace{6mm}
 $
-D = f[X_i] = \exists x_j,x_k \in X_i : x_j + x_k == N
+D = f[X_i] = \hspace{2mm} \exists x_j,x_k \in X_n \hspace{4mm} j\neq k: 
+$
+\\ \vspace{2mm}
+$
+x_j + x_k == N
 $
 \end{center}
+
+
 
 
 
@@ -2054,7 +2150,7 @@ s_1 = y_o \leftarrow \mathbb{F};
 $
 \\ \vspace{2mm}
 $
-\forall i,j > i
+\forall i < n \hspace{2mm}, \hspace{2mm} n \geq j > i 
 $
 \\ \vspace{2mm}
 $
@@ -2076,11 +2172,13 @@ $
 
 
 
-\subsection{Show $s^+$ satisfies the subfunction condition of solutions: $P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall \hat{X}_i,X_i$}
+
+
+\subsection{Prove $s^+$ satisfies the subfunction condition of solutions: $P[X_{n+1}] \supseteq P[X_n] \hspace{3mm} \forall X_{n+1}$}
 \begin{center}
 \vspace{2mm}
 $
-X_i = \{x_1,...,x_n,N\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_n,x_{n+1},N\}
+X_n= \{x_1,x_2,...,x_n\}; \hspace{2mm} X_{n+1} = \{x_1,x_2,...,x_n,x_{n+1}\}
 $
 \\ \vspace{2mm}
 $
@@ -2096,7 +2194,7 @@ s_1 = y_o \leftarrow \mathbb{F};
 $
 \\ \vspace{2mm}
 $
-\forall i,j > i
+\forall i < n \hspace{2mm}, \hspace{2mm} n \geq j > i 
 $
 \\ \vspace{2mm}
 $
@@ -2110,9 +2208,9 @@ $
 $
 s_6,s_7,s_{12},s_{13}...,s_{3ij},s_{3ij+1}...,s_{3n(n-1)},s_{3n(n-1)+1} = y_o \leftarrow y_o \lor b_1
 $
-\\ \vspace{2mm}
+\\ \vspace{6mm}
 $
-\forall k
+\forall k < n+1
 $
 \\ \vspace{2mm}
 $
@@ -2144,7 +2242,7 @@ $
 $
 \\ \vspace{6mm}
 $
-s_{n+1}^+ = P[\hat{X}_i] \supseteq P[X_i] = s^+
+s_{n+1}^+ = s^+ \cup \hat{s}^+ = P[X_{n+1}] \supseteq P[X_n] = s^+
 $
 \end{center}
 
@@ -2153,12 +2251,7 @@ $
 
 
 
-
-
-
-
-
-\subsection{Determine $O[n], O_S[n], O_T[n],\hat{O}[n],\hat{O}_T[n],\hat{O}_S[n]$ for the above solution}
+\subsection{Determine $O[n], O_S[n], O_T[n],f_{n+1}[n],f^T_{n+1}[n],f^S_{n+1}[n]$ for the above solution}
 \begin{center}
 $
 O_S[n] = |y_o| + |b_1| = 2
@@ -2173,20 +2266,20 @@ O[n] = 3n(n-1) + 3 = 3n^2 -3n + 3
 $
 \\ \vspace{4mm}
 $
-\hat{O}_S[n] = 0
+f^S_{n+1}[n] = 0
 $
 \\ \vspace{2mm}
 $
-\hat{O}_T[n] = 6n
+f^T_{n+1}[n] = 6n
 $
 \\ \vspace{2mm}
 $
-\hat{O}[n] = \hat{O}_S[n] + \hat{O}_T[n]
+f_{n+1}[n] = f^S_{n+1}[n] + f^T_{n+1}[n]
 $
 \end{center}
 
 
-\subsection{Verify $O[n+1]$ = $O[n]$ + $\hat{O}[n]$}
+\subsection{Verify $O[n+1]$ = $O[n]$ + $f_{n+1}[n]$}
 \begin{center}
 $
 O[n+1] = O[n] + \hat{O}[n]
@@ -2219,7 +2312,7 @@ O[n] = 3n^2 -3n + 3
 $
 \end{center}
 
-\subsection{Show $s^+$ has Polynomial Complexity by showing limit$_{n \rightarrow \infty}\frac{O[n+1]}{O[n]}$ = 1}
+\subsection{Show the limit $_{n \rightarrow \infty}\frac{O[n+1]}{O[n]}$ does not Diverge}
 \begin{center}
 $
 limit_{n \rightarrow \infty}\frac{O[n+1]}{O[n]} =
@@ -2242,607 +2335,53 @@ $
 
 
 
-
-
-
-
-
-
-
-
-% Proof of Non-Polynomial Problems Traveling Salesman
+% Knapsack Problem
 \newpage
-\section*{Traveling Salesman Problem of Dimension 2}
-\section{Proof of the existence of $\mathcal{N}$}
+\section{The Knapsack Problem}
 
-\subsection{The Traveling Salesman Problem of Dimension 2}
-English description
+
+
+\subsection{The Knapsack Problem}
+The Knapsack Problem is a famous problem in computer science which asks if objects can be stored in a knapsack. Typically the problem is designed
+with two constraints, weight and value. Given objects $x_i$, each with a respective weight $w_i$ and value $v_i$, does there exist a combination of
+objects lighter than input weight $W$ and more valuable than input value $V$?
+
+
 
 \subsection{Formal Definition}
 \begin{center}
+\vspace{8mm}
 $
-X_i = \{l_1,l_2,...,l_n,C\}
-$
-\\ \vspace{5mm}
-$
-l_i = \{x_i,y_i\} \hspace{2mm} \forall i
-$
-\\ \vspace{2mm}
-$l_i$ denotes the 2D coordinates of location i
-\\ \vspace{5mm}
-$
-C = \{d_{proposed},p_{decimal}\}
-$
-\\ \vspace{2mm}
-$
-d_{proposed}$ denotes the suggested shortest distance
-\\ \vspace{1.5mm}
-$
-p_{decimal}$ is the decimal precision
-\\ \vspace{5mm}
-$
-L\lbrack l_i,l_j \rbrack := \sqrt{(y_j - y_i)^2 + (x_j - x_i)^2}
-$
-\\ \vspace{2mm}
-Let $L\lbrack l_i,l_j \rbrack$ denote the distance between location $l_i$ and $l_j$
-\\ \vspace{5mm}
-$
-\tilde{L} \lbrack l_i,l_j \rbrack :=d_{trunc} : -p_{decimal} < d_{trunc} - L\lbrack l_i,l_j \rbrack < p_{decimal}
-$
-\\ \vspace{2mm}
-Let $\tilde{L}\lbrack l_i,l_j \rbrack$ denote a truncated decimal representation of $L\lbrack l_i,l_j \rbrack$
-\\ \vspace{5mm}
-$
-R_i := \{r_1,r_2,...,r_n,r_1\} \hspace{1.5mm} : \hspace{1.5mm} r_i \in X_i \hspace{2mm} \forall i; \hspace{2mm} r_i \neq r_j
-$
-\\ \vspace{2mm}
-Let $R_i$ denote route $i$
-\\ \vspace{5mm}
-$
-L_{Total}\lbrack R_i \rbrack := (\sum_{i=1}^{n-1} \tilde{L}\lbrack r_i,r_{i+1}\rbrack) + \tilde{L}\lbrack r_n,r_1\rbrack
-$
-\\ \vspace{2mm}
-Let $L_{Total}\lbrack R_i \rbrack$ denote the sum of truncated lengths of route $R_i$
-\\ \vspace{5mm}
-$
-D := f \lbrack X_i \rbrack \rightarrow a_o \in \{\mathbb{T},\mathbb{F}\} \hspace{2mm} \forall X_i
-$
-\\ \vspace{2mm}
-$
-a_o =
-$
-\\ \vspace{2mm}
-$
-(\exists R_k : L_{total}\lbrack R_k\rbrack == d_{proposed}) \cap (\not \exists R_j :  L_{total}\lbrack R_j \rbrack < d_{proposed})
-$
-\end{center}
-
-
-
-
-
-\newpage
-\section*{Traveling Salesman Problem of Dimension 2}
-\subsection{Define subpath, subpath distance, subpath storage}
-\vspace{2mm}
-$\tilde{L} \lbrack l_i,l_j \rbrack$ denotes "the distance of a subpath of length 1"
-\begin{center}
-$
-\tilde{L} \lbrack l_i,l_j \rbrack :=d_{trunc} : -p_{decimal} < d_{trunc} - L\lbrack l_i,l_j \rbrack < p_{decimal} 
-$
-\\ \vspace{2mm}
-$
-= abs(d_{trunc} - L\lbrack l_i,l_j \rbrack) < p_{decimal} 
-$
-\end{center}
-\vspace{4mm}
-$
-\tilde{R}$ denotes a subpath of length k
-\begin{center}
-$
-\tilde{R} = \{\tilde{r}_1,\tilde{r}_2,...,\tilde{r}_k\} \hspace{1.5mm} : \hspace{1.5mm} \tilde{r}_i \in X_i \hspace{2mm} \forall i, r_i \neq r_j
-$
-\end{center}
-\vspace{4mm}
-$\tilde{L}_k\lbrack \tilde{R} \rbrack$ denotes "the distance of a subpath of length k"
-\begin{center}
-$
-\tilde{L}_k\lbrack \tilde{R} \rbrack := \sum_{i=1}^{k} \tilde{L}\lbrack \tilde{r},\tilde{r}_{i+1}\rbrack
-$ 
-\end{center}
-\vspace{4mm}
-Let $\mathcal{M}_1$ denote the memory reserved for subpaths distances of length 1
-\begin{center}
-$
-\mathcal{M}_1= \{\hat{b}_{1;1},\hat{b}_{1;2},\hat{b}_{1;3},...,\hat{b}_{startindex;finishindex},...,\hat{b}_{n-1;n}\}^*
-$
-\\ \vspace{2mm}
-$
-\mathcal{M} \supseteq \mathcal{M}_1
-$
-\end{center}
-\vspace{3mm}* Note $\hat{b}_{i;j} = \hat{b}_{j;i}$\\
-$\sqrt{(y_j - y_i)^2 + (x_j - x_i)^2} = \sqrt{(y_i - y_j)^2 + (x_i - x_j)^2}$
-
-
-
-% Traveling Salesman First Order Space Complexity Solution
-\subsection{Define the following functions}
-\subsubsection{$sqrt\lbrack x,p_{decimal} \rbrack = \sqrt{x}$\hspace{2mm}[1]}
-\subsubsection{$pow\lbrack x,2,p_{decimal} \rbrack = x^2$ \hspace{1mm}[2]}
-
-
-\subsection{Define the following subfunctions}
-\subsubsection{loadM1Subpaths$\lbrack X\rbrack$}
-\vspace{1mm}
-// Computes all subpaths of length 1 and stores in $\mathcal{M}_1 = \{\hat{b}_{1;1},\hat{b}_{1,;2},...,\hat{b}_{n-1;n}\}$
-\begin{center}
-\vspace{2mm}
-$
-// X_i = \{l_1,l_2,...,l_n,C\}
-$
-\\ \vspace{2mm}
-$
-//\hspace{.5mm} l_i = \{x_i,y_i\} \hspace{2mm} \forall i
-$
-\\ \vspace{5mm}
-$
-// \mathcal{M} = \{b_1,b_2,...,b_M,\hat{b}_{1;1},\hat{b}_{1,;2},...,\hat{b}_{n-1;n},y_o\} = \{b_1,b_2,...,b_M,\mathcal{M}_1,y_o\} = \{\mathcal{M},\mathcal{M}_1,y_o\}
-$
-\\ \vspace{5mm}
-$
-\forall i,j > i
-$
-\\ \vspace{2mm}
-$
-b_3 \leftarrow y_i - y_j
-$
-\\ \vspace{2mm}
-$
-b_4 \leftarrow x_i - x_j
-$
-\\ \vspace{2mm}
-$
-b_3 \leftarrow b_3^2
-$
-\\ \vspace{2mm}
-$
-b_4 \leftarrow b_4^2
-$
-\\ \vspace{2mm}
-$
-b_3 \leftarrow b_3 + b_4
-$
-\\ \vspace{2mm}
-$
-\hat{b}_{i;j}\leftarrow \sqrt{b_3}^*
-$
-\end{center}
-\vspace{4mm}
-$^* \hat{b}_{i;j} = \tilde{L}\lbrack l_i,l_j \rbrack$
-
-
-
-\subsubsection{computeAllRoutes$\lbrack X \rbrack$}
-\vspace{1mm} // Computes all complete routes, checks for a route == $d_{proposed}$, sets $y_o$ to false if the current route is shorter than $d_{proposed}$
-\begin{center}
-$
-\forall i,j \neq i, k \neq i,j ...\hspace{.5mm},q \neq i,j,...,m
-$
-\\ \vspace{2mm}
-$
-b_3 \leftarrow \hat{b}_{1;j}+ \hat{b}_{j;k}
-$
-\\ \vspace{2mm}
-$
-b_3 \leftarrow b_3 + \hat{b}_{k;l}
-$
-\\ \vspace{2mm}
-$
-...
-$
-\\ \vspace{2mm}
-$
-b_3 \leftarrow b_3 + \hat{b}_{m;q}
-$
-\\ \vspace{2mm}
-$
-b_3 \leftarrow b_3 + \hat{b}_{q;1}
-$
-\\ \vspace{2mm}
-$
-b_4 \leftarrow b_3 == b_2
-$
-\\ \vspace{2mm}
-$
-b_1 \leftarrow b_1 \lor b_4
-$
-\\ \vspace{2mm}
-$
-b_4 \leftarrow b_2 \leq b_3
-$
-\\ \vspace{2mm}
-$
-y_o \leftarrow y_o \land b_4
-$
-\end{center}
-
-
-
-
-\subsection{Express a solution using subfunctions, storing subpaths of length 1 in memory}
-\begin{center}
-\vspace{4mm}
-// $d_{proposed}$ is the shortest path\\
-$y_o \leftarrow \mathbb{T}$
-\\ \vspace{3mm}
-//$d_{proposed}$ exists as a total path length\\
-$ b_1 \leftarrow \mathbb{F}$
-\\ \vspace{3mm}
-// shortest path register\\
-$ b_2 \leftarrow d_{proposed}$
-\\ \vspace{3mm}
-$loadM1Subpaths\lbrack X\rbrack$
-\\ \vspace{1mm}
-$computeAllRoutes\lbrack X \rbrack$
-\end{center}
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Show each subfunction satisfies the subfunction condition of solutions $: P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall \hat{X}_i,X_i, \hspace{2mm} \hat{X}_i \supseteq X_i$}
-Let
-\begin{center}
-$
-\mathcal{M}_0 = \{b_1,b_2,b_3,b_4,y_o\}
-$
-\\ \vspace{2mm}
-$
-\mathcal{M}_1 = \{\hat{b}_{1;1},\hat{b}_{1,;2},...,\hat{b}_{n-1;n}\} 
-$
-\end{center}
-
-\subsubsection{$loadM1Subpaths\lbrack X\rbrack \rightarrow \mathcal{M}_1$}
-Let
-\begin{center}
-$
-// X = \{l_1,l_2,...,l_n,C\}; \hspace{2mm} \hat{X} = \{l_1,l_2,...,l_n,l_{n+1},C\}
-$
-\\ \vspace{4mm}
-$
-loadM1Subpaths\lbrack X, \mathcal{M}\rbrack \rightarrow \mathcal{M}_1 = Sub_1\lbrack X, \mathcal{M} \rbrack \rightarrow \mathcal{M}_1
+X_n = \{x_1,x_2,...,x_n\} = \{ \{w_1,v_1\},\{w_2,v_2\},...,\{w_n,v_n\} \}
 $
 \\ \vspace{8mm}
 $
-Sub_1 \lbrack X, \mathcal{M} \rbrack = \{ \mathcal{L},\mathcal{M}\}
-$
-\\ \vspace{2mm}
-$
-= \{ \hat{b}_{i;j} \leftarrow \tilde{L}\lbrack l_i,l_j \rbrack \hspace{2mm} \forall i,j>i | b_3,b_4,\hat{b}_{1;1},\hat{b}_{1;2},...,\hat{b}_{n-1;n}\}
-$
-\\ \vspace{3mm}
-$
-Sub_1 \lbrack X_i, \mathcal{M} \rbrack = \{ \hat{b}_{i;j} \leftarrow \tilde{L}\lbrack l_i,l_j \rbrack \hspace{2mm} \forall i,j>i | b_3,b_4,\mathcal{M}_1\}
+I = \{i_1,i_2,...,i_n\}: i_l \in \{0,1\} \hspace{2mm} \forall i_l \in I
 $
 \\ \vspace{8mm}
 $
-Sub_1 \lbrack \hat{X}, \mathcal{M} \rbrack = \{ \hat{\mathcal{L}},\hat{\mathcal{M}}\}
+D := f[X_n,W,V] = a_o \in \{\mathbb{T},\mathbb{F}\} = \exists I:
 $
 \\ \vspace{2mm}
 $
-= \{ \hat{b}_{i;j} \leftarrow \tilde{L}\lbrack l_i,l_j \rbrack \hspace{2mm} \forall i,j>i | b_3,b_4,\hat{b}_{1;1},\hat{b}_{1;2},...,\hat{b}_{n;n+1}\}
-$
-\\ \vspace{2mm}
-$
-= \{ \mathcal{L}, \hat{b}_{i;j} \leftarrow \tilde{L}\lbrack l_i,l_j \rbrack \hspace{2mm} \forall i,j=n+1 | \mathcal{M}, \hat{b}_{1;n+1},\hat{b}_{2;n+1},...,\hat{b}_{n;n+1}\}
-$
-\\ \vspace{2mm}
-$
-Sub_1 \lbrack \hat{X}, \mathcal{M} \rbrack = \{ \mathcal{L}, \mathcal{L}_{n+1} | \mathcal{M}, \mathcal{M}_{n+1}\}
-$
-\\ \vspace{3mm}
-$
-Sub_1 \lbrack \hat{X}, \mathcal{M} \rbrack = \{ \mathcal{L}, \mathcal{L}_{n+1} | \mathcal{M}, \mathcal{M}_{n+1}\} \supseteq \{ \mathcal{L} | \mathcal{M}\} = Sub_1 \lbrack X, \mathcal{M} \rbrack 
+(\sum_{j=1}^n i_j w_j < W) \land (\sum_{j=1}^n i_j v_j \geq V)
 $
 \end{center}
+\vspace{3mm}
 
 
-
-
-\subsubsection{$computeAllRoutes\lbrack X\rbrack$}
-Let
-\begin{center}
-$
-computeAllRoutes\lbrack X\rbrack = Sub_2\lbrack X \rbrack
-$
-\\ \vspace{2mm}
-$
-Sub_2 \lbrack X \rbrack = \{ \mathcal{L},\mathcal{M},y_o\}
-$
-\\ \vspace{2mm}
-$
-= \{\hat{b}_{1;i_2}+\hat{b}_{i_2;i_3}+\hat{b}_{i_3;i_4}+...+\hat{b}_{i_{n};1} \hspace{2mm} \forall i_2,i_3 \neq i_2, i_4 \neq i_2,i_3 ... i_n \neq i_2,i_3...,i_{n-1} \hspace{2mm}
-$
-\\ \vspace{1mm}
-$
-| b_1,b_2,b_3,b_4,\mathcal{M}_1,y_o \}
-$
-\\ \vspace{6mm}
-$
-Sub_2 \lbrack\hat{X} \rbrack = \{ \hat{\mathcal{L}},\hat{\mathcal{M}},y_o\}
-$
-\\ \vspace{2mm}
-$
-= \{\hat{b}_{1;i_2}+\hat{b}_{i_2;i_3}+\hat{b}_{i_3;i_4}+...+\hat{b}_{i_{n+1};1} \hspace{2mm} \forall i_2,i_3 \neq i_2, i_4 \neq i_2,i_3 ... i_{n+1} \neq i_2,i_3...,i_{n} \hspace{2mm}
-$
-\\ \vspace{1mm}
-$
-| \mathcal{M},\mathcal{M}_{n+1},y_o \}
-$
-\end{center}
-\vspace{6mm}Let
-\begin{center}
-$
-insert\_subpath\lbrack \mathcal{L} \rbrack =
-$
-\\ \vspace{8mm}
-$
-Sub_2 \lbrack\hat{X} \rbrack =  \{ insert\_subpath\lbrack \mathcal{L},\hat{b}_{i_{n+1};j},j \rbrack \hspace{2mm} \forall j \neq n+1 | \mathcal{M},\mathcal{M}_{n+1},y_o \}
-$
-\end{center}
-
-
-
-
-\subsubsection{Show the overall solution storing subpaths of length 1 satisfies the subfunction condition of solutions $: P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall \hat{X}_i,X_i$}
+\subsection{Express a solution $s^+$ to the Knapsack Problem}
+\subsection{Prove $s^+$ satisfies the subfunction condition of solutions}
+\subsection{Determine $O[n],O_T[n],O_S[n],f_{n+1}[n]$}
+\subsection{Show $s^+$ $\notin$ $\mathbb{P}$}
+\subsection{Express the Solution Space $\mathbb{S}$ for The Knapsack Problem}
+\subsection{Prove a lower bound for all solutions $s^+ \in S^+ := O_{lower}[n]$}
+\subsection{Prove $D \notin P$}
 
 
 
 
 
-\subsection{Express $O[n]$ in terms of subfunction complexities}
-\begin{center}
-$
-O_{sub1}\lbrack n \rbrack = O_{T_{sub1}}\lbrack n \rbrack + O_{S_{sub1}}\lbrack n \rbrack
-$
-\\ \vspace{2mm}
-$
-O_{sub2}\lbrack n \rbrack = O_{T_{sub2}}\lbrack n \rbrack + O_{S_{sub2}}\lbrack n \rbrack
-$
-\\ \vspace{2mm}
-$
-O\lbrack n \rbrack = O_{sub1}\lbrack n \rbrack + O_{sub2}\lbrack n \rbrack + 3
-$
-\end{center}
-
-
-
-
-
-
-
-\subsection{$\bold{Sub_+[X]}$}
-Let $Sub_+[X]$ denote a subfunction that adds all subpaths of length 1\\
-Let $O_+[n]$ denote the total complexity of subfunction $Sub_+[X]$
-
-\subsubsection{Find an expression for $O_+[n]$ := the number of $\tilde{L} \lbrack l_i,l_j \rbrack$ + $\tilde{L} \lbrack l_j,l_k \rbrack$  length 1 subpath additions}
-\begin{center}
-\vspace{2mm}
-$
-O_+[n] = (\sum_{i=1}^n 1)\frac{(n P (n-1)}{2}
-$
-\\ \vspace{2mm}
-$
-O_+[n] = \frac{n(n-1)!}{2}
-$
-\\ \vspace{2mm}
-$
-O_+[n] = \frac{n!}{2}
-$
-\end{center}
-
-
-
-
-
-
-\subsection{Prove $Sub_+[X]$ is a subfunction of all $s^+$ by contradiction}
-suppose not all subpaths are considered\\
-there could exist subpath resulting in an incorrect solution\\
-contradicts definition of solution\\
-
-
-
-\subsection{Show the solution storing subpaths of length 1 contains $\bold{Sub_+[X]}$}
-\begin{center}
-\vspace{4mm}
-// $d_{proposed}$ is the shortest path\\
-$y_o \leftarrow \mathbb{T}$
-\\ \vspace{3mm}
-//$d_{proposed}$ exists as a total path length\\
-$ b_1 \leftarrow \mathbb{F}$
-\\ \vspace{3mm}
-// shortest path register\\
-$ b_2 \leftarrow d_{proposed}$
-\\ \vspace{3mm}
-$loadM1Subpaths\lbrack X\rbrack$
-\\ \vspace{1mm}
-$computeAllRoutes\lbrack X \rbrack$
-\end{center}
-
-
-
-
-
-
-
-
-\subsection{Express $O[n]$ in terms of subfunction complexities including $O_+[n]$ as a subfunction complexity}
-\begin{center}
-$
-O\lbrack n \rbrack = O_{sub1}\lbrack n \rbrack + O_{sub2}\lbrack n \rbrack + 3
-$
-\\ \vspace{2mm}
-$
- O_{sub2}\lbrack n \rbrack = O_+[n] + 8\frac{nP(n-1)}{2}
-$
-\\ \vspace{2mm}
-$
- O_{sub2}\lbrack n \rbrack = O_+[n] + 8\frac{(n-1)!}{2}
-$
-\\ \vspace{2mm}
-$
-O\lbrack n \rbrack = O_{sub1}\lbrack n \rbrack + O_+[n] + 8\frac{(n-1)!}{2} + 3
-$
-\end{center}
-
-
-
-
-
-
-\subsection{Show $limit_{n \rightarrow \infty}\frac{O_+[n+1]}{O_+[n]}$ diverges}
-\begin{center}
-$
-limit_{n \rightarrow \infty}\frac{O_+[n+1]}{O_+[n]}
-$
-\\ \vspace{2mm}
-$
-= limit_{n \rightarrow \infty}\frac{(n+1)!}{2} \frac{2}{n!}
-$
-\\ \vspace{2mm}
-$
-= limit_{n \rightarrow \infty}\hspace{1mm} n
-$
-\end{center}
-There does not exist ... \\
-therefore $limit_{n \rightarrow \infty}\frac{O_+[n+1]}{O_+[n]}$ diverges
-
-
-
-
-
-\subsection{Prove D is not in $\mathbb{P}$ by the definition of Polynomial Complexity}
-Let
-\begin{center}
-$
-Sub_i[X]$ denote all subfunctions of a solution $s^+$ except $Sub_+[X]
-$
-\\ \vspace{4mm}
-$
-O[n] = O_+[n] + \sum_{i=1}^z O_{i_T}[n]
-$
-\\ \vspace{3mm}
-$
-O[n] = \frac{n!}{2} + \sum_{i=1}^z O_{i_T}[n]
-$
-\end{center}
-\vspace{6mm}
-Assume O[n] satisfies the condition of Polynomial total complexity for $n = \hat{n}$ Let n = K!!!
-\begin{center}
-$\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
-\\ \vspace{2mm}
-$O[\hat{n}] = (\lambda_K \hat{n})^K + (\lambda_{K-1} \hat{n})^{K-1}... + \lambda_1 \hat{n} + C \hspace{3mm}
-$
-\\ \vspace{2mm}
-$
-= \frac{\hat{n}!}{2} + \sum_{i=1}^z O_{i_T}[\hat{n}]
-$
-\end{center}
-\vspace{5mm}
-Let $n = \hat{n}+1$
-\begin{center}
-$
-O[\hat{n} + 1] =  (\lambda_K \hat{n})^K + (\hat{\lambda_{K-1}} \hat{n})^{K-1}... + \hat{\lambda_1} \hat{n} +\hat{C} \sim (\lambda_K \hat{n})^K 
-$
-\\ \vspace{2mm}
-$
-\neq \frac{(\hat{n}+1)!}{2} + \sum_{i=1}^z O_{i_T}[\hat{n}+1] \sim (\lambda_K \hat{n})^{K+1}
-$
-\end{center}
-\vspace{1mm}
-\begin{center}
-$
-\therefore D \in \mathbb{P}$ is a contradiction
-\\ \vspace{3mm}
-$
-\therefore D \not \in \mathbb{P} \Rightarrow D \in \mathcal{N}
-$
-\end{center}
-
-
-\subsection{Prove D is not in $\mathbb{P}$ by limit property of Polynomial Complexity}
-Let
-\begin{center}
-$
-Sub_i[X]$ denote all subfunctions of a solution $s^+$ except $Sub_+[X]
-$
-\\ \vspace{4mm}
-$
-O[n] = O_+[n] + \sum_{i=1}^z O_{i_T}[n]
-$
-\\ \vspace{3mm}
-$
-O[n] = \frac{n!}{2} + \sum_{i=1}^z O_{i_T}[n]
-$
-\end{center}
-\vspace{6mm}
-Assume O[n] satisfies the condition of Polynomial total complexity
-\begin{center}
-$\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
-\\ \vspace{2mm}
-$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm}
-$
-\\ \vspace{8mm}
-$
-f_{+_{n+1}}[n] = O_+[n+1] - O_+[n] = \frac{(n+1)!}{2} - \frac{n!}{2}
-$
-\\ \vspace{2mm}
-$
-= \frac{n!(n+1 - 1)}{2} = \frac{n*n!}{2}
-$
-\\ \vspace{8mm}
-$
-limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty} \frac{\frac{(n+1)!}{2} + \sum_{i=1}^z O_{i_T}[n+1]}{ (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}
-$
-\\ \vspace{2mm}
-$
-limit_{n \rightarrow \infty} \frac{\frac{(n+1)!}{2}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C} +  \frac{\sum_{i=1}^z O_{i_T}[n+1]}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}
-$
-\\ \vspace{6mm}
-$
-limit_{n \rightarrow \infty} \frac{\frac{(n+1)!}{2}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}$ diverges
-\\ \vspace{4mm} 
-$O_{i_T}[n+1]$ is a positive, non-decreasing function
-\\ \vspace{2mm}
-$
-\therefore limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$ diverges
-\end{center}
-\vspace{1mm}
-\begin{center}
-$
-\therefore D \in \mathbb{P}$ contradicts the limit property of Polynomial solutions
-\\ \vspace{3mm}
-$
-\therefore D \not \in \mathbb{P} \Rightarrow D \in \mathcal{N}
-$
-\end{center}
-
-
-
-%\subsection{Connection to "P $\neq$ NP"}
 
 
 
