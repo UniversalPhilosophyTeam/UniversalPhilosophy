@@ -1,0 +1,209 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx,graphicx}
+
+
+\newcommand{\test}{\circlearrowright}
+\def \loop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}}
+\def \nestedloop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}^n}
+
+
+
+\begin{document}
+\section*{Logic}
+
+
+
+\section{Definition of Bool $b$}
+Define Bool $b$
+\begin{center}
+\vspace{1mm}
+$
+b :=
+$
+\end{center}
+$b \Rightarrow \mathbb{T}$
+\begin{center}
+\vspace{1mm}
+$
+b = \mathbb{T}
+$
+\end{center}
+$b \Rightarrow \mathbb{F}$
+\begin{center}
+\vspace{1mm}
+$
+b = \mathbb{F}
+$
+\end{center}
+
+
+\section{Definition of Not $\lnot$}
+Define not b; \hspace{.2mm}$\lnot$ b
+\begin{center}
+\vspace{2mm}
+$
+\lnot b :=
+$
+\end{center}
+$b \Rightarrow \mathbb{T}$
+\begin{center}
+$\lnot b = \mathbb{F}$\\
+\end{center}
+$b \Rightarrow \mathbb{F}$
+\begin{center}
+$
+\lnot b = \mathbb{T}
+$
+\end{center}
+
+\subsection{Alternate Notation}
+\begin{center}
+$
+\lnot b = \hspace{1mm} !\hspace{.2mm}b
+$
+\end{center}
+
+
+
+
+
+\section{Definition of Contradiction}
+
+
+
+
+
+
+% Logical Or
+\newpage
+\section{Definition of Logical Or}
+\subsection{Definition of Logical Or $\lor$}
+\vspace{3mm}
+Define Logical Or $\lor$
+\begin{center}
+$
+a \lor b :=
+$
+\end{center}
+$a = \mathbb{F}; \hspace{2mm} b = \mathbb{F}$
+\begin{center}
+$
+a \lor b = \mathbb{F}
+$
+\end{center}
+\vspace{2mm}
+$a = \mathbb{F}; \hspace{2mm} b = \mathbb{T}$
+\begin{center}
+$
+a \lor b = \mathbb{T}
+$
+\end{center}
+\vspace{2mm}
+$a = \mathbb{T}; \hspace{2mm} b = \mathbb{F}$
+\begin{center}
+$
+a \lor b = \mathbb{T}
+$
+\end{center}
+\vspace{2mm}
+$a = \mathbb{T}; \hspace{2mm} b = \mathbb{T}$
+\begin{center}
+$
+a \lor b = \mathbb{T}
+$
+\end{center}
+
+
+
+
+
+
+% Logical And
+\section{Definition of Logical And}
+\subsection{Definition of Logical And $\land$}
+\vspace{3mm}
+Define Logical Or $\land$
+\begin{center}
+$
+a \land b :=
+$
+\end{center}
+$a = \mathbb{F}; \hspace{2mm} b = \mathbb{F}$
+\begin{center}
+$
+a \land b = \mathbb{F}
+$
+\end{center}
+\vspace{2mm}
+$a = \mathbb{F}; \hspace{2mm} b = \mathbb{T}$
+\begin{center}
+$
+a \land b = \mathbb{F}
+$
+\end{center}
+\vspace{2mm}
+$a = \mathbb{T}; \hspace{2mm} b = \mathbb{F}$
+\begin{center}
+$
+a \land b = \mathbb{F}
+$
+\end{center}
+\vspace{2mm}
+$a = \mathbb{T}; \hspace{2mm} b = \mathbb{T}$
+\begin{center}
+$
+a \land b = \mathbb{T}
+$
+\end{center}
+
+
+
+
+
+\section{Remaining 2 Bool Logical Definitions}
+Express explicitly; Express in terms of the above definitions
+\subsection{XOR}
+\subsection{NOR}
+\subsection{XNOR}
+\subsection{NAND}
+
+
+
+
+
+
+\section{Universality of Logical Expressions}
+\subsection{Universality of Not $\lnot$;\hspace{2mm}Logical Or $\lor$;\hspace{2mm} Logical $\land$}
+
+
+
+
+
+
+
+\newpage
+\section*{Appendix}
+\section{Criticism logical union, set union, logical and, set and}
+- logical or is a function logical and is a function\\
+- language muks up our understanding\\
+
+Logical or $\lor$ is different from $\cup$
+Logical and $\land$ is different from $\cap$
+
+Logical or, only one has to be true\\
+Logical and, both have to be true --> I'll take the intersection\\
+
+Set and, I'll take bag 1 and bag 2 i'll take both --> I'll take the union\\
+set or, I'll take bag 1 or bag 2 I'll take just one\\
+
+Do we ever confuse set union, set and with logical or, and?\\
+(Don't we describe set union $\cup$ as "or")
+
+
+
+
+
+
+\end{document}
