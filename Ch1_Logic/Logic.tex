@@ -20,98 +20,27 @@ Define Bool $b$
 \begin{center}
 \vspace{1mm}
 $
-b :=
+b := \mathbb{T}
 $
 \end{center}
-$b \Rightarrow \mathbb{T}$
+
+\section{Definition of Not b $\lnot b$}
+Define Bool $b$
 \begin{center}
 \vspace{1mm}
 $
-b = \mathbb{T}
-$
-\end{center}
-$b \Rightarrow \mathbb{F}$
-\begin{center}
-\vspace{1mm}
-$
-b = \mathbb{F}
+\lnot b := \mathbb{F}
 $
 \end{center}
 
 
-\section{Definition of Not $\lnot$}
-Define not b; \hspace{.2mm}$\lnot$ b
-\begin{center}
-\vspace{2mm}
-$
-\lnot b :=
-$
-\end{center}
-$b \Rightarrow \mathbb{T}$
-\begin{center}
-$\lnot b = \mathbb{F}$\\
-\end{center}
-$b \Rightarrow \mathbb{F}$
-\begin{center}
-$
-\lnot b = \mathbb{T}
-$
-\end{center}
-
-\subsection{Alternate Notation}
-\begin{center}
-$
-\lnot b = \hspace{1mm} !\hspace{.2mm}b
-$
-\end{center}
-
-
-
-
-
-\section{Definition of Contradiction}
-
-
-
-
-
-
-% Logical Or
-\newpage
 \section{Definition of Logical Or}
 \subsection{Definition of Logical Or $\lor$}
 \vspace{3mm}
-Define Logical Or $\lor$
 \begin{center}
+\vspace{1mm}
 $
-a \lor b :=
-$
-\end{center}
-$a = \mathbb{F}; \hspace{2mm} b = \mathbb{F}$
-\begin{center}
-$
-a \lor b = \mathbb{F}
-$
-\end{center}
-\vspace{2mm}
-$a = \mathbb{F}; \hspace{2mm} b = \mathbb{T}$
-\begin{center}
-$
-a \lor b = \mathbb{T}
-$
-\end{center}
-\vspace{2mm}
-$a = \mathbb{T}; \hspace{2mm} b = \mathbb{F}$
-\begin{center}
-$
-a \lor b = \mathbb{T}
-$
-\end{center}
-\vspace{2mm}
-$a = \mathbb{T}; \hspace{2mm} b = \mathbb{T}$
-\begin{center}
-$
-a \lor b = \mathbb{T}
+\lor :=
 $
 \end{center}
 
@@ -120,49 +49,22 @@ $
 
 
 
-% Logical And
-\section{Definition of Logical And}
-\subsection{Definition of Logical And $\land$}
-\vspace{3mm}
-Define Logical Or $\land$
+\section{Definition Logical And}
+The law of non-contradiction
 \begin{center}
 $
-a \land b :=
-$
-\end{center}
-$a = \mathbb{F}; \hspace{2mm} b = \mathbb{F}$
-\begin{center}
-$
-a \land b = \mathbb{F}
-$
-\end{center}
-\vspace{2mm}
-$a = \mathbb{F}; \hspace{2mm} b = \mathbb{T}$
-\begin{center}
-$
-a \land b = \mathbb{F}
-$
-\end{center}
-\vspace{2mm}
-$a = \mathbb{T}; \hspace{2mm} b = \mathbb{F}$
-\begin{center}
-$
-a \land b = \mathbb{F}
-$
-\end{center}
-\vspace{2mm}
-$a = \mathbb{T}; \hspace{2mm} b = \mathbb{T}$
-\begin{center}
-$
-a \land b = \mathbb{T}
+b_1 \land \lnot b_1 = \mathbb{F}
 $
 \end{center}
 
 
 
+\section{Contradiction}
 
 
-\section{Remaining 2 Bool Logical Definitions}
+
+
+\section{Remaining 2 Variable Logical Definitions}
 Express explicitly; Express in terms of the above definitions
 \subsection{XOR}
 \subsection{NOR}
@@ -183,8 +85,103 @@ Express explicitly; Express in terms of the above definitions
 
 
 
+\section{Definition of Not $\lnot$ b}
+Define not b
+\begin{center}
+\vspace{2mm}
+$
+\lnot b := \mathbb{F}
+$
+\end{center}
+
+
+
+
+
+
+\section{Definition of Contradiction}
+
+
+
+
+
+
+
+
+
+
 \newpage
 \section*{Appendix}
+
+
+
+
+
+\section{English Translation of Logical Or $\lor$}
+$b_1$ Logical Or $b_2$ is spoken in English as "at least one of the following is true. $b_1$. $b_2.$"
+\subsection{English Example}
+At least one of the following is true.\\
+Most dogs have four legs.\\
+Two plus three is equal to 5.
+\subsection{Criticism of "Logical Or" In Computer Science}
+In Computer Science, $b_1$ Logical Or $b_2$ is often spoken as "$b_1$ or $b_2$". "$b_1$ or $b_2$" can lead to inconsistent statements.\\
+\begin{center}
+$b_1 = ($int $3 \subset [1,2,3])$\\
+\vspace{2mm}
+$b_2 = ((2 + 2) == 5)$\\
+\end{center}
+\vspace{2mm}
+The following is a valid expression in Computer Science
+\begin{center}
+$
+b_1 \lor b_2 = \mathbb{T}
+$
+\end{center}
+The expression is read in English as "3 is in the list 1 2 3 or 2 plus 2 is equal to 5". The expression is True by definition but $b_1$ or $b_2$
+do not necessarily imply Truth.\\\\
+\begin{center}
+$b_1 = ($int $3 \subset [1,2,3])$\\
+\vspace{2mm}
+$b_2 = ($int $3 \not \subset [1,2,3])$\\
+\end{center}
+\vspace{2mm}
+The following is a valid expression in Computer Science
+\begin{center}
+$
+ b_1 \lor b_2 =  b_1 \lor \lnot b_1 = \mathbb{T}
+$
+\end{center}
+The expression is read in English as "3 is in the list 1 2 3 or 3 is not in the list 1 2 3 is True". The expression is necessarily true.\\
+\\Now consider
+\begin{center}
+$
+ b_1 \land b_2 =  b_1 \land \lnot b_1 = \mathbb{F}
+$
+\end{center}
+The expression is read in English as "3 is in the list 1 2 3 and 3 is not in the list 1 2 3 is True". The expression in computer science evaluates to false
+
+
+\section{English Translation of "Exclusive Or" XOR}
+"$b_1$ Exclusive Or $b_2$" is read in English as "Either $b_1$ Or $b_2$"
+\subsection{Example}
+Either\\
+Three plus four is equal to seven\\
+or\\
+Three plus four is equal to eight
+\subsection{Criticism of English Expression of "Exclusive Or"}
+"Exclusive Or" is often expressed as "Or" in English.\\
+I can order the salad for lunch\\
+or\\
+I can order tofu for lunch
+
+\section{Commentary on "Logical And"}
+In English, "$b_1$ Logical And $b_2$" is read as "And"
+\subsection{Example}
+Most dogs have four legs\\
+and\\
+Most cats have four legs
+
+
 \section{Criticism logical union, set union, logical and, set and}
 - logical or is a function logical and is a function\\
 - language muks up our understanding\\
