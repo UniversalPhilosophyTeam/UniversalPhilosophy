@@ -1,0 +1,602 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx,graphicx}
+
+\newcommand{\test}{\circlearrowright}
+\def \loop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}}
+\def \nestedloop {\ensuremath{\rotatebox[origin=c]{-90}{$\circlearrowright$}}^n}
+
+\begin{document}
+
+
+\section*{Canonical Comparators}
+
+
+
+
+\section{Comparators}
+
+
+
+
+\subsection{Domain}
+\vspace{1mm}
+Let statement $s_j$
+\begin{center}
+$
+s_j = s : (\mathbb{T} \doteq s_j) \oplus  (\mathbb{F} \doteq s_j)
+$
+\\ \vspace{6mm}
+$
+"The$ $set$ $of$ $all$ $arguments"$ $=
+$
+\\ \vspace{3mm}
+$
+\mathbb{L}:= \{X_i,...\} :
+$
+\end{center}
+\begin{center}
+$
+(\exists \doteq X_i) \land (X_i = s_1 \cup s_2 \cup ...)
+$
+\end{center}
+
+
+
+\subsection{Definition of a Comparator}
+\vspace{1mm}
+Let
+\begin{center}
+$
+X_n^{comparator} = \{x_1,x_2,...,x_n\} :
+$
+\\ \vspace{2mm}
+$
+(\mathbb{T} \doteq x_1 \oplus \mathbb{F} \doteq x_1) \land (\mathbb{T} \doteq x_2 \oplus \mathbb{F} \doteq x_2) \land ...\land (\mathbb{T} \doteq x_n \oplus \mathbb{F} \doteq x_n) 
+$
+\\ \vspace{6mm}
+$
+"Comparator" = f[x_1,x_2,...] \rightarrow y_o :=
+$
+\\ \vspace{2mm}
+$
+(\mathbb{T} \doteq y_o) \oplus  (\mathbb{T} \doteq y_o) \hspace{2mm} \forall 
+$
+\end{center}
+
+
+% Is Equal To
+\section{==}
+\subsection{Definition}
+\begin{center}
+$
+(a == b) = (==[a,b]) :=
+$
+\end{center}
+a = b
+\begin{center}
+$
+a == b \rightarrow \mathbb{T}
+$
+\end{center}
+\vspace{2mm}
+a $\neq$ b
+\begin{center}
+$
+a == b \rightarrow \mathbb{F}
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{a \hspace{1mm} | \hspace{1mm} a \in \{\mathbb{T},\mathbb{F}\} \}
+$
+\\ \vspace{2mm}
+$
+\{b \hspace{1mm} | \hspace{1mm} b \in \{\mathbb{T},\mathbb{F}\} \}
+$
+\end{center}
+
+
+
+
+% Logical Or
+\section{$\lor$}
+\subsection{Definition}
+\begin{center}
+$
+a \lor b = \lor[a,b] :=
+$
+\end{center}
+\vspace{2mm}
+a = b = $\mathbb{T}$
+\begin{center}
+$
+a \lor b = \mathbb{T}
+$
+\end{center}
+\vspace{2mm}
+a = b = $\mathbb{F}$
+\begin{center}
+$
+a \lor b  = \mathbb{F}
+$
+\end{center}
+\vspace{2mm}
+$\mathbb{T}$ = $a \neq b$ = $\mathbb{F}$
+\begin{center}
+$
+a \lor b = \mathbb{T}
+$
+\end{center}
+\vspace{2mm}
+$\mathbb{F}$ = $a \neq b$ = $\mathbb{T}$
+\begin{center}
+$
+a \lor b = \mathbb{T}
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{a \hspace{1mm} | \hspace{1mm} a \in \{\mathbb{T},\mathbb{F}\}\}
+$
+\\ \vspace{2mm}
+$
+\{b \hspace{1mm} | \hspace{1mm} b \in \{\mathbb{T},\mathbb{F}\}\}
+$
+\end{center}
+
+
+
+
+
+
+
+
+% Logical And
+\section{$\land$}
+\subsection{Definition}
+\begin{center}
+$
+a \land b = \land[a,b] :=
+$
+\end{center}
+\vspace{2mm}
+a = b = $\mathbb{T}$
+\begin{center}
+$
+a \land b = \mathbb{T}
+$
+\end{center}
+\vspace{2mm}
+a = b = $\mathbb{F}$
+\begin{center}
+$
+a \land b  = \mathbb{F}
+$
+\end{center}
+\vspace{2mm}
+$\mathbb{T}$ = $a \neq b$ = $\mathbb{F}$
+\begin{center}
+$
+a \land b = \mathbb{F}
+$
+\end{center}
+\vspace{2mm}
+$\mathbb{F}$ = $a \neq b$ = $\mathbb{T}$
+\begin{center}
+$
+a \land b = \mathbb{F}
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{a \hspace{1mm} | \hspace{1mm} a \in \{\mathbb{T},\mathbb{F}\}\}
+$
+\\ \vspace{2mm}
+$
+\{b \hspace{1mm} | \hspace{1mm} b \in \{\mathbb{T},\mathbb{F}\}\}
+$
+\end{center}
+
+
+
+% Greater than
+\section{>}
+\subsection{Definition}
+\begin{center}
+$
+a > b \hspace{1.5mm} =\hspace{1.5mm} >[a,b] :=
+$
+\\ \vspace{2mm}
+$
+0 > 1\hspace{1.5mm} =\hspace{1.5mm} >[0,1] \rightarrow \mathbb{F} 
+$
+\\ \vspace{2mm}
+$
+1 > 0 \hspace{1.5mm}=\hspace{1.5mm} >[1,0] \rightarrow \mathbb{T} 
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{ a \hspace{1mm}| \hspace{1mm} a \in \{0,1\} \}
+$
+\\ \vspace{2mm}
+$
+\{ b \hspace{1mm}| \hspace{1mm} b \in \{0,1\} \}
+$
+\end{center}
+
+
+
+
+% Less than
+\newpage
+\section{<}
+\subsection{Definition}
+\begin{center}
+$
+a < b \hspace{1.5mm} =\hspace{1.5mm} <[a,b] :=
+$
+\\ \vspace{2mm}
+$
+0 < 1\hspace{1.5mm} =\hspace{1.5mm} <[0,1] \rightarrow \mathbb{T} 
+$
+\\ \vspace{2mm}
+$
+1 < 0 \hspace{1.5mm}=\hspace{1.5mm} <[1,0] \rightarrow \mathbb{F} 
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{ a \hspace{1mm}| \hspace{1mm} a \in \{0,1\} \}
+$
+\\ \vspace{2mm}
+$
+\{ b \hspace{1mm}| \hspace{1mm} b \in \{0,1\} \}
+$
+\end{center}
+
+
+
+\section{Prove all comparators can be expressed with ==,<,>}
+
+
+
+
+
+
+% Not
+\newpage
+\section{$\lnot$}
+\subsection{Definition}
+\begin{center}
+$
+\lnot = \lnot[b] :=
+$
+\\ \vspace{2mm}
+$
+ \lnot[\mathbb{T}] \rightarrow \mathbb{F}
+ $
+ \\ \vspace{2mm}
+ $
+ \lnot[\mathbb{F}] \rightarrow \mathbb{T}
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{ b \hspace{1mm}| \hspace{1mm} b \in \{\mathbb{T}, \mathbb{F}\}\}
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Union
+\newpage
+\section{$\cup$}
+\subsection{Definition}
+\vspace{1mm}
+\begin{center}
+$
+a  \cup  b = \cup[a,b] := 
+$
+\end{center}
+$a = b \neq \emptyset$
+\begin{center}
+$
+a  \cup  a = b \cup b \rightarrow \{a\} = \{b\}
+$
+\end{center}
+\vspace{2mm}
+$\emptyset \neq a \neq b \neq \emptyset$
+\begin{center}
+$
+a \cup  b \rightarrow \{a,b\}
+$
+\end{center}
+\vspace{2mm}
+$\emptyset = a \neq b$
+\begin{center}
+$
+\emptyset \cup  b \rightarrow \{b\}
+$
+\end{center}
+\vspace{2mm}
+$a \neq b = \emptyset$
+\begin{center}
+$
+a \cup \emptyset \rightarrow \{a\}
+$
+\end{center}
+\vspace{2mm}
+$a = b = \emptyset$
+\begin{center}
+$
+\emptyset \cup \emptyset \rightarrow \emptyset
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{ a \hspace{1mm} | \hspace{1mm} a \in \Omega\}
+$
+\\ \vspace{2mm}
+$
+\{ b \hspace{1mm}|\hspace{1mm} b \in \Omega\}
+$
+\end{center}
+
+
+
+
+
+
+% Element-wise subtraction
+\newpage
+\section{$\setminus$}
+\subsection{Definition}
+\vspace{1mm}
+\begin{center}
+$
+a \hspace{1mm} \setminus \hspace{1mm}  b = \setminus[a,b] := 
+$
+\end{center}
+$a \neq b = \emptyset$
+\begin{center}
+$
+a \hspace{1mm} \setminus \hspace{1mm} b \rightarrow a
+$
+\end{center}
+\vspace{2mm}
+$a = b$
+\begin{center}
+$
+a \hspace{1mm} \setminus \hspace{1mm} b \rightarrow \emptyset
+$
+\end{center}
+\vspace{2mm}
+$\emptyset = a \neq b$
+\begin{center}
+Undefined
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{ a \hspace{1mm} | \hspace{1mm} a \in \Omega\}
+$
+\\ \vspace{2mm}
+$
+\{ b \hspace{1mm}|\hspace{1mm} b \subseteq a\}
+$
+\end{center}
+
+
+
+
+
+
+% Intersection
+\newpage
+\section{$\cap$}
+\subsection{Definition}
+\begin{center}
+$
+a \cap b = \cap[a,b] :=
+$
+\end{center}
+\vspace{2mm}
+a = b
+\begin{center}
+$
+a \cap a = b \cap b \rightarrow \{a\} = \{b\}
+$
+\end{center}
+\vspace{2mm}
+$a \neq b$
+\begin{center}
+$
+a \cap b \rightarrow \emptyset
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{ a \hspace{1mm}|\hspace{1mm} a \in \Omega\}
+$
+\\ \vspace{2mm}
+$
+\{ b \hspace{1mm}|\hspace{1mm} b \in \Omega\}
+$
+\end{center}
+
+
+
+
+
+
+
+
+% Cardinality
+\newpage
+\section{Cardinality | |}
+\subsection{Definition}
+\begin{center}
+$
+|S| = $ | |[S\hspace{.2mm}]$:=
+$
+\end{center}
+$S = \emptyset$
+\begin{center}
+$
+|S| \rightarrow 0
+$
+\end{center}
+$S = \{s_1\}$
+\begin{center}
+$
+|S| = |\{s_1\}| \rightarrow 1
+$
+\end{center}
+$S = \{s_1,s_2,...,s_N\}$
+\begin{center}
+$
+|S| = |\{s_1,s_2,...,s_N\}| \rightarrow N
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{S \hspace{1mm} | \hspace{1mm} S \subset \Omega\}
+$
+\end{center}
+
+
+
+
+% Identity
+\section{Definition of Get}
+\begin{center}
+$
+"get" = get[a] :=
+$
+\end{center}
+\vspace{1mm}
+$\exists \doteq a$
+\begin{center}
+$
+get[a] \rightarrow a
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{ a \hspace{1mm} | \hspace{1mm} a \in \Omega\}
+$
+\end{center}
+
+
+
+\section{Definition of Assign}
+\begin{center}
+$
+"set" = set[a] :=
+$
+\end{center}
+\vspace{1mm}
+$\exists \doteq a$
+\begin{center}
+$
+set[a]
+$
+\end{center}
+\subsection{Domain}
+\begin{center}
+$
+\{ a \hspace{1mm} | \hspace{1mm} a \in \Omega\}
+$
+\end{center}
+
+
+
+%\section{No-op ;}
+%\subsection{Definition}
+%\subsection{Domain}
+%Define void program No-op ;
+%\begin{center}
+%\vspace{1mm}
+%$
+%;[\emptyset] := \{s_;=\emptyset\} = \{\mathcal{L}\}
+%$
+%\end{center}
+
+%\subsection{Prove No-op ; is an Instruction}
+
+%\subsection{Time Complexity of No-op}
+%\begin{center}
+%\vspace{1mm}
+%$
+%O_T[n] := |\mathcal{L}| = 1
+%$
+%\end{center}
+
+%\subsection{Space Complexity of No-op}
+%\begin{center}
+%\vspace{1mm}
+%$
+%O_S[n] := |\mathcal{M}| = 0
+%$
+%\end{center}
+
+
+%\subsection{Total Complexity of No-op}
+%\begin{center}
+%\vspace{1mm}
+%$
+%O[n] = O_T[n] + O_S[n] = 0
+%$
+%\end{center}
+
+
+%\subsection{Property of No-op ;}
+%Prove No-op can be added to any Program $P$ without modifying the output $y_o$ or memory $b_i$
+%\begin{center}
+%\vspace{1mm}
+%$
+%P = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o\} = \{ \mathcal{L},\mathcal{M},y_o\}
+%$
+%\end{center}
+%Let
+%\begin{center}
+%$
+%P_; = \{ s_1,s_2,...,s_{j}, \hspace{.25mm} s_; \hspace{.25mm}, s_{j+1}, ...,s_{O_T \lbrack n \rbrack}, \hat{b}_1, \hat{b}_2,...,\hat{b}_{O_S \lbrack n \rbrack},\hat{y}_o\}
+%$
+%\end{center}
+%Suppose
+%\begin{center}
+%$
+%\hat{y}_o \neq y_o
+%$
+%\end{center}
+
+
+
+\end{document}
