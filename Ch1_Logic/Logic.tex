@@ -14,52 +14,203 @@
 \section*{Logic}
 
 
-
-\section{Definition of Bool $b$}
-Define Bool $b$
+\section{Statement $s$}
 \begin{center}
-\vspace{1mm}
 $
-b := \mathbb{T}
+"Statement" := s:
 $
-\end{center}
-
-\section{Definition of Not b $\lnot b$}
-Define Bool $b$
-\begin{center}
-\vspace{1mm}
+\\ \vspace{2mm}
 $
-\lnot b := \mathbb{F}
-$
-\end{center}
-
-
-\section{Definition of Logical Or}
-\subsection{Definition of Logical Or $\lor$}
-\vspace{3mm}
-\begin{center}
-\vspace{1mm}
-$
-\lor :=
+\mathbb{T} \doteq s\hspace{2mm} \oplus \hspace{2mm} \mathbb{F} \doteq s
 $
 \end{center}
 
 
 
 
+\section{Definition of Positive Implication}
+\begin{center}
+$
+"Positive$ $Implication" := s_{in} \cup s_{result}:
+$
+\\ \vspace{2mm}
+$
+\mathbb{T} \doteq s_{in} \Rightarrow \mathbb{T} \doteq s_{result}
+$
+\end{center}
 
 
-\section{Definition Logical And}
+
+\section{Definition of Negative Implication}
+\begin{center}
+$
+"Negative$ $Implication" := s_{in} \cup s_{result}:
+$
+\\ \vspace{2mm}
+$
+\mathbb{F} \doteq s_{in} \Rightarrow \mathbb{F} \doteq s_{result}
+$
+\end{center}
+
+
+
+
+\section{Definition of Preventative Implication}
+\begin{center}
+$
+"Preventative$ $Implication" := s_{in} \cup s_{result}:
+$
+\\ \vspace{2mm}
+$
+\mathbb{T} \doteq s_{in} \Rightarrow \mathbb{F} \doteq s_{result}
+$
+\end{center}
+
+
+
+\section{Definition of Consequential Implication}
+\begin{center}
+$
+"Consesquential$ $Implication" := s_{in} \cup s_{result}:
+$
+\\ \vspace{2mm}
+$
+\mathbb{F} \doteq s_{in} \Rightarrow \mathbb{T} \doteq s_{result}
+$
+\end{center}
+
+
+
+
+
+
+
+\section{Fact $t$}
+\subsection{Definition of "Fact" $t$}
+\begin{center}
+$
+"Fact" := t:
+$
+\\ \vspace{2mm}
+$
+\mathbb{T} \doteq t
+$
+\end{center}
+
+
+
+\subsection{Prove a fact is a statement}
+
+
+
+\subsection{English Examples}
+Let $t=$ Five plus five is equal to ten
+\begin{center}
+Five plus five is equal to ten is a true statement\\ \vspace{2mm}
+Flive plus five is equal to ten is a fact
+\end{center}
+
+
+
+
+\section{Lie $l$}
+\subsection{Definition of "lie" $l$}
+\begin{center}
+$
+"lie" := l:
+$
+\\ \vspace{2mm}
+$
+\mathbb{F} \doteq l
+$
+\end{center}
+
+
+
+\subsection{Prove a "lie" is a statement}
+
+
+
+
+\subsection{English Example}
+Consider the statement five plus five is equal to nine
+\begin{center}
+Five plus five is equal to nine is a false statement\\ \vspace{2mm}
+Five plus five is equal to nine is a lie
+\end{center}
+
+
+
+
+
+
+\section{Not s $\lnot$ s}
+\subsection{Definition of "Not s" $\lnot$ s}
+\vspace{2mm}
+\begin{center}
+$
+\lnot s :=
+$
+\end{center}
+$\mathbb{T} \doteq s$
+\begin{center}
+$
+\mathbb{F} \doteq \lnot s
+$
+\end{center}
+\vspace{2mm}
+$\mathbb{F} \doteq s$
+\begin{center}
+$
+\mathbb{T} \doteq \lnot s
+$
+\end{center}
+
+
+
+
+
+
+
+\subsection{English Example}
+Let
+\begin{center}
+$s=$ Humans can travel faster than the speed of light.\\ \vspace{2mm}
+$\lnot s=$ Humans can not travel faster than the speed of light.\\ \vspace{2mm}
+$\mathbb{F} \doteq s$\\
+s is false\\ \vspace{2mm}
+$\mathbb{T} \doteq \lnot s$\\
+$\lnot s$ is a fact
+\end{center}
+
+
+
+
+
+\section{Definition of Or $\lor$}
+The law of excluded middle
+\begin{center}
+\end{center}
+\subsection{The Law of Total Equivalence}
+
+
+\section{Definition of And $\land$}
 The law of non-contradiction
 \begin{center}
 $
-b_1 \land \lnot b_1 = \mathbb{F}
+s \land \lnot s = \mathbb{F}
+$
+\end{center}
+\subsection{Definition of Contradiction}
+\begin{center}
+$
+s \land \lnot s = \mathbb{T}
 $
 \end{center}
 
 
 
-\section{Contradiction}
+
 
 
 
@@ -85,21 +236,9 @@ Express explicitly; Express in terms of the above definitions
 
 
 
-\section{Definition of Not $\lnot$ b}
-Define not b
-\begin{center}
-\vspace{2mm}
-$
-\lnot b := \mathbb{F}
-$
-\end{center}
 
 
 
-
-
-
-\section{Definition of Contradiction}
 
 
 
@@ -113,6 +252,46 @@ $
 \newpage
 \section*{Appendix}
 
+\section{"-ness"}
+Happy is an adjective\\
+Happyiness is a noun\\
+The dog is happy\\
+The dog has happiness\\
+Happiness is a (current or permanent) quality of the dog
+
+\section{is vs is a}
+The cat is a feline\\
+The cat is a member of the set of felines\\
+vs\\
+The cat is hairy\\
+The cat has hair. The cat has the quality of hairyness\\
+vs\\
+The cat is a hairy cat\\
+The cat is a member of the set of cats having the quality of hairyness\\
+
+
+\section{Overloaded "is"}
+Object c is a cat\\
+c = cat\\
+\\
+That cat is a feline\\
+cat = feline?\\
+cat $\Rightarrow$ feline\\
+cat inherits felineness\\
+\\
+That cat is hairy\\
+cat = hairy?\\
+The cat has hairyness; the quality of having hair
+
+
+\section{Criticism of "Is True" and "Is False"}
+Consider true statement t\\
+"Statement t is true" is equivalent to saying "Statement t equals True"\\
+Statement t is not equivalent to True. Statement has the property of truth.\\
+\\
+Consider false statement f\\
+"Statement f is false" is equivalent to saying "Statement f equals False"\\
+False statement f is not equivalent to False. Statement f has the property of falsehood.\\
 
 
 
