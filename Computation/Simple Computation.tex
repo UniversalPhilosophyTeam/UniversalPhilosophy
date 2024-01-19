@@ -1,0 +1,3558 @@
+\documentclass[11pt]{article}
+\usepackage{moresize}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx,graphicx}
+
+\def \attrdef{\atop}
+\def \hasattr{$\rlap{$\supseteq$}$\tiny $a \attr $ \normalsize}
+\def \isattrof{$\rlap{$\supseteq$}$\tiny $a \attr $ \normalsize}
+
+\begin{document}
+
+\section*{Computation}
+
+
+
+
+
+
+% Definition of Instruction Set
+\section{Instructions}
+\subsection{Definiton of Instructions}
+Define $\mathcal{I}$; an ordered set of computational instructions $s_i$
+\begin{center}
+$
+\mathcal{I} := \{ s_1,s_2,...,s_{N}\}
+$
+\end{center}
+
+
+
+\subsection{Abstraction Notation}
+Define $\mathcal{I}$; an ordered set of computational instructions $s_i$
+\begin{center}
+"Instruction Set"$ := \mathcal{I}:
+$
+\\ \vspace{2mm}
+$
+(\mathcal{I} \equiv \hspace{1mm} $Set$) \land (s_i \equiv$ instruction$ \hspace{3mm} \forall s_i \in \mathcal{I})
+$
+\end{center}
+
+
+
+
+\subsection{Members of an Instruction Set}
+Computational instruction $s_i$ is read as $"step$ $i"$
+\begin{center}
+$
+\mathcal{I} := \{ s_1,s_2,...,s_{N}\}
+$
+\end{center}
+\vspace{1mm}
+"Instruction Set I equals step 1 and step 2 and step 3 and ... and step N"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Definition of Memory
+\section{Memory}
+\subsection{Definiton of Memory}
+Define Memory $\mathcal{M}$; an ordered set of either bools numbers or objects $m_i$
+\begin{center}
+$\mathcal{M} := \{m_1,m_2,...,m_M\}$
+\end{center}
+
+
+
+
+\subsection{Abstraction Notation}
+Define Memory $\mathcal{M}$; an ordered set of either bools numbers or objects $m_i$
+\begin{center}
+"Memory Set" := $\mathcal{M}:$
+\\ \vspace{2mm}
+$
+(\mathcal{M} \equiv Set) \land((m_i \equiv bool) \oplus (m_i \in \mathbb{R}) \oplus (m_i \equiv$ $object) \hspace{2mm} \forall m_i \in \mathcal{M})
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+% Definition of Program
+\section{Methods}
+\subsection{Definition of a Method}
+Define a method $\mathcal{P}$; a tensor of instructions and memory
+\begin{center}
+$
+\mathcal{P} := \{ \{s_1, s_2,...,s_{N}\}, \{m_1, m_2,...,m_M\} \}
+$
+\\ \vspace{2mm}
+$
+= \hspace{1mm} < \mathcal{I}, \mathcal{M} >
+$
+\end{center}
+
+
+
+
+\subsection{Abstraction Notation}
+Define a method $\mathcal{P}$; a tensor of instructions and memory
+\begin{center}
+"Method" := $
+\mathcal{P} :
+$
+\\ \vspace{2mm}
+$
+(\mathcal{P} \equiv$ Tensor$)\land(\mathcal{P} \supseteq \mathcal{I})\land(\mathcal{P} \supseteq \mathcal{M})
+$
+\end{center}
+
+
+
+
+\subsection{State Variable Notation}
+It is convention to use $|$ to separate instructions and memory 
+\begin{center}
+$
+\mathcal{P} := \{ \{s_1, s_2,...,s_{N}\},\{ m_1, m_2,...,m_M \} \}
+$
+\\ \vspace{2mm}
+$
+= \{ s_1, s_2,...,s_{N} | m_1, m_2,...,m_M\}
+$
+\\ \vspace{2mm}
+$
+= \{\hspace{1mm} \mathcal{I} \hspace{1mm}|\hspace{1mm} \mathcal{M} \hspace{1mm} \}
+$
+\end{center}
+
+
+
+
+% Types of Methods
+\section{Types of Methods} 
+
+% Boolean Programs
+\subsection{Boolean Methods}
+Define a boolean method; a method with inputs $x_i$ and boolean output $y_o$
+\begin{center}
+$
+X_n = \{x_1,...,x_n\} \hspace{1mm} : \hspace{1mm} x_i \in \Omega \hspace{2mm} \forall x_i \in X_n
+$
+\\ \vspace{2mm}
+$
+P_{boolean}\lbrack X_n \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} y, b_2,...,b_M\} \rightarrow y \hspace{1mm} : \hspace{1mm} y \hspace{1mm} \in  \{\mathbb{T},\mathbb{F}\} \hspace{2mm} \forall X_n \in \mathbb{D}_{P}
+$
+\end{center}
+
+\subsection{Abstraction Notation}
+\begin{center}
+"Boolean Method" $:= P_{boolean}[X_n]:
+$
+\\ \vspace{2mm}
+$
+(P_{boolean}[X_n] \equiv $ method$) \land (P_{boolean} is bounded) \land
+$
+\\ \vspace{2mm}
+$
+(P_{boolean}[X_n] \rightarrow y \hspace{2mm} \forall X_n \in \mathbb{D}_{P}) \land (y \equiv $ bool$ \hspace{2mm} \forall  X_n \in \mathbb{D}_{P})
+$
+\end{center}
+
+
+
+\subsection{Void Programs}
+Define a void program; a program with inputs $x_i$ and no output
+\begin{center}
+$
+X_n = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M\}$
+\end{center}
+
+
+
+
+
+\subsection{Numerical Programs}
+Define a numerical program; a program with inputs $x_i$, input set C, and real, rational output $y_o$
+\begin{center}
+$
+X = \{x_1,...,x_n,C\}
+$
+\\ \vspace{2mm}
+$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,y_o\}=$
+\\ \vspace{2mm}
+$
+P\lbrack X \rbrack \rightarrow y_o \in \mathbb{Q} \hspace{2mm} y_o \geq 0
+$
+\end{center}
+
+
+
+
+
+\subsection{System Programs}
+Define a system program; a program with inputs $x_i$, input set C, and real, output set $Y_o$
+\begin{center}
+$
+X = \{x_1,...,x_n,C\}
+$
+\\ \vspace{2mm}
+$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,Y_o\}=$
+\\ \vspace{2mm}
+$
+P\lbrack X \rbrack \rightarrow Y_o = \{y_1,y_2,...,y_K\}
+$
+\end{center}
+
+
+
+
+
+\subsection{Mathematical Programs}
+Define a mathematical program; a program with inputs $x_i$, input set C and numerical output $y_o$
+\begin{center}
+$
+X = \{x_1,...,x_n,C\}
+$
+\\ \vspace{2mm}
+$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,y_o\}=$
+\\ \vspace{2mm}
+$
+P\lbrack X \rbrack \rightarrow y_o \in \mathbb{Q}
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+% No-op; While Loop; For Loop
+%\newpage
+%\section{ ;}
+
+%\subsection{Definition}
+%\begin{center}
+%$
+%; := \emptyset
+%$
+%\end{center}
+
+%\subsection{Property of No-op}
+%No-op can be inserted into any set with equality
+%\begin{center}
+%$
+%S= \{s_1,s_2,...,s_N\}
+%$
+%\\ \vspace{2mm}
+%$
+%S_; = insert \lbrack S,;, i \rbrack
+%$
+%\\ \vspace{2mm}
+%$
+%S_; = S_1 \hspace{2mm} \forall i
+%$
+%\\ \vspace{2mm}
+%$
+%|S_;| = |S| \hspace{2mm} \forall i
+%$
+%\end{center}
+
+
+%\subsection{Proof}
+%by definition of magnitude of null = 0 with Set And
+
+
+
+
+
+%\section{For Loop \loop}
+%\loop \lbrack startindex, endindex, condition\rbrack
+%\subsection{Definition}
+
+
+
+
+
+
+
+
+%\section{Nested For Loop $\nestedloop$}
+%\loop \lbrack startindex, endindex, condition1,...condition n\rbrack
+%\subsection{Definition}
+
+
+
+
+
+
+
+
+% Problems / Questions Definitions
+\newpage
+\section{Problem Definition}
+Also denoted as a "Question"
+\begin{center}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+Q := f \lbrack X_i \rbrack = Y_{o} \subseteq \Omega \hspace{3mm} \forall X_i
+$
+\end{center}
+\subsection{Set of Questions}
+Define $\mathbb{Q}$; the set of questions
+\begin{center}
+$
+\mathbb{Q} := \{Q_1,Q_2,...\}:
+$
+\\ \vspace{2mm}
+$
+Q_i = f[X_j] = Y_o \subseteq \Omega \hspace{2mm} \forall X_j, i
+$
+\end{center}
+
+% Decision Question
+\subsection{Decision Questions / Decision Problems}
+\subsubsection{Definition}
+Define decision problem; a function with inputs $x_i$ and boolean output "answer" $a_o$
+\begin{center}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+D := f \lbrack X_i \rbrack = a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\end{center}
+
+
+
+% Numerical Questions
+\subsection{Numerical Questions / Numerical Problems}
+
+\subsubsection{Definition}
+Define numerical problem; a function with inputs $x_i$ and numerical output $y_o$
+\begin{center}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+Q := f \lbrack X_i \rbrack = y_{o} \in \mathbb{R} \hspace{3mm} \forall X_i
+$
+\end{center}
+
+
+
+% System Question
+\subsection{System Questions / System Problems}
+\subsubsection{Definition}
+Define system problem; a function with inputs $x_i$ and outputs $y_j$
+\begin{center}
+$
+X_i = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+Q := f \lbrack X_i \rbrack = Y_{o} = \{y_1,...,y_m\} \hspace{3mm} \forall X_i
+$
+\end{center}
+
+
+
+
+
+
+% Definition of Solution
+\section{Solutions}
+
+\subsection{Definition}
+Program P is a solution $s^{+}$ to decision problem D if \\\\
+1. P outputs answer $a_o$ for all inputs $X_i \hspace{2mm} \forall i$\\
+and \\
+2. $s^{+}[X_i]$ is a subset of $s^{+}[\hat{X}_i]$
+\begin{center}
+\vspace{2mm}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_n,x_{n+1},C\}
+$
+\\ \vspace{2mm}
+$
+D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+s^+ = s^+\lbrack X_i \rbrack := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\\ \vspace{4mm}
+$
+P \lbrack X_i \rbrack = \{ s_1,s_2,...,s_N| b_1, b_2,...,b_M,y_o\}
+$
+\\ \vspace{3mm}
+$
+s^+ = P \lbrack X_i \rbrack = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \} \hspace{3mm} \forall X_i
+$
+\end{center}
+
+
+
+
+
+\subsubsection{Property of No-op ;}
+No-op ; can be added to any solution $S_i$ without modifying the output $y_o$ or memory $b_i$
+\begin{center}
+\vspace{1mm}
+$
+; := \emptyset
+$
+\\ \vspace{2mm}
+$
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o\}
+$
+\\ \vspace{2mm}
+$
+\hat{s}^+ =  \{ s_1,s_2,...,\hspace{1mm};\hspace{1mm},...,s_{O_T \lbrack n \rbrack + 1 }, \hat{b}_1,\hat{b}_2,...,\hat{b}_{O_S \lbrack n \rbrack},\hat{y}_o\}
+$
+\\ \vspace{2mm}
+$
+\hat{y}_o = y_o \hspace{2.5mm} \forall k
+$
+\end{center}
+
+
+
+
+
+\subsection{Definition of $S^+$}
+Define $S^+$; the set of solutions to decision problem D
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_n,x_{n+1},C\}
+$
+\\ \vspace{2mm}
+$
+D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$
+s_j^+ = s_j^+[X_i] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\\ \vspace{2mm}
+$
+S^+ := \{s^+_j,...\} \hspace{3mm} \forall j
+$
+\end{center}
+
+
+
+
+
+\subsection{Definition of Solvable}
+Define solvable
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_n,x_{n+1},C\}
+$
+\\ \vspace{2mm}
+$
+D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$solvable = solvable \lbrack D \rbrack = b_o \in \{ \mathbb{T}, \mathbb{F} \} :=$
+\\ \vspace{2mm}
+$\exists P : (P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\end{center}
+
+
+
+
+
+\section{The set of all Decision Problems $\mathbb{D}$}
+
+\subsection{Definition}
+Define the set of decision problems $\mathbb{D}$
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}
+$
+\\ \vspace{2mm}
+$
+D_j := f_j \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{2mm}
+$\mathbb{D} := \{D_j,...\} \hspace{3mm} \forall j$
+\end{center}
+
+
+
+
+
+%\section{The Set of All Solutions to Decision Problems $\bold{S^+}$}
+
+%\subsection{Definition}
+%Define $\bold{S^+}$ the set of all solutions to decision problems
+%\begin{center}
+%$
+%D_j \in \mathbb{D}
+%$
+%\\ \vspace{2mm}
+%$
+%D_j := f_j \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+%$
+%\\ \vspace{2mm}
+%$
+%S^+_j := \{s^+_{1},s^+_{2},...\}
+%$
+%\\ \vspace{2mm}
+%$
+%\bold{S^+} := \{S^+_j,...\} \hspace{3mm} \forall j
+%$
+%\end{center}
+
+
+
+
+
+
+
+
+
+
+% Complexity; Time Complexity; Space Complexity; Total Complexity Dimension > 1
+\section{Complexity}
+
+\subsection{Time Complexity of a Decision Problem $O_T \lbrack n \rbrack$}
+Define Time Complexity $O_T [n]$ of solution $s^+$ to Decision Problem $D$ as the total number of logical operations
+\begin{center}
+\vspace{1mm}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{4mm}
+$
+D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{4mm}
+$
+s^+[X_i] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\\ \vspace{4mm}
+$
+s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+$
+\\ \vspace{2mm}
+$
+= \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{3mm}
+$
+O_T[n] := |\mathcal{L}| = N
+$
+\end{center}
+
+\subsection{Space Complexity $O_S \lbrack n \rbrack$}
+Define Space Complexity $O_S \lbrack n \rbrack$ of solution $s^+$ to Decision Problem $D$ as the total number of memory elements
+\begin{center}
+\vspace{1mm}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{4mm}
+$
+D := f \lbrack X_i \rbrack \rightarrow a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{4mm}
+$
+s^+[X_i] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\\ \vspace{4mm}
+$
+s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+$
+\\ \vspace{2mm}
+$
+= \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{3mm}
+$
+O_S[n] := |\mathcal{M}|+|y_o|^* = M + 1
+$
+\end{center}
+\vspace{2mm}
+*It is convention to reserve one memory element for output $y_o$.\\
+Void programs do not require the $y_o$ memory element for output
+
+
+
+
+\section{Definition of Complexity}
+Define Complexity $O[n]$ as a vector of dimension V
+\begin{center}
+$
+\bold{O}[n] := \hspace{3mm} < O_T [n], O_S [n],O_3[n],O_4[n]...,O_V[n]>
+$
+\end{center}
+
+%\section{Total Complexity}
+%\begin{center}
+%$O[n] := O_T[n] + O_S[n] + \sum_{i=3}^{V} O_i[n]$
+%\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Simple Computational Complexity; Restate Time and Space Complexity; (Simple) Total Complexity
+\newpage
+\section{Simple Computational Complexity}
+The remainder of this document assumes simple computational complexity of dimension 2
+
+\subsection{Definition}
+Define simple computational complexity of dimension 2
+\begin{center}
+$
+\bold{O}[n] := \hspace{3mm} < O_T [n], O_S [n] >
+$
+\end{center}
+
+
+
+
+\subsection{Total Complexity}
+Define Total Complexity of solution $s^+$
+\begin{center}
+$O[n] :=  |s^+[X_n]| = |\{\mathcal{L},\mathcal{M},y_o\}|$
+\\ \vspace{4mm}
+$
+= |\mathcal{L}| + |\mathcal{M}| + |y_o| = N + M + 1
+$
+\end{center}
+
+
+
+
+
+
+\subsection{Time Complexity}
+Restate definition of Time Complexity $O_T[n]$ of solution $s^+$
+\begin{center}
+$
+s^+ = \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{3mm}
+$
+O_T[n] := |\mathcal{L}| = N
+$
+\end{center}
+
+
+
+\subsection{Space Complexity}
+Restate definition of Time Complexity $O_S[n]$ of solution $s^+$
+\begin{center}
+$
+s^+ = \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{2mm}
+$
+O_S[n] := |\mathcal{M}| + |y_o| = M + 1
+$
+\end{center}
+
+
+
+\subsection{Total Complexity as a Function of Time and Space Complexity}
+\begin{center}
+\vspace{4mm}
+$
+O[n] :=  |s^+[X_n]| = |\{\mathcal{L},\mathcal{M},y_o\}|
+$
+\\ \vspace{2mm}
+$
+= |\mathcal{L}| + |\mathcal{M}| + |y_o|
+$
+\\ \vspace{2mm}
+$
+= O_T[n] + O_S[n]
+$
+\end{center}
+
+
+\subsection{$O_S[n] > 0^*$}
+Assuming Program is not void
+\subsubsection{Proof}
+Assume $O_S[n]$ = 0
+\begin{center}
+$
+O_S[n] := |\mathcal{M}| + |y_o| 
+$
+\\ \vspace{2mm}
+$
+O_S[n] = 0 \Rightarrow \mathcal{M} = y_o = \emptyset
+$
+\\ \vspace{2mm}
+$
+y_o = \emptyset; \hspace{2mm} y_o \in \{\mathbb{T},\mathbb{F}\}$ by definition of $s^+$
+\\ \vspace{4mm}
+$
+\therefore O_S[n] = 0$ contradicts the definition of solution $s^+$ of a decision problem
+\\ \vspace{2mm}
+$
+O_S[n] \geq 0$ by definition of magnitude
+\\ \vspace{2mm}
+$
+\therefore O_S[n] > 0
+$
+\end{center}
+
+
+\subsection{$O_T[n] > 0^*$}
+Assuming Program is not void
+\subsubsection{Proof}
+Assume $O_T[n] = 0$
+\begin{center}
+$
+O_T[n] := |\mathcal{L}| 
+$
+\\ \vspace{2mm}
+$
+O_T[n] = 0 \Rightarrow y_o \not \in \{\mathbb{T},\mathbb{F}\}
+$
+\\ \vspace{2mm}
+$
+y_o \not \in \{\mathbb{T},\mathbb{F}\}; \hspace{2mm} y_o \in \{\mathbb{T},\mathbb{F}\}$ by definition of $s^+$
+\\ \vspace{4mm}
+$
+\therefore O_T[n] = 0$ contradicts the definition of solution $s^+$ of a decision problem
+\\ \vspace{2mm}
+$
+O_T[n] \geq 0$ by definition of magnitude
+\\ \vspace{2mm}
+$
+\therefore O_T[n] > 0
+$
+\end{center}
+
+
+
+
+\subsection{$O[n] > 0^*$}
+Assuming Program is not void
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{3mm}
+$
+O_T[n] > 0; \hspace{2mm} O_S[n] > 0
+$
+\\ \vspace{3mm}
+$
+\therefore O[n] > 0
+$
+\end{center}
+
+\subsection{$O[n] > O_T[n]*$}
+Assuming Program is not void
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{3mm}
+$
+\hspace{2mm} O_S[n] > 0
+$
+\\ \vspace{3mm}
+$
+\therefore O[n] > O_T[n]
+$
+\end{center}
+
+\subsection{$O[n] > O_S[n]^*$}
+Assuming Program is not void
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{3mm}
+$
+O_T[n] > 0
+$
+\\ \vspace{3mm}
+$
+\therefore O[n] > O_S[n]
+$
+\end{center}
+
+
+\subsection{$O[n+1] \geq O[n]$}
+\subsubsection{Proof}
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{4mm}
+$
+O[n] = |\hspace{1mm} s^+[X_i]|
+$
+\\ \vspace{2mm}
+$
+O[n+1] = \hat{O}[n] = |\hspace{1mm} s^+[\hat{X}_i]|
+$
+\end{center}
+\hspace{4mm}
+For general solutions $s^+$
+\begin{center}
+$
+s^+[\hat{X}_i] \supseteq s^+[X_i] 
+$
+\\ \vspace{2mm}
+$
+\Rightarrow |s^+[\hat{X}_i]| \geq |s^+[X_i]|
+$
+\\ \vspace{2mm}
+$
+\therefore \hat{O}[n] = O[n+1] \geq O[n]
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+%\newpage
+%\section{Convergent Complexity}
+%\subsection{Definition}
+%Define Convergent Complexity; the set of solutions with complexity satisfying
+%\begin{center}
+%$
+%limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = c
+%$
+%\end{center}
+%where c is a constant
+
+
+%\subsection{Derivative Property of Convergent Solutions}
+%There exists an nth derivative equal to zero
+%\begin{center}
+%$
+%limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = c
+%$
+%\end{center}
+
+
+
+
+
+
+
+
+
+%\subsection{Show c=1 for all convergent solutions}
+%O[n] is an integer valued, non-decreasing function
+%\begin{center}
+%$
+%O[n] \in \mathbb{Z}
+%$
+%\\ \vspace{2mm}
+%$
+%O[n+1] \geq O[n]; \hspace{2mm} f_{n+1}[n] = O[n+1] - O[n] \geq 0
+%$
+%\\ \vspace{6mm}
+%$
+%limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = limit_{n \rightarrow \infty} \frac{O[n] + f_{n+1}[n]}{O[n]}
+%$
+%\\ \vspace{2mm}
+%$
+%=  limit_{n \rightarrow \infty}(\frac{O[n]}{O[n]} +   \frac{f_{n+1}[n]}{O[n]})
+%$
+%\\ \vspace{2mm}
+%$
+%= 1 +   limit_{n \rightarrow \infty} \frac{f_{n+1}[n]}{O[n]} = c
+%$
+%\end{center}
+
+
+
+
+
+
+
+
+
+%\subsection{Convergent Inductive Function}
+%\begin{center}
+%$
+%limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = limit_{n \rightarrow \infty} \frac{O[n] + f_{n+1}[n]}{O[n]}
+%$
+%\\ \vspace{2mm}
+%$
+%=  limit_{n \rightarrow \infty}(\frac{O[n]}{O[n]} +   \frac{f_{n+1}[n]}{O[n]})
+%$
+%\\ \vspace{2mm}
+%$
+%= 1 +   limit_{n \rightarrow \infty} \frac{f_{n+1}[n]}{O[n]} = c
+%$
+%\\ \vspace{2mm}
+%$
+%= limit_{n \rightarrow \infty} \frac{f_{n+1}[n]}{O[n]} = c - 1
+%$
+%\end{center}
+
+
+\section{Complexity of Canonical Instructions}
+\begin{center}
+$
+c := a \leftarrow l[X_n]
+$
+\end{center}
+
+\section{Complexity of Computational Operations}
+\subsection{+}
+Express the bounds of complexity for Computational Operation +
+
+
+% Theorem of Computational Duality; Polynomial in time and space
+\newpage
+\section{Inductive Functions}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Inductive Function
+\subsection{Inductive Function $f_{n+1}$}
+\begin{center}
+\vspace{3mm}
+$
+O[n] = O_T[n] + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O[n+1] = O_T[n+1] + O_S[n+1]
+$
+\\ \vspace{4mm}
+$
+f_{n+1}[n] := O[n+1] - O[n]
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+\subsection{Inductive Space and Time Formulas}
+\begin{center}
+$
+f^T_{n+1}[n] := O_T[n+1] - O_T[n]
+$
+\\ \vspace{2mm}
+$
+O_T[n+1] = O_T[n] + f^T_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+f^S_{n+1}[n] := O_S[n+1] - O_S[n]
+$
+\\ \vspace{2mm}
+$
+O_S[n+1] = O_S[n] + f^S_{n+1}[n]
+$
+
+\end{center}
+
+
+
+
+
+% Theorem of Polynomia? Duality
+\subsection{Inductive Function Expressions}
+Relate $f_{n+1}[n]$ to equivalence functions
+\begin{center}
+\vspace{2mm}
+$
+O[n] = O_T[n] + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O[n+1] = O_T[n+1] + O_S[n+1] = O[n] + f_{n+1}[n]
+$
+\\ \vspace{2mm}
+$
+O_T[n] = O[n] - O_S[n]
+$
+\\ \vspace{2mm}
+$
+O_S[n] = O[n] - O_T[n]
+$
+\\ \vspace{8mm}
+$
+f_{n+1}[n] = O[n+1] - O[n]
+$
+\\ \vspace{2mm}
+$
+f_{n+1}[n] = O_T[n+1] + O_S[n+1] - O[n]
+$
+\\ \vspace{2mm}
+$
+f_{n+1}[n] = O_T[n+1] - O_T[n] + O_S[n+1] - O_S[n]
+$
+\\ \vspace{2mm}
+$
+f_{n+1}[n] = O[n+1] - O_T[n] - O_S[n]
+$
+\\ \vspace{2mm}
+$
+f_{n+1}[n] =  f^T_{n+1}[n] +  f^S_{n+1}[n]
+$
+\end{center}
+
+
+
+
+
+
+\subsection{Zero Order Space Inductive Function}
+\begin{center}
+$
+Let \hspace{2mm} O_S[n] \sim n^0
+$
+\\ \vspace{2mm}
+$
+f_{n+1}[n] = O_T[n+1] - O_T[n] + O_S[n+1] - O_S[n] = O_T[n+1] - O_T[n]
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+% Total Polynomial Complexity; Set of all Polynomial Problems; Polynomial Order of Complexity
+\newpage
+\section{Polynomial Complexity}
+
+\subsection{Definition}
+Decision problem $D$ with solution $s^+$ has polynomial total complexity $O[n]$ if
+\begin{center}
+$\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\end{center}
+
+
+
+
+
+\subsection{Polynomial Problems}
+Define $\mathbb{P}$, the set of Decision Problems that can be solved with Polynomial Complexity
+\begin{center}
+$
+\mathbb{P} := \{D_1,D_2,...\} : 
+$
+\\ \vspace{4mm}
+$
+\exists K,C,\lambda_1...\lambda_K : 
+$
+\\
+$
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{4mm} \forall n, D_i \in \mathbb{P}
+$
+\end{center}
+
+
+
+
+
+\subsection{Polynomial Order of Complexity}
+Solution $s^+$ with total complexity $O[n]$ is said to be of order $n^K$
+\begin{center}
+$
+ O[n] \sim n^K
+$
+\\ \vspace{2mm}
+$O[n] = (\lambda_{K} n)^{K} + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n +  C \hspace{4mm} \forall n$
+\end{center}
+
+
+
+
+
+
+
+
+\subsection{Property of Polynomial  Complexity 1}
+Solutions with polynomial complexity have convergent complexity
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
+$
+\end{center}
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
+$
+\\ \vspace{2mm}
+$
+O[n+1] = (\lambda_K (n+1))^K + (\lambda_{K-1} (n+1))^{K-1}... + \lambda_1 (n+1) + C
+$
+\\ \vspace{2mm}
+$ 
+=  (\lambda_K n)^K + (\tilde{\lambda}_{K-1} n)^{K-1}... + \tilde{\lambda_1} n + \tilde{C}
+$
+\\ \vspace{5mm}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}
+$
+\\ \vspace{3mm}
+$
+= lim_{n \rightarrow \infty} \frac{ (\lambda_K n)^K + (\tilde{\lambda}_{K-1} n)^{K-1}... + \tilde{\lambda_1} n + \tilde{C}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}
+$
+\\ \vspace{3mm}
+$
+= lim_{n \rightarrow \infty} \frac{ (\lambda_K n)^K}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C} + \frac{ (\tilde{\lambda}_{K-1} n)^{K-1}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C} + ... + \frac{ \tilde{\lambda}_1 n}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C} +  \frac{ \tilde{C}}{(\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C}
+$
+\\ \vspace{3mm}
+$
+= 1 = lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}
+$
+\end{center}
+
+
+
+
+
+
+
+\subsection{Property of Polynomial Complexity 2}
+\vspace{1mm}
+\begin{center}
+$
+\exists K,\hat{C},\hat{\lambda}_1,...,\hat{\lambda}_{K-1} :
+$
+\\ \vspace{2mm}
+$
+O[n+1] - O[n] = f_{n+1}[n] = (\hat{\lambda}_{K-1} n)^{K-1}... + \hat{\lambda}_1 n + \hat{C} \hspace{3mm} \forall n
+$
+\end{center}
+
+
+
+\subsubsection{Proof}
+\vspace{1mm}
+\begin{center}
+$
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
+$
+\\ \vspace{2mm}
+$
+O[n+1] = (\lambda_K (n+1))^K + (\lambda_{K-1} (n+1))^{K-1}... + \lambda_1 (n+1) + C
+$
+\\ \vspace{2mm}
+$ 
+=  (\lambda_K n)^K + (\tilde{\lambda}_{K-1} n)^{K-1}... + \tilde{\lambda_1} n + \tilde{C}
+$
+\\ \vspace{2mm}
+$
+O[n+1] - O[n] = ((\tilde{\lambda}_{K-1}- \lambda_{K-1})n)^{K-1}... + (\tilde{\lambda_1} - \lambda_1) n + (\tilde{C} - C)
+$
+\\ \vspace{2mm}
+$
+O[n+1] - O[n] = (\hat{\lambda}_{K-1}n)^{K-1}... + \hat{\lambda}_1  n + \hat{C}
+$
+\end{center}
+
+
+
+
+\subsection{Property of Polynomial Complexity 3}
+\vspace{1mm}
+\begin{center}
+$
+limit_{n \rightarrow \infty } \frac{f_{n+1}[n]}{O[n]} = 0
+$
+\end{center}
+
+\subsubsection{Proof}
+\begin{center}
+$
+limit_{n \rightarrow \infty } \frac{O[n+1]}{O[n]} = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty } \frac{O[n] + f_{n+1}[n]}{O[n]} = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty } \frac{O[n]}{O[n]}+  \frac{f_{n+1}[n]]}{O[n]}  = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty } 1 +  \frac{f_{n+1}[n]]}{O[n]}  = 1
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty }  \frac{f_{n+1}[n]]}{O[n]}  = 0
+$
+\end{center}
+
+
+
+
+
+
+
+\subsection{Total Polynomial Complexity Implies Time bounded Polynomial Complexity}
+\begin{center}
+\vspace{1mm}
+$
+D \in \mathbb{P} \Longrightarrow O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
+$
+\end{center}
+
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\\ \vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_S[n] > 0
+$
+\\ \vspace{2mm}
+$
+\therefore O_T[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+\subsection{Total Polynomial Complexity Implies Space bounded Polynomial Complexity}
+\begin{center}
+\vspace{1mm}
+$
+D \in \mathbb{P} \Longrightarrow O_S[n] <  (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C
+$
+\end{center}
+
+\subsubsection{Proof}
+\begin{center}
+$
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\\ \vspace{2mm}
+$
+O[n] := O_T[n] + O_S[n]; \hspace{2mm} O_T[n] > 0
+$
+\\ \vspace{2mm}
+$
+\therefore O_S[n] < (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{2mm} \forall n
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+\subsection{Polynomial Complexity in Space and Time Implies Polynomial Total Complexity}
+\begin{center}
+\vspace{1mm}
+$
+(O_S[n] == (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + \lambda_0)
+$
+\\ \vspace{2mm}
+$
+\land
+$
+\\ \vspace{2mm}
+$
+(O_T[n] == (\hat{\lambda}_M n)^M + (\hat{\lambda}_{M-1} n)^{M-1}... + \hat{\lambda}_1 n + \hat{\lambda}_0)
+$
+\\ \vspace{4mm}
+$
+\Rightarrow D \in \mathbb{P}
+$
+\end{center}
+
+\subsubsection{Proof}
+\begin{center}
+\vspace{1mm}
+$
+O_S[n] = \lambda_K n^K + \lambda_{K-1} n^{K-1} + ... + \lambda_1 n + \lambda_0
+$
+\\ \vspace{3mm}
+$
+O_T[n] = \hat{\lambda}_M n^M + \hat{\lambda}_{M-1} n^{M-1} + ... + \hat{\lambda}_1 n + \hat{\lambda}_0
+$
+\\ \vspace{3mm}
+$
+O[n] = O_S[n] + O_T[n]
+$
+\\ \vspace{3mm}
+$
+^*O[n] = (\hat{\lambda}_0 + \lambda_0) + n(\lambda_1 + \hat{\lambda_1}) + ... + n^K(\lambda_K + \hat{\lambda_K}) + \hat{\lambda}_{K+1}n^{K+1} + ... +  \hat{\lambda}_M n^M
+$
+\\ \vspace{3mm}
+$
+\therefore O[n]$ has polynomial total complexity by definition
+\end{center}
+$^*$ Assume K < M, similar proof for K=M, K>M
+
+
+
+
+
+
+
+
+
+
+
+%\subsection{Total Polynomial Complexity iff Time and Space bounded by Polynomial Complexity}
+%Use limit definition
+
+
+
+
+
+
+
+
+
+
+
+%\subsection{Theorem Either OT or OS is on the order of Oopt}
+%Proof by contradiction
+
+
+
+
+
+
+
+
+% Non Polynomial Problems
+\newpage
+\section{Non-Polynomial Complexity}
+\subsection{Definition}
+Decision problem $\tilde{D}$ with solution $s^+$ has non-polynomial total complexity $O[n]$ if
+\begin{center}
+$\not \exists K,\lambda_0,\lambda_1,...,\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\end{center}
+
+
+\subsection{Non-Polynomial Problems}
+Define $\mathcal{N}$, the set of Decision Problems that cannot be solved with Polynomial Complexity
+\begin{center}
+$
+\mathcal{N} := \{\tilde{D}_1,\tilde{D}_2,...\} :
+$
+\\ \vspace{2mm}
+$\not \exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n, \hspace{1mm}  s^+ \in S^+_i, \hspace{1mm} \tilde{D}_i \in \mathcal{N}$
+\end{center}
+
+\subsection{$\mathbb{P}$ and $\mathcal{N}$ are disjoint}
+\begin{center}
+\vspace{2mm}
+$
+\mathbb{P} \cap \mathcal{N} = \emptyset
+$
+\end{center}
+
+\subsubsection{Proof}
+Let D $\in \mathcal{N}$
+\begin{center}
+$\not \exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\end{center}
+\vspace{4mm}
+Assume D $\in \mathbb{P}$
+\begin{center}
+$\exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\\ \vspace{4mm}
+Contradicts the definition of $\mathcal{N}$
+\\ \vspace{2mm}
+$
+\therefore D \in \mathcal{N} \Rightarrow D \not \in \mathbb{P}
+$
+\end{center}
+\vspace{6mm}
+Let D $\in \mathbb{P}$
+\begin{center}
+$\exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\end{center}
+\vspace{4mm}
+Assume D $\in \mathcal{N}$
+\begin{center}
+$\not \exists K,C,\lambda_1...\lambda_K \hspace{1mm} :$
+\\ \vspace{2mm}
+$O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n$
+\\ \vspace{4mm}
+Contradicts the definition of $\mathbb{P}$
+\\ \vspace{2mm}
+$
+\therefore D \in \mathbb{P} \Rightarrow D \not \in \mathcal{N}
+$
+\\ \vspace{6mm}
+$
+D \in \mathcal{N} \Rightarrow D \not \in \mathbb{P}; D \in \mathbb{P} \Rightarrow D \not \in \mathcal{N}
+$
+\\ \vspace{2mm}
+$
+\therefore \mathbb{P} \cap \mathcal{N} = \emptyset
+$
+\end{center}
+
+
+
+
+
+
+% Divergent Problems
+\section{Discrete Derivative; Z Transform}
+\subsection{Discrete Derivative}
+Define derivative for discrete function f[n]
+\begin{center}
+\vspace{1mm}
+$
+\Delta_n^1 f[n] := f[n+1] - f[n]
+$
+\end{center}
+\vspace{1mm}
+We will use the above definition for the remainder of this document \\
+
+
+\subsection{Zero Order Derivative}
+\begin{center}
+\vspace{1mm}
+$
+\Delta_n^0 f[n] = f[n]
+$
+\end{center}
+
+
+
+
+\subsection{K$^{th}$ Discrete Derivative}
+Define the $K^{th}$ derivative of discrete function $f[n]$
+\begin{center}
+\vspace{1mm}
+$
+\Delta_n^K f[n] := \Delta_n^{K-1} f[n+1] - \Delta_n^{K-1} f[n]
+$
+\end{center}
+
+
+
+
+\subsection{K$^{th}$ Discrete Derivative as an Alternating Sum}
+\begin{center}
+$
+\Delta_n^K f[n] := \Delta_n^{K-1} f[n+1] - \Delta_n^{K-1} f[n]
+$
+\\ \vspace{4mm}
+$
+= (\Delta_n^{K-2} f[n+2] - \Delta_n^{K-2} f[n+1]) - (\Delta_n^{K-2} f[n+1] - \Delta_n^{K-2} f[n])
+$
+\\ \vspace{4mm}
+$
+= (\Delta_n^{K-2} f[n+2] - 2\Delta_n^{K-2} f[n+1] - \Delta_n^{K-2} f[n])
+$
+\\ \vspace{4mm}
+$
+=  \sum_{i=0}^K (-1)^{j} \hspace{1mm} (_K C _j) \hspace{1mm} \Delta_n^{0} f[n + j]
+$
+\\ \vspace{4mm}
+$
+= \sum_{i=0}^K (-1)^{j} \hspace{1mm} (_K C _j) \hspace{1mm} f[n + j]
+$
+\end{center}
+
+
+
+
+
+\subsection{Z Transform}
+Define the Z Transform for discrete function f[n]
+\begin{center}
+$
+\mathcal{Z}(f[n]) := \sum_{n=0}^{\infty}f[n]z^{-n}
+$
+\end{center}
+
+
+\subsection{Z Transform of 0 Order Derivative}
+\begin{center}
+\vspace{1mm}
+$
+\Delta_n^0 f[n] := f[n]
+$
+\\ \vspace{3mm}
+$
+\mathcal{Z}(\Delta_n^0 f[n]) = \mathcal{Z}(f[n])
+$
+\end{center}
+
+
+
+
+
+\subsection{Z Transform of 1$^{st}$ Derivative}
+\begin{center}
+\vspace{1mm}
+$
+\Delta_n^1 f[n] := f[n+1] - f[n]
+$
+\\ \vspace{3mm}
+$
+\mathcal{Z}(\Delta_n^1 f[n]) = \mathcal{Z}(f[n+1] - f[n])
+$
+\\ \vspace{3mm}
+$
+= \sum_{n=0}^{\infty} (f[n+1] - f[n]) z^{-n}
+$
+\\ \vspace{3mm}
+$
+= \sum_{n=0}^{\infty} (f[n+1]z^{-n} - f[n] z^{-n})
+$
+\\ \vspace{3mm}
+$
+= \sum_{n=0}^{\infty} f[n+1]z^{-n} - \sum_{n=0}^{\infty} f[n] z^{-n}
+$
+\\ \vspace{3mm}
+$
+= \sum_{m=0}^{\infty} f[m+1]z^{-m} - \sum_{n=0}^{\infty} f[n] z^{-n}
+$
+\end{center}
+Let 
+\begin{center}
+$
+\hat{m} = m + 1; \hspace{2mm} m = \hat{m} - 1
+$
+\\ \vspace{3mm}
+$
+= \sum_{m=0}^{\infty} f[\hat{m}]z^{-(\hat{m}-1)} - \mathcal{Z}(f[n])
+$
+\\ \vspace{3mm}
+$
+= z^1 \sum_{\hat{m}=1}^{\infty} f[\hat{m}]z^{-\hat{m}} - \mathcal{Z}(f[n])
+$
+\\ \vspace{3mm}
+$
+= z^1 \sum_{\hat{m}=1}^{\infty} f[\hat{m}]z^{-\hat{m}} + f[0] - f[0] - \mathcal{Z}(f[n])
+$
+\\ \vspace{3mm}
+$
+= z^1 \sum_{\hat{m}=0}^{\infty} f[\hat{m}]z^{-\hat{m}} - f[0] - \mathcal{Z}(f[n])
+$
+\\ \vspace{3mm}
+$
+= z^1\mathcal{Z}(f[n]) - f[0] - \mathcal{Z}(f[n])
+$
+\\ \vspace{3mm}
+$
+\mathcal{Z}(\Delta_n^1 f[n]) = \mathcal{Z}(f[n])(z^1 - 1) - f[0]
+$
+\end{center}
+
+
+
+
+
+
+\subsection{Z Transform of K$^{th}$ Derivative}
+\vspace{1mm}
+\begin{center}
+$
+\mathcal{Z}(f[n]) := \sum_{n=0}^{\infty}f[n]z^{-n}
+$
+\\ \vspace{5mm}
+$
+\mathcal{Z}(\Delta_n^K f[n]) = \sum_{n=0}^{\infty} \Delta_n^K f[n]z^{-n}
+$
+\\ \vspace{5mm}
+$
+= \sum_{n=0}^{\infty} \sum_{i=0}^K (-1)^{j} \hspace{1mm} (_K C _j) \hspace{1mm} f[n + j] z^{-n}
+$
+\\ \vspace{5mm}
+$
+= \sum_{n=0}^{\infty} (f[n+K] - (_K C _1) f[n+K-1] +  (_K C _2) f[n+K-2] - ...\pm f[n])z^{-n}
+$
+\\ \vspace{5mm}
+$
+= \sum_{n=0}^{\infty} f[n+K]z^{-n} - (_K C _1) f[n+K-1]z^{-n} +  (_K C _2) f[n+K-2]z^{-n} - ...\pm f[n]z^{-n}
+$
+\\ \vspace{5mm}
+$
+= z^K \mathcal{Z}(f[n]) +\sum_{i=0}^{K-1} f[i] - (_K C _1)z^{K-1} \mathcal{Z}(f[n]) - \sum_{j=0}^{K-2}f[j] + (_K C _2)z^{K-2} \mathcal{Z}(f[n])+\sum_{k=0}^{K-3}f[k] - ... \pm \mathcal{Z}(f[n])
+$
+\end{center}
+When K is odd
+\begin{center}
+$
+\mathcal{Z}(\Delta_n^K f[n]) = (z-1)^K \mathcal{Z}(f[n]) + \sum_{i=0}^{\frac{n+1}{2}} f[2i] \hspace{3mm} K > 0
+$
+\end{center}
+When K is even
+\begin{center}
+$
+\mathcal{Z}(\Delta_n^K f[n]) = (z-1)^K \mathcal{Z}(f[n]) + \sum_{j=0}^{\frac{n}{2}} f[2j + 1] \hspace{3mm} K > 0
+$
+\end{center}
+
+
+% Definition of Divergent Complexity
+\section{Divergent Complexity}
+
+\subsection{Definition of Converges to}
+??Can f[n] = 0??
+\begin{center}
+\vspace{1mm}
+$f[n]$ $converges$ $to$ $C$ = $convergent [f [n],C] = a_o; \hspace{1mm} a_o \in \{\mathbb{T},\mathbb{F}\} =$
+\\ \vspace{6mm}
+$
+|C - f[n+1]| < |C - f[n]| \hspace{2mm} \forall n
+$
+\\ \vspace{2mm}
+$
+\land
+$
+\\ \vspace{2mm}
+$
+\not \exists K : | C - f[\hat{n}] | > K \hspace{4mm} \forall n; K > 0
+$
+\end{center}
+
+\subsubsection{Notation}
+C is commonly denoted by a limit
+\begin{center}
+$
+C = lim_{n \rightarrow \infty} f[n]
+$
+\end{center}
+
+\subsection{Definition of General Convergence}
+\begin{center}
+\vspace{1mm}
+$f[n]$ is $convergent$ = $convergent \lbrack f \lbrack n \rbrack \rbrack = a_o; \hspace{1mm} a_o \in \{\mathbb{T},\mathbb{F}\} =$
+\\ \vspace{6mm}
+$
+\exists C :
+$
+\\ \vspace{2mm}
+$convergent[f[n],C] == \mathbb{T}$
+\end{center}
+Alternatively
+\begin{center}
+\vspace{1mm}
+$f[n]$ is $convergent$ = $convergent \lbrack f \lbrack n \rbrack \rbrack = a_o \in \{\mathbb{T},\mathbb{F}\} =$
+\\ \vspace{2mm}
+$
+\exists C :
+$
+\\ \vspace{2mm}
+$f[n]$ $converges$ $to$ $C$
+\end{center}
+
+\subsection{Definition of Divergence}
+\begin{center}
+\vspace{1mm}
+$
+diverges \lbrack f \lbrack n \rbrack \rbrack = \lnot converges[f[n]] = d_o; \hspace{1mm} d_o \in \{\mathbb{T},\mathbb{F}\}
+$
+\\ \vspace{4mm}
+$
+:= \not \exists C : convergent[f[n],C] == \mathbb{T}
+$
+\end{center}
+
+
+
+
+
+\subsection{Alternate Definition of Divergence}
+\begin{center}
+\vspace{1mm}
+$diverges \lbrack f \lbrack n \rbrack \rbrack = \lnot converges[f[n]] = d_o; \hspace{1mm} d_o \in \{\mathbb{T},\mathbb{F}\}$
+\\ \vspace{4mm}
+$
+= convergent[f[n],C] == \mathbb{F} \hspace{4mm} \forall C
+$
+\end{center}
+\subsubsection{Proof of Equivalence; Alternate Definition of Divergence}
+
+
+
+
+
+\subsection{?Necessary or Sufficient? Criteria 1 For Divergence}
+? The derivative as a function of K ?
+Function f[n] diverges if the $K^{th}$ derivative of f[n] is strictly increasing
+\vspace{1mm}
+\begin{center}
+$
+diverges \lbrack f \lbrack n \rbrack \rbrack := \not \exists C : convergent[f[n],C] == \mathbb{T}
+$
+\\ \vspace{4mm}
+$
+\Longleftrightarrow
+$
+\\ \vspace{4mm}
+$
+\Delta_n^{K+1} f[n] > \Delta_n^{K}f[n] \hspace{3mm} \forall K
+$
+\end{center}
+Alternatively
+\begin{center}
+$
+\Delta_n^{K+1} f[n] - \Delta_n^{K}f[n] > 0 \hspace{3mm} \forall K
+$
+\\ \vspace{4mm}
+$
+\Delta_{n}^{K+2} > 0 \hspace{2mm} \forall K
+$
+\end{center}
+
+
+
+
+
+
+\subsubsection{Criteria 1; Proof of Necessity and Sufficiency}
+\begin{center}
+$
+diverges \lbrack f \lbrack n \rbrack \rbrack = d_o; \hspace{1mm} d_o \in \{\mathbb{T},\mathbb{F}\}
+$
+\\ \vspace{4mm}
+$
+= \not \exists C : convergent[f[n],C] == \mathbb{T}
+$
+\end{center}
+Let
+\begin{center}
+$
+f[n] :
+$
+\\ \vspace{2mm}
+$
+\Delta_{n}^{K+2} > 0 \hspace{3mm} \forall K
+$
+\end{center}
+
+
+
+
+\subsection{?Necessary or Sufficient? Criteria 2 For Divergence}
+Function f[n] diverges if the Derivative as a function of K does not Converge
+\begin{center}
+\vspace{2mm}
+$
+f[n]\hspace{1mm} is \hspace{1mm} Divergent = Divergent[f[n]] = a_o \in \{\mathbb{T},\mathbb{F}\} :=
+$
+\\ \vspace{4mm}
+$
+\not \exists c: lim_{n\rightarrow \infty} \Delta_n^K f[n] = c
+$
+\end{center}
+
+
+
+
+
+
+
+
+\subsubsection{Criteria 2; Proof of Necessity and Sufficiency}
+\begin{center}
+$
+diverges \lbrack f \lbrack n \rbrack \rbrack = d_o; \hspace{1mm} d_o \in \{\mathbb{T},\mathbb{F}\}
+$
+\\ \vspace{4mm}
+$
+= \not \exists C : convergent[f[n],C] == \mathbb{T}
+$
+\end{center}
+
+
+
+
+
+
+\subsection{Verbal Expressions}
+\begin{center}
+\vspace{1mm}
+$
+f[n]$ $diverges$ = $f[n]$ $is$ $divergent =
+$
+\\ \vspace{2mm}
+$
+f[n]$ $is$ $not$ $convergent= f[n]$ $does$ $not$ $converge
+$
+\end{center}
+
+% Definition of Divergent Function
+\subsection{Definition of Divergent Function}
+
+
+
+\subsubsection{Definition 1}
+Define Divergent Function f[n] having strictly increasing $K^{th}$ derivative
+\vspace{1mm}
+\begin{center}
+$
+f[n]\hspace{1mm} is \hspace{1mm} Divergent = Divergent[f[n]] = a_o \in \{\mathbb{T},\mathbb{F}\} :=
+$
+\\ \vspace{4mm}
+$
+\Delta_n^{K+1} f[n] > \Delta_n^{K}f[n] \hspace{3mm} \forall K
+$
+\end{center}
+Alternatively
+\begin{center}
+$
+\Delta_n^{K+1} f[n] - \Delta_n^{K}f[n] > 0 \hspace{3mm} \forall K
+$
+\\ \vspace{4mm}
+$
+\Delta_{n}^{K+2} > 0 \hspace{2mm} \forall K
+$
+\end{center}
+
+\subsubsection{Definition 2}
+\begin{center}
+\vspace{2mm}
+$
+f[n]\hspace{1mm} is \hspace{1mm} Divergent = Divergent[f[n]] = a_o \in \{\mathbb{T},\mathbb{F}\} :=
+$
+\\ \vspace{4mm}
+$
+\not \exists c: lim_{n\rightarrow \infty} \Delta_n^K f[n] = c
+$
+\end{center}
+
+\subsubsection{Proof of Equivalence Definition 1 $\Leftrightarrow$ Definition 2}
+
+\subsubsection{Sufficient Proof}
+\begin{center}
+\vspace{2mm}
+$
+f[n]\hspace{1mm} is \hspace{1mm} Divergent \Longleftrightarrow
+$
+\\ \vspace{4mm}
+$
+\not \exists c: lim_{n\rightarrow \infty} \Delta_n^K f[n] = c
+$
+\end{center}
+
+
+
+\subsubsection{Necessary Proof}
+\begin{center}
+\vspace{2mm}
+$
+f[n]\hspace{1mm} is \hspace{1mm} Divergent \Longleftrightarrow
+$
+\\ \vspace{4mm}
+$
+\not \exists c: lim_{n\rightarrow \infty} \Delta_n^K f[n] = c
+$
+\end{center}
+
+
+
+
+
+
+
+
+Proof by contradiction of definition of limit
+Using the definition of increasing convergence for a discrete function$^*$
+
+
+
+
+\subsection{Defintion}
+Decision problem $\hat{D}$ with solution $s^+$ has divergent total complexity $O[n]$ if
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} \hspace{2mm} diverges
+$
+\end{center}
+
+
+
+
+
+
+
+\subsection{Divergent Problems}
+\begin{center}
+$
+\mathcal{\hat{D}} := \{ \hat{D}_1,\hat{D}_2,...\} :
+$
+\\ \vspace{2mm}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} \hspace{2mm} diverges \hspace{3mm} \forall s^+ \in S^+_i, \hspace{1mm} \hat{D}_i \in \hat{\mathcal{D}}
+$
+\end{center}
+
+
+
+
+
+%\subsection{Derivative Property of Divergent Solutions}
+%\begin{center}
+%$
+%lim_{n \rightarrow \infty} \hspace{2mm} O[n+1] - O[n]$ diverges
+%\end{center}
+
+%\subsubsection{Proof}
+
+
+
+
+%\subsection{Theorem of Divergent Subfunctions}
+%If an (inductive) subfunction of $s^+$ diverges, the solution is divergent
+%\begin{center}
+%$
+%f_{n+1} = \sum g_{n+1}
+%$
+%\\ \vspace{2mm}
+%$
+%limit \frac{g[n+1]}{g[n]} diverges
+%$
+%\\ \vspace{3mm}
+%$
+%\exists g_{n+1} : limit \frac{g_{n+1}}{O[n]} diverges \Longrightarrow limit \frac{O[n+1]}{O[n]} diverges
+%$
+%\end{center}
+
+%\subsection{Proof}
+
+
+
+
+\subsection{The Set of Polynomial Solutions and the Set of Divergent Solutions are disjoint}
+\begin{center}
+\vspace{2mm}
+$
+\mathbb{P} \cap \hat{D} = \emptyset
+$
+\end{center}
+
+\subsection{Proof}
+Let D $\in \hat{\mathcal{D}}$
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} \hspace{2mm} diverges$ by definition
+\end{center}
+\vspace{4mm}
+Assume D $\in \mathbb{P}$
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
+$
+\\ \vspace{2mm}
+$
+ lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$ = 1 contradicts the definition of Divergent Problems
+\\ \vspace{2mm}
+$
+\therefore D \in \hat{\mathcal{D}} \Rightarrow D \not \in \mathbb{P}
+$
+\end{center}
+\vspace{12mm}
+Let D $\in \mathbb{P}$
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1$ by property of Polynomial complexity
+\end{center}
+\vspace{4mm}
+Assume D $\in \hat{D}$
+\begin{center}
+$
+lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$ diverges
+\\ \vspace{2mm}
+$
+ lim_{n \rightarrow \infty} \frac{O[n+1]}{O[n]}$ diverges contradicts a property of Polynomial complexity
+\\ \vspace{2mm}
+$
+\therefore D \in \mathbb{P} \Rightarrow D \not \in \hat{\mathcal{D}}
+$
+\\ \vspace{2mm}
+$
+\therefore \mathbb{P} \cap \hat{\mathcal{D}} = \emptyset
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+% Subfunctions
+\newpage
+\section{Subprograms}
+
+
+
+\subsection{Definition of Subprogram}
+Define a Subprogram of Program P; a subset of Program P
+\begin{center}
+$
+P := \{s_1,s_2,...,s_N,b_1,b_2,...,b_M,y_o\} = \{\mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{2mm}
+$
+P_{sub} := \tilde{P} \hspace{1mm} |
+$
+\\ \vspace{2mm}
+$
+\tilde{P} \subseteq P
+$
+\end{center}
+
+\subsection{Identity Subprogram}
+\subsubsection{Definition}
+\subsubsection{Prove the Identity Subprogram is a Subprogram of P}
+
+
+\subsection{Restate the subprogram condition of general solutions}
+Recall the definition of general solution $s^+$
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{2mm}
+$
+s^+ = s^+[X_i] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\end{center}
+\vspace{3mm}
+The subprogram condition is one of two conditions for a general solution
+\begin{center}
+$
+P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i
+$
+\end{center}
+The term subprogram is used interchangeably with the term subfunction
+
+
+
+
+
+
+\subsection{Prove O[n] is a non-decreasing function}
+Consider solution $s^+$ with complexity $O[n]$
+\begin{center}
+\vspace{1mm}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{2mm}
+$
+s^+ = s^+[X_i] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\\ \vspace{4mm}
+$
+s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+$
+\\ \vspace{2mm}
+$
+= \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{5mm}
+$
+O[n] := O_T[n] + O_S[n]
+$
+\\ \vspace{3mm}
+$
+O_T[n] := |\mathcal{L}| = N
+$
+\\ \vspace{2mm}
+$
+O_S[n] := |\mathcal{M}| + |y_o| = M + 1
+$
+\\ \vspace{6mm}
+\end{center}
+O[n+1] denotes the total complexity for solution $s^+[\hat{X}_i]$\\\\
+\begin{center}
+$
+s^+[\hat{X}_i] = \hat{s}^+
+$
+\end{center}
+Let
+\begin{center}
+$
+O[n+1] < O[n]
+$
+\\ \vspace{2mm}
+$
+\Rightarrow \hat{N} + \hat{M} < N + M
+$
+\\ \vspace{2mm}
+$
+\hat{s}^+ = \{ s_1,s_2,...,s_{\hat{N}}|b_1,b_2,...,b_{\hat{M}},y_o\}
+$
+\\ \vspace{6mm}
+$
+\Rightarrow \hat{s}^+ \not \supseteq s^+
+$
+\\ \vspace{2mm}
+$
+P[\hat{X}_i] \not \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i
+$
+\\ \vspace{6mm}
+$
+\therefore O[n+1] < O[n]$ contradicts the definition of solution $s^+$
+\\ \vspace{2mm}
+$
+O[n+1] \geq O[n]
+$
+\end{center}
+
+
+
+
+% Definition of a subfunction
+\subsection{Definition of Subfunction}
+\vspace{1mm}
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{2mm}
+$
+s^+ = s^+[X_i] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\\ \vspace{4mm}
+$
+s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+$
+\\ \vspace{2mm}
+$
+= \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{6mm}
+$
+Sub[X_i] := S = \{s_j,...|b_k,...,y_o\}:
+$
+\\ \vspace{2mm}
+$
+s_j,b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S
+$
+\end{center}
+
+
+
+
+
+
+
+\subsubsection{$s^+[X_i]$ is a subfunction of $s^+[\hat{X}_i]$}
+\begin{center}
+\vspace{1mm}
+$
+s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+$
+\\ \vspace{2mm}
+$
+\hat{s}^+ = \{ s_1,s_2,...,s_N,...,s_{\hat{N}}|b_1,b_2,...,b_M,...,b_{\hat{M}},y_o\}; \hspace{2mm} \hat{N} + \hat{M} \geq N + M
+$
+\end{center}
+\vspace{2mm}
+By definition of solution
+\begin{center}
+\vspace{1mm}
+$
+\hat{s}^+ = P[\hat{X}_i] \supseteq P[X_i] = s^+ \hspace{3mm} \forall X_i,\hat{X}_i
+$
+\\ \vspace{2mm}
+$
+\Rightarrow s_j,b_k \in \hat{s}^+ \hspace{2mm} \forall s_j,b_k \in s^+
+$
+\end{center}
+
+
+
+% Subfunction Decomposition
+\subsection{Subfunction Decomposition of Solutions}
+FIX Double check conditions!!!
+Solutions $s^+$ can be written as the union of subfunctions $Sub_k[X_i]$
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{2mm}
+$
+s^+ = s^+[X_i] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\\ \vspace{4mm}
+$
+s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+$
+\\ \vspace{2mm}
+$
+= \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{4mm}
+$
+s^+ = Sub_1[X_i] \cup Sub_2[X_i] \cup ... \cup Sub_z[X_i]
+$
+\\ \vspace{3mm}
+$
+= \{ \mathcal{L}_1| \mathcal{M}_1,y_o\} \cup \{  \mathcal{L}_2| \mathcal{M}_2,y_o\} \cup ... \cup \{  \mathcal{L}_z| \mathcal{M}_z,y_o\} : 
+$
+\\ \vspace{2mm}
+$
+\mathcal{L}_j \cap \mathcal{L}_k = \emptyset \hspace{2mm} \forall j,k\neq j
+$
+\\ \vspace{4mm}
+$
+s^+ = \{ s_{1}^1,...,s^1_{N_1}| b^1_{1},...,y_o\} \cup \{  s_{1}^2,...,s^2_{N_2}| b^2_{1},...,y_o\} \cup ... \cup \{ s_{1}^z,...,s^z_{N_z}| b^z_{1},...,y_o\}:
+$
+\\ \vspace{2mm}
+$
+\sum_{l=1}^z N_l = N = O_T[n]
+$
+\end{center}
+
+
+
+
+
+\section{Subfunction Complexity}
+%\begin{center}
+%\vspace{2mm}
+%$
+%s^+[X_i] = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ \mathcal{L},\mathcal{M},y_o\}
+%$
+%\\ \vspace{6mm}
+%$
+%Sub[X_i] := S = \{s_j,...|b_k,...,y_o\}:
+%$
+%\\ \vspace{2mm}
+%$
+%s_j,b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S
+%$
+%\\ \vspace{4mm}
+%$
+%s^+ = Sub_1[X_i] \cup Sub_2[X_i] \cup ... \cup Sub_z[X_i]
+%$
+%\\ \vspace{2mm}
+%$
+%= \{ \mathcal{L}_1| \mathcal{M}_1,y_o\} \cup \{  \mathcal{L}_2| \mathcal{M}_2,y_o\} \cup ... \cup \{  \mathcal{L}_z| \mathcal{M}_z,y_o\} : 
+%$
+%\\ \vspace{2mm}
+%$
+%\mathcal{L}_j \cap \mathcal{L}_k = \emptyset \hspace{2mm} \forall j,k\neq j
+%$
+%\\ \vspace{4mm}
+%$
+%s^+ = \{ s_{1}^1,...,s^1_{N_1}| b^1_{1},...,y_o\} \cup \{  s_{1}^2,...,s^2_{N_2}| b^2_{1},...,y_o\} \cup ... \cup \{ s_{1}^z,...,s^z_{N_z}| b^z_{1},...,y_o\}:
+%$
+%\\ \vspace{2mm}
+%$
+%\sum_{l=1}^z N_l = N = O_T[n]
+%$
+%\\ \vspace{2mm}
+%$
+%= \{ s_1,...,s_{i_{N1}}| b_{i_1},...,y_o\} \cup \{ s_{i_2},...,s_{i_{N2}}| b_{i_2},...,y_o\} \cup ... \cup \{ s_{i_z},...,s_N| b_{i_z},...,y_o\}
+%$
+%\\ \vspace{6mm}
+%$
+%= \{ \mathcal{L}_1| \mathcal{M}_1\} \cup \{  \mathcal{L}_2| \mathcal{M}_2\} \cup ... \cup \{  \mathcal{L}_z| \mathcal{M}_z\} :
+%$
+%\\ \vspace{2mm}
+%$
+%(\cup_{i=1}^z \mathcal{L}_i = \mathcal{L}) \cap (\cup_{i=1}^z \mathcal{M}_i = \mathcal{M})
+%$
+%\\ \vspace{2mm}
+%$
+%(s_{i_x} \in s^+ \hspace{2mm} \forall s_{i_x}) \hspace{1mm} \cap \hspace{1mm} (b_{i_x} \in s^+ \hspace{2mm} \forall b_{i_x}) 
+%$
+%\end{center}
+
+
+
+\subsection{Disjoint Subfunction Operations}
+\begin{center}
+$
+\mathcal{L}_i \cap \mathcal{L}_j = \emptyset \hspace{2mm} \forall i,j\neq i
+$
+\end{center}
+
+\subsection{Shared Subfunction Memory}
+\begin{center}
+$
+|\mathcal{M}_i \cap \mathcal{M}_j| \geq 0 \hspace{2mm} \forall i,j\neq i
+$
+\end{center}
+
+
+
+\subsubsection{Time Complexity of Subfunctions}
+Subfunction time complexity is additive
+\begin{center}
+$
+s^+ = \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{6mm}
+$
+Sub_i[X] := S_i = \{s_j,...|b_k,...,y_o\}:
+$
+\\ \vspace{2mm}
+$
+s_j,b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S_i
+$
+\\ \vspace{6mm}
+$
+s^+ = \{ \mathcal{L}_1| \mathcal{M}_1,y_o\} \cup \{  \mathcal{L}_2| \mathcal{M}_2,y_o\} \cup ... \cup \{  \mathcal{L}_z| \mathcal{M}_z,y_o\} :
+$
+\\ \vspace{2mm}
+$
+\mathcal{L}_i \cap \mathcal{L}_j = \emptyset \hspace{2mm} \forall i,j\neq i
+$
+\\ \vspace{6mm}
+$
+\mathcal{L} = \cup_{i=1}^z \mathcal{L}_i
+$
+\\ \vspace{2mm}
+$
+\mathcal{L}_i \cap \mathcal{L}_j = \emptyset \hspace{2mm} \forall i,j\neq i
+$
+\\ \vspace{6mm}
+$
+O_T[n] = |\mathcal{L}| = N
+$
+\\ \vspace{2mm}
+$
+O_T[n]  =  |\cup_{i=1}^z \mathcal{L}_i| = \sum_{i=1}^z |\mathcal{L}_i|^*=|\mathcal{L}_1| + |\mathcal{L}_2|  + ... + |\mathcal{L}_z| 
+$
+\\ \vspace{2mm}
+$
+= O_{T_1}[n] + O_{T_2}[n] + ... + O_{T_z}[n] =  N_1 + N_2 + ... + N_z
+$
+\end{center}
+\vspace{4mm}
+$^*$Due to the disjoint condition of subfunction operations $\mathcal{L}_i \cap \mathcal{L}_j = \emptyset \hspace{2mm} \forall i,j\neq i$
+
+
+
+\subsubsection{Space Complexity of Subfunctions}
+Subfunctions can access the full memory $\mathcal{M}$ with no added space complexity 
+\begin{center}
+\vspace{1mm}
+$
+s^+ = \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{6mm}
+$
+Sub_i[X] := S_i = \{s_j,...|b_k,...,y_o\}:
+$
+\\ \vspace{2mm}
+$
+s_j,b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S_i
+$
+\\ \vspace{6mm}
+$
+s^+ = \{ \mathcal{L}_1| \mathcal{M}_1,y_o\} \cup \{  \mathcal{L}_2| \mathcal{M}_2,y_o\} \cup ... \cup \{  \mathcal{L}_z| \mathcal{M}_z,y_o\} :
+$
+\\ \vspace{2mm}
+$
+\mathcal{L}_i \cap \mathcal{L}_j = \emptyset \hspace{2mm} \forall i,j\neq i
+$
+\\ \vspace{4mm}
+$
+s^+ = \{ \mathcal{L}_1| \mathcal{M},y_o\} \cup \{  \mathcal{L}_2| \mathcal{M},y_o\} \cup ... \cup \{  \mathcal{L}_z| \mathcal{M},y_o\} :
+$
+\\ \vspace{2mm}
+$
+\mathcal{L}_i \cap \mathcal{L}_j = \emptyset \hspace{2mm} \forall i,j\neq i
+$
+\\ \vspace{4mm}
+$
+\mathcal{M} = \cup_{i=1}^z \mathcal{M}_i  = \cup_{i=1}^z \mathcal{M}
+$
+\\ \vspace{4mm}
+$
+O_S[n] = |\mathcal{M}| = M
+$
+\\ \vspace{2mm}
+$
+O_S[n] = |\cup_{i=1}^z \mathcal{M}_i| = M
+$
+\end{center}
+
+
+
+
+
+
+\subsubsection{Shared State Notation}
+\begin{center}
+\vspace{1mm}
+$
+s^+ = \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{6mm}
+$
+Sub_i[X] := S_i = \{s_j,...|b_k,...,y_o\}:
+$
+\\ \vspace{2mm}
+$
+s_j,b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S_i
+$
+\\ \vspace{6mm}
+$
+s^+ = \{ \mathcal{L}_1| \mathcal{M},y_o\} \cup \{  \mathcal{L}_2| \mathcal{M},y_o\} \cup ... \cup \{  \mathcal{L}_z| \mathcal{M},y_o\} :
+$
+\\ \vspace{2mm}
+$
+\mathcal{L}_i \cap \mathcal{L}_j = \emptyset \hspace{2mm} \forall i,j\neq i
+$
+\end{center}
+
+
+
+
+
+
+
+
+
+\newpage
+
+\section{Polynomial Solution Subfunction Properties}
+
+\subsection{Restate Definition of Subfunction}
+\begin{center}
+\vspace{2mm}
+$
+X_n = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{4mm}
+$
+s^+ = s^+[X_n] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_n \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_n] \supseteq P[X_n] \hspace{3mm} \forall X_n,\hat{X}_n)
+$
+\\ \vspace{6mm}
+$
+s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+$
+\\ \vspace{2mm}
+$
+= \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{6mm}
+$
+Sub[X_n] := S = \{s_j,...|b_k,...,y_o\}:
+$
+\\ \vspace{2mm}
+$
+s_j,b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S
+$
+\end{center}
+
+
+\subsection{Property of Polynomial Solution Subfunctions}
+Let
+\begin{center}
+$
+D \in \mathbb{P}
+$
+\\ \vspace{6mm}
+$
+X_n = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_n = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{6mm}
+$
+s^+ = s^+[X_n] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_n) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_n] \supseteq P[X_n] \hspace{3mm} \forall X_n,\hat{X}_n)
+$
+\\ \vspace{6mm}
+$
+\exists K,C,\lambda_1...\lambda_K \hspace{2mm} :
+$
+\\ \vspace{2mm}
+$
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
+$
+\\ \vspace{5mm}
+$
+s^+ = Sub_1[X_n] \cup Sub_2[X_n] \cup ... \cup Sub_z[X_n]
+$
+\\ \vspace{6mm}
+$
+limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
+$
+\\ \vspace{2mm}
+$
+= limit_{n \rightarrow \infty} \frac{O^1_T[n+1] + O^2_T[n+1] + ... + O^z_T[n+1] + O_S[n+1]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]}
+$
+\\ \vspace{4mm}
+$
+= limit_{n \rightarrow \infty} \frac{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n] + f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]}
+$
+\\ \vspace{4mm}
+$
+= limit_{n \rightarrow \infty} 1 + \frac{f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} =1
+$
+\\ \vspace{4mm}
+$
+\Rightarrow limit_{n \rightarrow \infty} \frac{f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} = 0^*
+$
+\\ \vspace{3mm}
+$
+\Rightarrow  limit_{n \rightarrow \infty} \frac{f^i_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} = 0 \hspace{2mm} \forall i
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty} \frac{f^i_{n+1}[n]}{O[n]} = 0 \hspace{2mm} \forall i
+$
+%$
+%s^+ = Sub_1[X_i] \cup Sub_2[X_i] \cup ... \cup Sub_z[X_i]
+%$
+\end{center}
+$^*$ O[n] is a positive, non-decreasing function
+
+
+
+
+
+% Property of Subfunctions of Polynomial Solutions
+%\subsection{Property of Subfunctions of Polynomial Solutions}
+%Consider solution $s^+$ with polynomial total complexity O[n] containing $z$ subfunctions $Sub_k[X_i]$ k = 1..z
+%\vspace{1mm}
+%\begin{center}
+%$
+%X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+%$
+%\\ \vspace{2mm}
+%$
+%s^+ = s^+[X_i] := P :
+%$
+%\\ \vspace{2mm}
+%$
+%(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+%$
+%\\ \vspace{4mm}
+%$
+%s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+%$
+%\\ \vspace{2mm}
+%$
+%= \{ \mathcal{L},\mathcal{M},y_o\}
+%$
+%\\ \vspace{6mm}
+%$
+%Sub_h[X_i] := S_h = \{s_j,...|b_k,...,y_o\}:
+%$
+%\\ \vspace{2mm}
+%$
+%s_j, b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S_h
+%$
+%\\ \vspace{6mm}
+%$
+%s^+ = Sub_1[X_i] \cup Sub_2[X_i] \cup ... \cup Sub_z[X_i]
+%$
+%\\ \vspace{6mm}
+%$
+%O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
+%$
+%\\ \vspace{2mm}
+%$
+%O[n] = O_{T_1}[n] + O_{T_2}[n] + ... + O_{T_z}[n] + |O_{S_1}[n] \cup O_{S_2}[n] \cup  ... \cup O_{S_z}[n]|
+%$
+%\\ \vspace{2mm}
+%$
+%= O_{T_1}[n] + O_{T_2}[n] + ... + O_{T_z}[n] + O_S[n]
+%$
+%\end{center}
+%\vspace{6mm}
+%By property of polynomial complexity
+%\begin{center}
+%\vspace{1mm}
+%$
+%limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = 1
+%$
+%\\ \vspace{2mm}
+%$
+%limit_{n \rightarrow \infty} \frac{O_{T_1}[n+1] + O_{T_2}[n+1] + ... + O_{T_z}[n+1] + O_S[n+1]}{O_{T_1}[n] + O_{T_2}[n] + ... + O_{T_z}[n] + O_S[n]} = 1
+%$
+%\\ \vspace{2mm}
+%\end{center}
+%Prove
+%\begin{center}
+%$
+%limit_{n \rightarrow \infty} \frac{O_h[n+1]}{O_h[n]} \leq 1 \hspace{2mm} \forall h
+%$
+%\end{center}
+
+
+
+
+
+
+\subsection{Theorem of Polynomial Subfunctions}
+The Theorem of Polynomial Subfunctions states a solution has polynomial complexity if and only if all of its subfunctions have polynomial complexity
+\begin{center}
+$
+|s^+[X_n]| = O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
+$
+\\ \vspace{4mm}
+$
+s^+ = Sub_1[X_n] \cup Sub_2[X_n] \cup ... \cup Sub_z[X_n]
+$
+\\ \vspace{8mm}
+$
+O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
+$
+\\ \vspace{2mm}
+$
+\Longleftrightarrow
+$
+\\ \vspace{2mm}
+$
+|Sub_i[X_n]| = O_i[n] = (\hat{\lambda}_M n)^M + (\hat{\lambda}_{M-1} n)^{M-1} + ... + \hat{\lambda}_1 n + C \hspace{3mm} \forall i,n
+$
+\end{center}
+
+
+
+
+\subsubsection{Sufficient Proof}
+Solution $s^+$ having polynomial complexity implies all of its subfunctions $Sub_i$ have polynomial complexity \\ \\
+Let
+\begin{center}
+\vspace{2mm}
+$
+|s^+[X_n]| = O[n] = (\lambda_K n)^K + (\lambda_{K-1} n)^{K-1}... + \lambda_1 n + C \hspace{3mm} \forall n
+$
+\\ \vspace{2mm}
+$
+O[n] = \sum_{i=1}^z O_i[n] = O_1[n] + O_2[n] + ... + O_z[n]
+$
+\\ \vspace{2mm}
+\end{center}
+Since $O[n],O_i[n]$ is positive, non-decreasing
+\begin{center}
+$
+O_i[n] = (\hat{\lambda}_{M_i} n)^{M_i}+ (\hat{\lambda}_{M_i-1} n)^{M_i-1}... + \hat{\lambda}_1 n + C \hspace{3mm} M_i \leq K  \hspace{2mm} \forall i,n
+$
+\\ \vspace{6mm}
+$
+\Rightarrow Sub_i$ has polynomial complexity by definition of polynomial complexity
+ \end{center}
+
+
+
+
+\subsubsection{Necessary Proof}
+Every subfunction $Sub_i$ having polynomial complexity implies solution $s^+$ has polynomial complexity\\ \\
+Let
+\begin{center}
+\vspace{4mm}
+$
+O_i[n] = (\hat{\lambda}_{M_i} n)^{M_i} + (\hat{\lambda}_{M_i-1} n)^{M_i-1} + ... + \hat{\lambda}_{1_i} n + \hat{\lambda}_{0_i} \hspace{3mm} \forall i,n
+$
+\\ \vspace{6mm}
+$
+O_{max}[n]^* := \tilde{O}[n] \in \{O_1[n],O_2[n],...O_z[n]\} :
+$
+\\ \vspace{6mm}
+$
+lim_{n\rightarrow \infty}\frac{\tilde{O}[n]}{\sum_{i=1}^z O_i[n]} = c \neq 0
+$
+\\ \vspace{6mm}
+$
+O_{max}[n] = (\hat{\lambda}_{M_{max}} n)^{M_{max}} + (\hat{\lambda}_{M_{max} 1} n)^{M_{max}-1} + ... + \hat{\lambda}_{1_{max}} n + \hat{\lambda}_{0_{max}} \hspace{3mm} \forall i,n
+$
+\\ \vspace{10mm}
+$
+O[n] = \sum_{i=1}^z O_i[n] = O_1[n] + O_2[n] + ... + O_z[n]
+$
+\\ \vspace{6mm}
+$
+= (\tilde{\lambda}_L n)^L + (\tilde{\lambda}_{L-1} n)^{L-1} + ... + \tilde{\lambda}_1 n + C \hspace{3mm} L = M_{max} \hspace{2mm} \forall n
+$
+\\ \vspace{8mm}
+$
+\Rightarrow s^+$ has polynomial complexity by definition of polynomial complexity
+\end{center}
+\vspace{4mm}$^*$ O$_{max}$ is not necessarily unique, but necessarily exists. See appendix for proof
+
+
+\newpage 
+% Divergent Solution Subfunctions
+\section{Divergent Solution Subfunction Properties}
+
+
+
+
+\subsection{Restate Definition of Subfunction}
+\vspace{2mm}
+\begin{center}
+$
+X_i = \{x_1,...,x_n,C\}; \hspace{2mm} \hat{X}_i = \{x_1,...,x_{n+1},C\}
+$
+\\ \vspace{2mm}
+$
+s^+ = s^+[X_i] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_i] \supseteq P[X_i] \hspace{3mm} \forall X_i,\hat{X}_i)
+$
+\\ \vspace{4mm}
+$
+s^+ = \{ s_1,s_2,...,s_N|b_1,b_2,...,b_M,y_o\} = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \}
+$
+\\ \vspace{2mm}
+$
+= \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{6mm}
+$
+Sub[X_i] := S = \{s_j,...|b_k,...,y_o\}:
+$
+\\ \vspace{2mm}
+$
+s_j,b_k \in s^+ \hspace{3mm} \forall s_j,b_k \in S
+$
+\end{center}
+
+
+
+
+
+\subsection{Property of Divergent Subfunctions}
+Let
+\begin{center}
+$
+D \in \hat{\mathcal{D}}
+$
+\\ \vspace{6mm}
+$
+X_n = \{x_1,...,x_n\}; \hspace{2mm} \hat{X}_n = \{x_1,...,x_{n+1}\}
+$
+\\ \vspace{6mm}
+$
+s^+ = s^+[X_n] := P :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack \rightarrow y_{o} == a_{o} \hspace{3mm} \forall X_n) \hspace{2mm} \cap \hspace{2mm} (P[\hat{X}_n] \supseteq P[X_n] \hspace{3mm} \forall \hat{X}_n : \hat{X}_n \supset X_n)
+$
+\vspace{4mm}
+\end{center}
+By Definition of Divergent Problem
+\begin{center}
+\vspace{2mm}
+$
+\not \exists c : limit_{n \rightarrow \infty} \frac{O[n+1]}{O[n]} = c
+$
+\\ \vspace{2mm}
+$
+= limit_{n \rightarrow \infty} \frac{O^1_T[n+1] + O^2_T[n+1] + ... + O^z_T[n+1] + O_S[n+1]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]}
+$
+\\ \vspace{4mm}
+$
+= limit_{n \rightarrow \infty} \frac{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n] + f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]}
+$
+\\ \vspace{4mm}
+$
+= limit_{n \rightarrow \infty} 1 + \frac{f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} \neq c
+$
+\\ \vspace{4mm}
+$
+\Rightarrow limit_{n \rightarrow \infty} \frac{f^1_{T_{n+1}}[n] + f^2_{T_{n+1}}[n+1] + ... + f^z_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} \neq c^*
+$
+\end{center}
+Prove
+\begin{center}
+\vspace{3mm}
+$
+\exists i :  limit_{n \rightarrow \infty} \frac{f^i_{T_{n+1}}[n] + f_{S_{n+1}}[n]}{O^1_T[n] + O^2_T[n] + ... + O^z_T[n] + O_S[n]} \hspace{2mm} diverges
+$
+\end{center}
+$^*$ O[n] is a positive, non-decreasing function
+
+
+
+
+
+% Theorem of Divergent Subfunctions
+\subsection{Theorem of Divergent Subfunctions}
+The Theorem of Divergent Subfunctions states a divergent subfunction implies divergent total complexity
+\begin{center}
+\vspace{2mm}
+$
+lim_{n\rightarrow \infty} \frac{O[n+1]}{O[n]} \hspace{2mm} diverges 
+$
+\\ \vspace{2mm}
+$
+\Longleftrightarrow
+$
+\\ \vspace{2mm}
+$
+\exists i : lim_{n \rightarrow \infty}\frac{O_i[n+1]}{O[n]} \hspace{2mm} diverges
+$
+\end{center}
+
+
+
+\subsubsection{Sufficient Direction}
+See 18.2
+
+
+
+\subsubsection{Necessary Direction}
+
+
+
+
+
+
+
+% Computational Basis
+\newpage
+\section{Computational Basis}
+
+
+\subsection{Definition of a Computational Basis of Program P}
+Define a Computational Basis B of Program P
+\begin{center}
+\vspace{1mm}
+$
+X_n = \{x_1,x_2,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+P[X_n] \rightarrow Y_o := \{s_1,s_2,...,s_N,b_1,b_2,...,Y_o\} \rightarrow Y_o
+$
+\\ \vspace{6mm}
+$
+B :=
+$
+\end{center}
+
+
+
+
+
+For the remainder of this document, "computational basis" is denoted as "basis"
+
+
+
+
+
+\subsection{Definition of the Identity Basis of Program P}
+
+
+
+
+
+\subsection{Prove the Identity Basis of Program P is a basis of Program P}
+%\subsection{Definition of Subprogram}
+\subsection{Definition of Canonical Program}
+
+
+
+
+
+\subsection{Definition of a Canonical Basis of Program P}
+
+
+
+
+
+\subsection{Prove Canonical Basis $\mathbb{B}$ of Program P is a basis of Program P}
+
+
+
+
+
+
+\subsection{Subprogram and Canonical Basis}
+Prove a subprogram is a canonical basis if and only if it's basis decomposition is the identity subprogram
+
+
+
+
+
+
+\subsection{Basis of Boolean Program P}
+
+
+
+
+
+% Fundamental Theorem of Computation
+\newpage
+\section{Fundamental Theorem of Computation}
+The Fundamental Theorem of Computation states every program $P$ has a canonical basis $\mathbb{B}$ 
+
+
+
+
+% Proof of the Fundamental Theorem of Computation
+\subsection{Proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Solution Space
+\newpage
+\section{Input Spaces}
+\subsection{Definition of Input Space}
+Define the Input Space $\mathbb{I}$ of Program P
+\subsection{Define the Cardinality Function $C[n]$ of Input Space $\mathbb{I}$}
+\subsection{Existence, Uniqueness, etc.}
+\subsection{Worst Case}
+\subsection{Prove $|\mathbb{B}|=C[n]$}
+
+
+
+
+
+
+
+
+% Theorem of Solution Complexity
+\newpage
+\section{Theorem of Solution Complexity}
+The Theorem of Solution Complexity relates the complexity of solution $s^+$ to a basis $B$ of solution $s^+$
+\begin{center}
+\vspace{2mm}
+$
+X_n = \{x_1,x_2,...,x_n\}
+$
+\\ \vspace{4mm}
+$
+\mathcal{Q} := f \lbrack X_n \rbrack \rightarrow A_o \subseteq \Omega \hspace{3mm}\forall X_n \in D_{\mathcal{Q}}
+$
+\\ \vspace{4mm}
+$
+s^+ = s^+\lbrack X_n \rbrack := P[X_n] \rightarrow Y_o :
+$
+\\ \vspace{2mm}
+$
+(Y_o = A_o \hspace{3mm} \forall X_n \in D_{\mathcal{Q}}) \hspace{2mm} \cap \hspace{2mm} (P[X_{n+1}] \supseteq P[X_n] \hspace{3mm} \forall X_{n} \in D_{\mathcal{Q}} \hspace{3mm} \forall X_{n+1} \in D_{\mathcal{Q}})
+$
+\end{center}
+
+
+
+% Theorem of Optimal Complexity
+\newpage
+\section{Theorem of Optimal Complexity}
+
+
+
+
+
+% Theorem of Divergent Complexity
+\newpage
+\section{Theorem of Divergent Complexity}
+
+
+
+
+
+
+
+%The Fundamental Theorem of Complexity relates the complexity of a program to its canonical subprograms, sometimes denoted as its canonical basis programs.
+%
+%\begin{center}
+%$
+%\mathbb{S} = \{c_1^+,c_2^+,...,c_{C[n]}^+\}
+%$
+%\\ \vspace{2mm}
+%$
+%s^+[X_n] = \lor_{c_i^+ \in \mathbb{S}}\hspace{2mm} c_i^+
+%$
+%\end{center}
+%$O_{opt}[n]$ has the same order as C[n]
+
+%\subsection{Proof by Induction}
+%\subsection{Proof by Contradiction}
+
+
+
+
+
+
+
+% N Sum Problem
+\newpage
+\section{Sum to N Problem with 2 integers}
+% Zero Order Space Complexity Solution
+\subsection{State formal definition of Sum to N : $x_i + x_j == N$}
+\begin{center}
+\vspace{1.5mm}
+$
+X_n= \{x_1,...,x_n\}
+$
+\\ \vspace{6mm}
+$
+D := f \lbrack X_i,N \rbrack = a_{o} \in \{\mathbb{T}, \mathbb{F}\} \hspace{3mm} \forall X_i
+$
+\\ \vspace{6mm}
+$
+s^+[X_n]= P[X_n] :
+$
+\\ \vspace{2mm}
+$
+(P \lbrack X_i \rbrack = y_{o} == a_{o} \hspace{3mm} \forall X_i) \hspace{2mm} \cap \hspace{2mm} (P[{X}_{n+1}] \supseteq P[X_n] \hspace{3mm} \forall X_{n+1})
+$
+\\ \vspace{6mm}
+$
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \} = \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{6mm}
+$
+D = f[X_i] = \hspace{2mm} \exists x_j,x_k \in X_n \hspace{4mm} j\neq k: 
+$
+\\ \vspace{2mm}
+$
+x_j + x_k == N
+$
+\end{center}
+
+
+
+
+
+\subsection{Express a formal solution : $O_S[n] \sim n^0$}
+\begin{center}
+\vspace{1.5mm}
+$
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \} = \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{2mm}
+$
+s_1 = y_o \leftarrow \mathbb{F};
+$
+\\ \vspace{2mm}
+$
+\forall i < n \hspace{2mm}, \hspace{2mm} n \geq j > i 
+$
+\\ \vspace{2mm}
+$
+s_2,s_3,s_8,s_9,...,s_{3ij-4},s_{3ij-3}...,s_{3n(n-1)-4},s_{3n(n-1)-3} =  b_1 \leftarrow x_i + x_j 
+$
+\\ \vspace{2mm}
+$
+s_4,s_5,s_{10},s_{11},...,s_{3ij-2},s_{3ij-1}...,s_{3n(n-1)-2},s_{3n(n-1)-1} = b_1 \leftarrow b_1 == N
+$
+\\ \vspace{2mm}
+$
+s_6,s_7,s_{12},s_{13}...,s_{3ij},s_{3ij+1}...,s_{3n(n-1)},s_{3n(n-1)+1} = y_o \leftarrow y_o \lor b_1
+$
+\\ \vspace{2mm}
+$
+s^+ = \{y_o \leftarrow \mathbb{F},y_o \leftarrow y_o \lor (x_i + x_j == N) \hspace{3mm} \forall i,j > i \hspace{1mm}| \hspace{1mm} b_1,y_o\}
+$
+\end{center}
+
+
+
+
+
+\subsection{Prove $s^+$ satisfies the subfunction condition of solutions: $P[X_{n+1}] \supseteq P[X_n] \hspace{3mm} \forall X_{n+1}$}
+\begin{center}
+\vspace{2mm}
+$
+X_n= \{x_1,x_2,...,x_n\}; \hspace{2mm} X_{n+1} = \{x_1,x_2,...,x_n,x_{n+1}\}
+$
+\\ \vspace{2mm}
+$
+s^+ = \{ s_1,s_2,...,s_{O_T \lbrack n \rbrack }, b_1, b_2,...,b_{O_S \lbrack n \rbrack},y_o \} = \{ \mathcal{L},\mathcal{M},y_o\}
+$
+\\ \vspace{2mm}
+$
+s_{n+1}^+ = s^+ \cup \hat{s}^+ 
+$
+\\ \vspace{2mm}
+$
+s_1 = y_o \leftarrow \mathbb{F};
+$
+\\ \vspace{2mm}
+$
+\forall i < n \hspace{2mm}, \hspace{2mm} n \geq j > i 
+$
+\\ \vspace{2mm}
+$
+s_2,s_3,s_8,s_9,...,s_{3ij-4},s_{3ij-3}...,s_{3n(n-1)-4},s_{3n(n-1)-3} =  b_1 \leftarrow x_i + x_j 
+$
+\\ \vspace{2mm}
+$
+s_4,s_5,s_{10},s_{11},...,s_{3ij-2},s_{3ij-1}...,s_{3n(n-1)-2},s_{3n(n-1)-1} = b_1 \leftarrow b_1 == N
+$
+\\ \vspace{2mm}
+$
+s_6,s_7,s_{12},s_{13}...,s_{3ij},s_{3ij+1}...,s_{3n(n-1)},s_{3n(n-1)+1} = y_o \leftarrow y_o \lor b_1
+$
+\\ \vspace{6mm}
+$
+\forall k < n+1
+$
+\\ \vspace{2mm}
+$
+s... = b_1 \leftarrow x_k + x_{n+1}
+$
+\\ \vspace{2mm}
+$
+s... = b_1 \leftarrow b_1 == N
+$
+\\ \vspace{2mm}
+$
+s... = y_o \leftarrow y_o \lor b_1
+$
+\\ \vspace{8mm}
+$
+s^+ = \{y_o \leftarrow \mathbb{F},y_o \leftarrow y_o \lor (x_i + x_j == N) \hspace{3mm} \forall i,j > i \hspace{1mm}| \hspace{1mm} b_1,y_o\}
+$
+\\ \vspace{4mm}
+$
+\hat{s}^+ = \{y_o \leftarrow y_o \lor (x_k + x_{n+1} == N) \hspace{2mm} \forall k < n+1 | \hspace{1mm} b_1,y_o \}
+$
+\\ \vspace{4mm}
+$
+s^+_{n+1} = \{y_o \leftarrow \mathbb{F},y_o \leftarrow y_o \lor (x_i + x_j == N) \hspace{3mm} \forall i,j > i \hspace{1mm}| \hspace{1mm} b_1,y_o\} \hspace{2mm}\cup 
+$
+\\ \vspace{3mm}
+$
+\{y_o \leftarrow y_o \lor (x_k + x_{n+1} == N) \hspace{2mm} \forall k < n+1 | \hspace{1mm} b_1,y_o \}
+$
+\\ \vspace{6mm}
+$
+s_{n+1}^+ = s^+ \cup \hat{s}^+ = P[X_{n+1}] \supseteq P[X_n] = s^+
+$
+\end{center}
+
+
+
+
+
+
+\subsection{Determine $O[n], O_S[n], O_T[n],f_{n+1}[n],f^T_{n+1}[n],f^S_{n+1}[n]$ for the above solution}
+\begin{center}
+$
+O_S[n] = |y_o| + |b_1| = 2
+$
+\\ \vspace{2mm}
+$
+O_T[n] = 3n(n-1) + 1 = 3n(n-1) -1 + O_S[n]
+$
+\\ \vspace{2mm}
+$
+O[n] = 3n(n-1) + 3 = 3n^2 -3n + 3
+$
+\\ \vspace{4mm}
+$
+f^S_{n+1}[n] = 0
+$
+\\ \vspace{2mm}
+$
+f^T_{n+1}[n] = 6n
+$
+\\ \vspace{2mm}
+$
+f_{n+1}[n] = f^S_{n+1}[n] + f^T_{n+1}[n]
+$
+\end{center}
+
+
+\subsection{Verify $O[n+1]$ = $O[n]$ + $f_{n+1}[n]$}
+\begin{center}
+$
+O[n+1] = O[n] + \hat{O}[n]
+$
+\\ \vspace{2mm}
+$
+3(n+1)^2 -3(n+1) + 3 =  3n^2 -3n + 3 + 6n
+$
+\\ \vspace{2mm}
+$
+3n^2 + 6n + 3 - 3n -3 + 3 = 3n^2 + 3n + 3
+$
+\\ \vspace{2mm}
+$
+3n^2 + 3n+ 3 = 3n^2 + 3n + 3
+$
+\end{center}
+
+
+
+
+
+
+
+\subsection{Show $s^+$ has Polynomial Complexity by the definition of Total Polynomial Complexity}
+\begin{center}
+\vspace{2mm}
+$
+O[n] = 3n^2 -3n + 3
+$
+\end{center}
+
+\subsection{Show the limit $_{n \rightarrow \infty}\frac{O[n+1]}{O[n]}$ does not Diverge}
+\begin{center}
+$
+limit_{n \rightarrow \infty}\frac{O[n+1]}{O[n]} =
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty}\frac{3n^2 + 3n + 3}{3n^2 - 3n + 3} =
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty}(\frac{3n^2 - 3n + 3}{3n^2 - 3n + 3} + \frac{6n}{3n^2 - 3n + 3}) =
+$
+\\ \vspace{2mm}
+$
+limit_{n \rightarrow \infty}(1 + \frac{6n }{3n^2 - 3n + 3}) = 1
+$
+\end{center}
+
+
+
+
+
+% Knapsack Problem
+\newpage
+\section{The Knapsack Problem}
+
+
+% Knapsack Problem Verbal Definition
+\subsection{The Knapsack Problem}
+The Knapsack Problem is a famous problem in computer science which asks if objects can be stored in a knapsack. Typically the problem is designed
+with two constraints, weight and value. Given objects $x_i$, each with a respective weight $w_i$ and value $v_i$, does there exist a combination of
+objects lighter than input weight $W$ and more valuable than input value $V$?
+
+
+% Knapsack Problem Formal Defintion
+\subsection{Formal Definition}
+\begin{center}
+\vspace{8mm}
+$
+X_n = \{x_1,x_2,...,x_n\} = \{ \{w_1,v_1\},\{w_2,v_2\},...,\{w_n,v_n\} \}
+$
+\\ \vspace{8mm}
+$
+I = \{i_1,i_2,...,i_n\}: i_l \in \{0,1\} \hspace{2mm} \forall i_l \in I
+$
+\\ \vspace{8mm}
+$
+D := f[X_n,W,V] = a_o \in \{\mathbb{T},\mathbb{F}\} = \exists I:
+$
+\\ \vspace{2mm}
+$
+(\sum_{j=1}^n i_j w_j < W) \land (\sum_{j=1}^n i_j v_j \geq V)
+$
+\end{center}
+\vspace{3mm}
+
+
+
+
+
+
+
+
+\subsection{Solve for C[n]}
+
+\subsubsection{Expressing $I$ as a binary number}
+\vspace{4mm}
+\begin{center}
+$
+I = \{i_1,i_2,...,i_n\}: i_l \in \{0,1\} \hspace{2mm} \forall i_l \in I
+$
+\end{center}
+Valid combinations of I
+\begin{center}
+$
+I_{valid} =
+$
+\\ \vspace{2mm}
+$
+\{ \{0,0,0,...,0,0,1\}, \{0,0,0,...,0,1,0\}, \{0,0,0,...,0,1,1\}, ... ,\{1,1,1,...,1,1,1\}\}
+$
+\\ \vspace{4mm}
+$
+C[n] = |I_{valid}[n]| = 2^n - 1
+$
+\end{center}
+
+
+
+\subsubsection{Using a sum of combinations of inputs $x_i$}
+\vspace{4mm}
+\begin{center}
+$
+X_n = \{x_1,x_2,...,x_n\} = \{ \{w_1,v_1\},\{w_2,v_2\},...,\{w_n,v_n\} \}
+$
+\end{center}
+Valid combinations of $x_i$
+\begin{center}
+$
+X_{valid}[n] =
+$
+\\ \vspace{2mm}
+$
+\{x_1\} \cup \{x_2\} \cup ... \cup \{x_n\} \cup \{x_1,x_2\}  \cup \{x_1,x_3\} \cup ... \cup \{x_{n-1},x_{n}\} \cup ... \cup \{x_1,x_2,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+= \ _{X_n}C_1 \cup \hspace{1mm} _{X_n}C_2 \cup ... \cup \hspace{1mm}_{X_n}C_n
+$
+\\ \vspace{6mm}
+$
+C[n] = |X_{valid}[n]| = {\sum _{j=1}^{n}}\hspace{2mm}{_{n}C{_j}}
+$
+\end{center}
+
+
+
+
+\subsubsection{Verify consistency}
+\begin{center}
+\vspace{4mm}
+$
+C[n] = |X_{valid}[n]| = |I_{valid}[n]|
+$
+\\ \vspace{4mm}
+$
+= 2^n - 1 =  {\sum _{j=1}^{n}}\hspace{2mm}{_{n}C{_j}} = {_{n}C{_1}} + {_{n}C{_2}} + ... + {_{n}C{_n}}
+$
+\\ \vspace{4mm}
+$
+= 2^n -1 = 2^n -1
+$
+\end{center}
+
+
+
+
+
+\subsection{Express a solution $s^+$ of the Knapsack Problem}
+\subsection{Prove $s^+$ satisfies the subfunction condition of solutions}
+\subsection{Determine $O[n],O_T[n],O_S[n],f_{n+1}[n]$}
+\subsection{Show $s^+$ $\notin$ $\mathbb{P}$}
+\subsection{Express the Solution Space $\mathbb{S}$ for The Knapsack Problem}
+\subsection{Prove a lower bound for all solutions $s^+ \in S^+ := O_{lower}[n]$}
+\subsection{Prove $D$ has Divergent Complexity}
+
+
+
+
+\newpage
+\section*{Appendix}
+
+
+
+\section{Criticism of Overloaded Equivalence}
+In computer science, it is convention to overload equivalence $=$
+\begin{center}
+$
+a_i = a_i \hspace{3mm} \forall a_i \in \Omega
+$
+\end{center}
+\vspace{3mm}
+Consider standard C++ syntax\\
+int x = 3;\\
+int y = 4;\\
+int z = x + y;\\ \\
+Int x is not inherently equal to 3. Rather, we are creating an open space "x" for a value and setting the value to 3. Similarly, z is not inherently equal
+to the value of x + y. Rather, we are creating an open space "z" for a value and setting the value to the sum of x and y which have already been set.
+\begin{center}
+$
+x \leftarrow 3
+$
+\\ \vspace{2mm}
+$
+y \leftarrow 4
+$
+\\ \vspace{2mm}
+$
+z \leftarrow x + y
+$
+\end{center}
+
+\section{Existence of $O_{max}[n]$}
+\subsection{Proof}
+
+
+\subsubsection{Alternate Definition; Left Hand Derivative}
+Some sources define
+\begin{center}
+$
+\Delta_n^1 f[n] = f[n] - f[n-1]
+$
+\end{center}
+
+
+\newpage
+\section*{Citations}
+\lbrack1\rbrack \hspace{1mm} $https://kapeli.com/cheat\_sheets/LaTeX\_Math\_Symbols.docset/Contents/Resources/Documents/index$\\
+\lbrack2\rbrack \hspace{1mm} $chat.openai.com$\\
+\lbrack3\rbrack \hspace{1mm} $google.com$\\
+\lbrack4\rbrack \hspace{1mm} $wikipedia.org$\\
+\lbrack3\rbrack \hspace{1mm} $wolframalpha.com$\\
+\lbrack4\rbrack \hspace{1mm} $youtube.com$\\
+\lbrack5\rbrack \hspace{1mm} $https://stackoverflow.com/questions/3518973/floating-point-exponentiation-without-power-function$\\
+\lbrack6\rbrack \hspace{1mm} $https://stackoverflow.com/questions/27086195/linear-index-upper-triangular-matrix$\\
+
+
+
+\end{document}
