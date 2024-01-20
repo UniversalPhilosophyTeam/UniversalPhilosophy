@@ -10,12 +10,16 @@
 
 \begin{document}
 
-\section*{Computation}
+\begin{center}
+\section*{Methods and Questions}
+\end{center}
 
 
 
 
 
+
+\newpage
 
 % Definition of Instruction Set
 \section{Instructions}
@@ -64,7 +68,7 @@ $
 
 
 
-
+\newpage
 
 % Definition of Memory
 \section{Memory}
@@ -96,7 +100,7 @@ $
 
 
 
-
+\newpage
 
 % Definition of Program
 \section{Methods}
@@ -149,12 +153,16 @@ $
 
 
 
-% Types of Methods
-\section{Types of Methods} 
+
+
+
+
+\newpage
 
 % Boolean Programs
-\subsection{Boolean Methods}
-Define a boolean method; a method with inputs $x_i$ and boolean output $y_o$
+\section{Boolean Methods}
+\subsection{Definition of Boolean Methods}
+Define a boolean method; a method with inputs $x_i$ and boolean output $y$
 \begin{center}
 $
 X_n = \{x_1,...,x_n\} \hspace{1mm} : \hspace{1mm} x_i \in \Omega \hspace{2mm} \forall x_i \in X_n
@@ -171,161 +179,195 @@ $
 $
 \\ \vspace{2mm}
 $
-(P_{boolean}[X_n] \equiv $ method$) \land (P_{boolean} is bounded) \land
+(P_{boolean}[X_n] \equiv $ method$) \land (\exists \mathbb{D}_P : X_n \in \mathbb{D}_P \Leftrightarrow P_{boolean}[X_n] \rightarrow y \equiv bool) 
+$
+\end{center}
+
+
+\subsection{Boolean Method Output}
+The output of a boolean method $y$ is read as "the result"
+\vspace{1mm}
+\begin{center}
+$
+P_{boolean}[X_n] \rightarrow y
+$
+\end{center}
+\vspace{1mm}
+"Boolean Method $P_{boolean}$ with input(s) $X_n$ outputs result y"
+
+
+
+
+
+
+
+\newpage
+
+% Definition of a True / False Question
+\section{True or False Questions}
+
+\subsection{Definition of True or False Question}
+Define a True or False Question; a bounded boolean expression given input(s) $X_n$\\
+\\
+Given
+\begin{center}
+$
+X_n = \{x_1,x_2,...,x_n\}
+$
+\\ \vspace{4mm}
+$
+Q^{T/F} := \hspace{1mm}Q[X_n]\hspace{1mm}:\hspace{1mm} Q[X_n] \in \{\mathbb{T},\mathbb{F}\} \hspace{3mm} \forall X_n \in \mathbb{D}_Q
+$
+\vspace{1mm}
+\end{center}
+A True or False Question is sometimes read as a "decision question"
+
+
+\subsection{Abstraction Notation}
+\vspace{1mm}
+Given
+\begin{center}
+$
+X_n = \{x_1,x_2,...,x_n\}
+$
+\\ \vspace{6mm}
+"True or False Question"$ := Q^{T/F}[X_n]:
+$
+\\ \vspace{4mm}
+$
+\exists \mathbb{D}_Q : (X_n \in \mathbb{D}_Q \Leftrightarrow Q^{T/F}[X_n] \equiv bool) 
+$
+\end{center}
+\vspace{.1mm}
+
+
+
+
+
+\newpage
+
+% Definition of Approach to a True or False Question
+\section{Approach to a True or False Question}
+?? Does $(\mathbb{D}_S == \mathbb{D}_Q)$ or merely contained/bounded???
+\subsection{Definition of an Approach to a True or False Question}
+Given input(s) $X_n$ and True or False Question $Q^{T/F}$; Define an approach to True or False Question $Q^{T/F}$;
+a boolean method bounded by the domain of $Q^{T/F}$\\
+\\
+Given
+\begin{center}
+$
+X_n = \{x_1,x_2,...,x_n\}
 $
 \\ \vspace{2mm}
 $
-(P_{boolean}[X_n] \rightarrow y \hspace{2mm} \forall X_n \in \mathbb{D}_{P}) \land (y \equiv $ bool$ \hspace{2mm} \forall  X_n \in \mathbb{D}_{P})
+Q^{T/F}[X_n]
+$
+\\ \vspace{6mm}
+$
+S_{Q}[X_n] := P_{Q}[X_n] =\{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} y, b_2,...,b_M\} :
+$
+\\ \vspace{2mm}
+$
+(P_{Q}[X_n] \rightarrow y) \land(y \hspace{1mm} \in  \{\mathbb{T},\mathbb{F}\}) \hspace{3mm} \forall X_n \in \mathbb{D}_Q
+$
+\end{center}
+
+
+\subsection{Abstraction Notation}
+Given
+\begin{center}
+$
+X_n = \{x_1,x_2,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+Q^{T/F}[X_n]
+$
+\\ \vspace{6mm}
+"Approach to True or False Question $Q$"$ := S_{Q}[X_n] :
+$
+\\ \vspace{2mm}
+$
+(S_{Q}[X_n] \equiv \equiv$ boolean method$)\land(\mathbb{D}_S == \mathbb{D}_Q)
 $
 \end{center}
 
 
 
-\subsection{Void Programs}
-Define a void program; a program with inputs $x_i$ and no output
+
+
+
+
+
+
+\newpage
+
+% Definition of a Complete Solution to a True or False Question
+\section*{Solution to a True or False Question}
+\subsection{Definition of Solution to a True or False Question}
+Given input(s) $X_n$ and True or False Question $Q^{T/F}$;\\
+Define a solution of True or False Question $Q^{T/F}$; an approach to $Q^{T/F}$\\
+asserting output y is the answer for all input(s) in the domain of Q\\
+\\
+Given
+\begin{center}
+$
+X_n = \{x_1,x_2,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+Q = Q^{T/F}[X_n]
+$
+\\ \vspace{6mm}
+$
+S^+_{Q}[X_n] := P_{Q}[X_n] =\{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} y, b_2,...,b_M\} :
+$
+\\ \vspace{2mm}
+$
+(P_{Q}[X_n] \rightarrow y) \land (y == a) \hspace{3mm} \forall  X_n \in \mathbb{D}_Q
+$
+\end{center}
+
+
+\subsection{Abstraction Notation}
+Given
+\begin{center}
+$
+X_n = \{x_1,x_2,...,x_n\}
+$
+\\ \vspace{2mm}
+$
+Q = Q^{T/F}[X_n]
+$
+\\ \vspace{6mm}
+"Solution to True or False Question $Q$"$ := S^+_{Q}[X_n] :
+$
+\\ \vspace{2mm}
+$
+(S^+_{Q}[X_n] \equiv \equiv$ approach to a True or False Question Q$)\land
+$
+\\ \vspace{2mm}
+$
+(S^+_{Q}[X_n].output == |Q^{T/F}[X_n]|)
+$
+\end{center}
+
+
+
+
+\section*{Incomplete Solution to a True or False Question}
+\subsection{Definition of Incomplete Solution to a True or False Question}
+\subsection{Abstraction Notation}
+
+
+\newpage
+
+% Problem / Question Definitions
+\section{Definition of Problem}
+Define Problem (also denoted as Question); a function with input(s) $X_n$ and "answer" $Y$
 \begin{center}
 $
 X_n = \{x_1,...,x_n\}
-$
-\\ \vspace{2mm}
-$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M\}$
-\end{center}
-
-
-
-
-
-\subsection{Numerical Programs}
-Define a numerical program; a program with inputs $x_i$, input set C, and real, rational output $y_o$
-\begin{center}
-$
-X = \{x_1,...,x_n,C\}
-$
-\\ \vspace{2mm}
-$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,y_o\}=$
-\\ \vspace{2mm}
-$
-P\lbrack X \rbrack \rightarrow y_o \in \mathbb{Q} \hspace{2mm} y_o \geq 0
-$
-\end{center}
-
-
-
-
-
-\subsection{System Programs}
-Define a system program; a program with inputs $x_i$, input set C, and real, output set $Y_o$
-\begin{center}
-$
-X = \{x_1,...,x_n,C\}
-$
-\\ \vspace{2mm}
-$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,Y_o\}=$
-\\ \vspace{2mm}
-$
-P\lbrack X \rbrack \rightarrow Y_o = \{y_1,y_2,...,y_K\}
-$
-\end{center}
-
-
-
-
-
-\subsection{Mathematical Programs}
-Define a mathematical program; a program with inputs $x_i$, input set C and numerical output $y_o$
-\begin{center}
-$
-X = \{x_1,...,x_n,C\}
-$
-\\ \vspace{2mm}
-$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,y_o\}=$
-\\ \vspace{2mm}
-$
-P\lbrack X \rbrack \rightarrow y_o \in \mathbb{Q}
-$
-\end{center}
-
-
-
-
-
-
-
-
-
-
-% No-op; While Loop; For Loop
-%\newpage
-%\section{ ;}
-
-%\subsection{Definition}
-%\begin{center}
-%$
-%; := \emptyset
-%$
-%\end{center}
-
-%\subsection{Property of No-op}
-%No-op can be inserted into any set with equality
-%\begin{center}
-%$
-%S= \{s_1,s_2,...,s_N\}
-%$
-%\\ \vspace{2mm}
-%$
-%S_; = insert \lbrack S,;, i \rbrack
-%$
-%\\ \vspace{2mm}
-%$
-%S_; = S_1 \hspace{2mm} \forall i
-%$
-%\\ \vspace{2mm}
-%$
-%|S_;| = |S| \hspace{2mm} \forall i
-%$
-%\end{center}
-
-
-%\subsection{Proof}
-%by definition of magnitude of null = 0 with Set And
-
-
-
-
-
-%\section{For Loop \loop}
-%\loop \lbrack startindex, endindex, condition\rbrack
-%\subsection{Definition}
-
-
-
-
-
-
-
-
-%\section{Nested For Loop $\nestedloop$}
-%\loop \lbrack startindex, endindex, condition1,...condition n\rbrack
-%\subsection{Definition}
-
-
-
-
-
-
-
-
-% Problems / Questions Definitions
-\newpage
-\section{Problem Definition}
-Also denoted as a "Question"
-\begin{center}
-$
-X_i = \{x_1,...,x_n\}
-$
-\\ \vspace{2mm}
-$
-Q := f \lbrack X_i \rbrack = Y_{o} \subseteq \Omega \hspace{3mm} \forall X_i
 $
 \end{center}
 \subsection{Set of Questions}
@@ -3498,6 +3540,81 @@ $
 
 \newpage
 \section*{Appendix}
+
+
+
+% Types of Methods
+\section*{Types of Methods} 
+
+
+\subsection{Void Methods}
+Define a void program; a program with inputs $x_i$ and no output
+\begin{center}
+$
+X_n = \{x_1,...,x_n\}
+$
+\\ \vspace{2mm}
+$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M\}$
+\end{center}
+
+
+
+
+
+\subsection{Numerical Methods}
+Define a numerical program; a program with inputs $x_i$, input set C, and real, rational output $y_o$
+\begin{center}
+$
+X = \{x_1,...,x_n,C\}
+$
+\\ \vspace{2mm}
+$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,y_o\}=$
+\\ \vspace{2mm}
+$
+P\lbrack X \rbrack \rightarrow y_o \in \mathbb{Q} \hspace{2mm} y_o \geq 0
+$
+\end{center}
+
+
+
+
+
+\subsection{System Methods}
+Define a system program; a program with inputs $x_i$, input set C, and real, output set $Y_o$
+\begin{center}
+$
+X = \{x_1,...,x_n,C\}
+$
+\\ \vspace{2mm}
+$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,Y_o\}=$
+\\ \vspace{2mm}
+$
+P\lbrack X \rbrack \rightarrow Y_o = \{y_1,y_2,...,y_K\}
+$
+\end{center}
+
+
+
+
+
+\subsection{Mathematical Methods}
+Define a mathematical program; a program with inputs $x_i$, input set C and numerical output $y_o$
+\begin{center}
+$
+X = \{x_1,...,x_n,C\}
+$
+\\ \vspace{2mm}
+$P = P\lbrack X \rbrack := \{ s_1,s_2,...,s_{N}\hspace{1mm}|\hspace{1mm} b_1, b_2,...,b_M,y_o\}=$
+\\ \vspace{2mm}
+$
+P\lbrack X \rbrack \rightarrow y_o \in \mathbb{Q}
+$
+\end{center}
+
+
+
+
+\subsection{While Loop}
 
 
 
